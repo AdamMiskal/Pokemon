@@ -31,5 +31,6 @@ namespace Pokemon.Models
         }
 
         public DbSet<Pokemon> Pokemons { get; set; }
+        public DbSet<Type> Types { get; set; }
     }
 }
