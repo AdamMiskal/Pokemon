@@ -5,12 +5,12 @@ using System.Web;
 
 namespace Pokemon.Models
 {
-    public class Type
+    public class PokemonType
     {
-        public int TypeId { get; set; }
+        public int PokemonTypeId { get; set; }
         public string Kind { get; set; }
 
         //Navigation Properties
-        public ICollection<Card> Cards { get; set; }
+        public List<Card> Cards { get; set; }
     }
 }

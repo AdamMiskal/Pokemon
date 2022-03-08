@@ -10,11 +10,14 @@ namespace Pokemon.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public int SerialNumber { get; set; }
+
+
 
 
         //Navigation Properties
-        public int? TypeId { get; set; }
-        public Type Type { get; set; }
+        public int PokemonTypeId { get; set; }
+        public PokemonType PokemonType { get; set; }
 
 
     }
