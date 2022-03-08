@@ -197,6 +197,15 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Images\001.png" />
+    <Content Include="Assets\Images\005.png" />
+    <Content Include="Assets\Images\007.png" />
+    <Content Include="Assets\Images\72d15ffc.png" />
+    <Content Include="Assets\Images\a6a58181.png" />
+    <Content Include="Assets\Images\charm.png" />
+    <Content Include="Assets\Images\Fire.png" />
+    <Content Include="Assets\Images\Grass.png" />
+    <Content Include="Assets\Images\sq.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
