@@ -1,1 +1,8 @@
-﻿<h1>Home Works</h1>
+﻿@model IEnumerable<Pokemon.Models.Card>
+   
+@using Pokemon.Models;
+
+@foreach (var item in Model)
+{
+    <h1>@item.Name</h1>
+}

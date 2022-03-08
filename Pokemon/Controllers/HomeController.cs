@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pokemon.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,23 +9,20 @@ namespace Pokemon.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        ApplicationDbContext db = new ApplicationDbContext();
+        public ActionResult Index(ApplicationDbContext db)
         {
-            return View();
+            var card = db.Cards.ToList();
+            return View(card);
         }
 
-        public ActionResult About()
+        protected override void Dispose(bool disposing)
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }
