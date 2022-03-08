@@ -11,6 +11,6 @@ namespace Pokemon.Models
         public string Kind { get; set; }
 
         //Navigation Properties
-        public ICollection<Pokemon> Pokemons { get; set; }
+        public ICollection<Card> Cards { get; set; }
     }
 }

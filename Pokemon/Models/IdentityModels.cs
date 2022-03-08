@@ -30,7 +30,7 @@ namespace Pokemon.Models
             return new ApplicationDbContext();
         }
 
-        public DbSet<Pokemon> Pokemons { get; set; }
+        public DbSet<Card> Cards { get; set; }
         public DbSet<Type> Types { get; set; }
     }
 }
