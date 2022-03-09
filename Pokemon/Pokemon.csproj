@@ -765,6 +765,7 @@
     <Content Include="Views\CardDatabase\Index.cshtml" />
     <Content Include="Views\Marketplace\Index.cshtml" />
     <Content Include="Views\Packs\Index.cshtml" />
+    <Content Include="Views\CardDatabase\CardDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
