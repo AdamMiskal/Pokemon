@@ -20,7 +20,11 @@
             PokemonType t2 = new PokemonType() { Kind = "Water" };
             PokemonType t3 = new PokemonType() { Kind = "Fire" };
 
-            Card c1 = new Card() { Name = "Pikachu", SerialNumber = 1, PokemonTypeId = 1, PokemonType = t1 };
+            Image i1 = new Image() { Url = "~/Assets/Images/005.png" };
+            
+
+
+             Card c1 = new Card() { Name = "Pikachu", SerialNumber = 1, PokemonTypeId = 1, PokemonType = t1};
             Card c3 = new Card() { Name = "Pikachu", SerialNumber = 3, PokemonTypeId = 1, PokemonType = t1 };
             Card c4 = new Card() { Name = "Pikachu", SerialNumber = 4, PokemonTypeId = 1, PokemonType = t1 };
             Card c5 = new Card() { Name = "Pikachu", SerialNumber = 5, PokemonTypeId = 1, PokemonType = t1 };
