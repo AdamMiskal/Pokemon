@@ -15,22 +15,24 @@
             <div class='circle'></div>
         </div>
     </div>
-
+   
     <!-- Start Header -->
-    <header class="rn-header haeder-default black-logo-version header--fixed header--sticky">
-        <div class="container">
+    <header style="text-align:right;" class="rn-header haeder-default black-logo-version header--fixed header--sticky">
+        <div style="margin-left:0px; align-items:flex-end;"  class="container">
+
             <div class="header-inner">
                 <div class="header-left">
+                    <a class="logo-light" style="margin-left:0px" href=@Url.Action("Index","Home")><img height="150" width="150" src="~/Assets/Images/EliteFour-removebg-preview.png" alt="nft-logo"></a>
                     <div class="logo-thumbnail logo-custom-css">
-                        <a class="logo-light" href="index.html"><img src="~/Znuron/nuron/assets/images/logo/logo-white.png" alt="nft-logo"></a>
-                        <a class="logo-dark" href="index.html"><img src="~/Znuron/nuron/assets/images/logo/logo-dark.png" alt="nft-logo"></a>
+                        @*<a class="logo-light" href=@Url.Action("Index","Home")><img height="150" width="150" src="~/Assets/Images/EliteFour-removebg-preview.png" alt="nft-logo"></a>
+                        <a class="logo-dark" href="index.html"><img src="~/Assets/Images/EliteFour-removebg-preview.png" alt="nft-logo"></a>*@
                     </div>
-                    <div class="mainmenu-wrapper">
+                    <div class="mainmenu-wrapper" style="width:90%;">
                         <nav id="sideNav" class="mainmenu-nav d-none d-xl-block">
                             <!-- Start Mainmanu Nav -->
-                            <ul class="mainmenu" >
+                            <ul class="mainmenu">
                                 <li>
-                                    <a  href=@Url.Action("Index","Home")>Home</a>
+                                    <a href=@Url.Action("Index","Home")>Home</a>
                                 </li>
                                 <li>
                                     <a href=@Url.Action("Index","MyCollection")>My Collection</a>
@@ -42,23 +44,23 @@
                                     <a href=@Url.Action("Index","Marketplace")>Marketplace</a>
                                 </li>
                                 <li>
-                                    <a  href=@Url.Action("Index","Packs")>Packs</a>
+                                    <a href=@Url.Action("Index","Packs")>Packs</a>
                                 </li>
-                                
+
                             </ul>
                             <!-- End Mainmanu Nav -->
                         </nav>
                     </div>
                 </div>
                 <div class="header-right">
-                    <div class="setting-option d-none d-lg-block">
+                    @*<div class="setting-option d-none d-lg-block">
                         <form class="search-form-wrapper" action="#">
                             <input type="search" placeholder="Search Here" aria-label="Search">
                             <div class="search-icon">
                                 <button><i class="feather-search"></i></button>
                             </div>
                         </form>
-                    </div>
+                    </div>*@
                     <div class="setting-option rn-icon-list d-block d-lg-none">
                         <div class="icon-box search-mobile-icon">
                             <button><i class="feather-search"></i></button>
@@ -74,31 +76,31 @@
 
                     @* Connect WAllet KOUBAKI*@
                     @*<div class="setting-option header-btn rbt-site-header" id="rbt-site-header">
-            <div class="icon-box">
-                <a id="connectbtn" class="btn btn-primary-alta btn-small" href="connect.html">Wallet connect</a>
-            </div>
-        </div>*@
+                            <div class="icon-box">
+                                <a id="connectbtn" class="btn btn-primary-alta btn-small" href="connect.html">Wallet connect</a>
+                            </div>
+                        </div>*@
 
 
                     @* Account Koubaki *@
                     <div class="mainmenu-wrapper">
                         <nav id="sideNav" class="mainmenu-nav d-none d-xl-block">
-                            
+
                             <ul class="mainmenu">
                                 <li>
                                     <a class="" href=@Url.Action("Index","Login")>Login</a>
                             </ul>
-                            
+
                         </nav>
                     </div>
 
                     @*Kabanaki*@
 
                     @*<div class="setting-option rn-icon-list notification-badge">
-            <div class="icon-box">
-                <a href="activity.html"><i class="feather-bell"></i><span class="badge">6</span></a>
-            </div>
-        </div>*@
+                            <div class="icon-box">
+                                <a href="activity.html"><i class="feather-bell"></i><span class="badge">6</span></a>
+                            </div>
+                        </div>*@
 
                     <div class="header_admin" id="header_admin">
                         <div class="setting-option rn-icon-list user-account">
@@ -179,10 +181,10 @@
                 </div>
             </div>
         </div>
-        
+
     </header>
     <!-- End Header Area -->
-    </body>
+</body>
 <body>
     <div class="popup-mobile-menu">
         <div class="inner">
