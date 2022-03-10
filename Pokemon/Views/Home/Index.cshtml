@@ -1,28 +1,33 @@
-﻿<!DOCTYPE html>
+﻿@model IEnumerable<Pokemon.Models.Card>
+@{
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Home Five || Nuron - NFT Marketplace Template</title>
-	<meta name="robots" content="noindex, follow" />
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Home Five || Nuron - NFT Marketplace Template</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<meta name="theme-style-mode" content="1"> <!-- 0 == light, 1 == dark -->
-	<!-- Favicon -->
-	<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
-	<!-- CSS
-	============================================ -->
-	<link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
-	<link rel="stylesheet" href="assets/css/vendor/slick.css">
-	<link rel="stylesheet" href="assets/css/vendor/slick-theme.css">
-	<link rel="stylesheet" href="assets/css/vendor/nice-select.css">
-	<link rel="stylesheet" href="assets/css/plugins/feature.css">
-	<link rel="stylesheet" href="assets/css/plugins/jquery-ui.min.css">
+    <meta name="theme-style-mode" content="1"> <!-- 0 == light, 1 == dark -->
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
+    <!-- CSS
+    ============================================ -->
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/slick.css">
+    <link rel="stylesheet" href="assets/css/vendor/slick-theme.css">
+    <link rel="stylesheet" href="assets/css/vendor/nice-select.css">
+    <link rel="stylesheet" href="assets/css/plugins/feature.css">
+    <link rel="stylesheet" href="assets/css/plugins/jquery-ui.min.css">
 
-	<!-- Style css -->
-	<link rel="stylesheet" href="assets/css/style.css">
+    <!-- Style css -->
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body class="template-color-1 with-particles">
@@ -86,12 +91,507 @@
         </div>
     </div>
     <!-- banner area end -->
-   
-    
-    
-    
-    
-    
+
+
+    <div id="list-item-3" class="rn-product-area rn-section-gapBottom masonary-wrapper-activation">
+        <div class="container">
+            <div class="row gx-5 align-items-center">
+                <div class="col-lg-4">
+                    <div class="section-title">
+                        <h3 class="title mb--0">Hottest Cards</h3>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="button-group isotop-filter filters-button-group d-flex justify-content-start justify-content-lg-end mt_md--30 mt_sm--30">
+                        <button data-filter="*" class="is-checked"><span class="filter-text">All</span></button>
+                        <button data-filter=".cat--1"><span class="filter-text">New</span></button>
+                        <button data-filter=".cat--2"><span class="filter-text">Rare</span></button>
+                        <button data-filter=".cat--3"><span class="filter-text">Top Sellers</span></button>
+                        <button data-filter=".cat--4"><span class="filter-text">Collectionable</span></button>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="default-exp-wrapper">
+                <div class="inner">
+                    <div class="filter-select-option">
+                        <label class="filter-leble">LIKES</label>
+                        <select>
+                            <option data-display="Most liked">Most liked</option>
+                            <option value="1">Least liked</option>
+                        </select>
+                    </div>
+                    <div class="filter-select-option">
+                        <label class="filter-leble">Category</label>
+                        <select>
+                            <option data-display="Category">Category</option>
+                            <option value="1">Art</option>
+                            <option value="1">Photograph</option>
+                            <option value="2">Metaverses</option>
+                            <option value="4">Potato</option>
+                            <option value="4">Photos</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-select-option">
+                        <label class="filter-leble">Collections</label>
+                        <select>
+                            <option data-display="Collections">Collections</option>
+                            <option value="1">BoredApeYachtClub</option>
+                            <option value="2">MutantApeYachtClub</option>
+                            <option value="4">Art Blocks Factory</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-select-option">
+                        <label class="filter-leble">Sale type</label>
+                        <select>
+                            <option data-display="Sale type">Sale type</option>
+                            <option value="1">Fixed price</option>
+                            <option value="2">Timed auction</option>
+                            <option value="4">Not for sale</option>
+                            <option value="4">Open for offers</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-select-option">
+                        <label class="filter-leble">Price Range</label>
+                        <div class="price_filter s-filter clear">
+                            <form action="#" method="GET">
+                                <div id="slider-range"></div>
+                                <div class="slider__range--output">
+                                    <div class="price__output--wrap">
+                                        <div class="price--output">
+                                            <span>Price :</span><input type="text" id="amount" readonly>
+                                        </div>
+                                        <div class="price--filter">
+                                            <a class="btn btn-primary btn-small" href="#">Filter</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="row g-5">
+                <div class="col-12">
+                    <div class="grid-metro4 mesonry-list">
+                        <div class="resizer"></div>
+                        <!-- start single product -->
+                        <div class="grid-metro-item cat--1 cat--3">
+                            <div class="product-style-one no-overlay">
+                                <div class="card-thumbnail">
+                                    <a href="product-details.html"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png" alt="NFT_portfolio"></a>
+                                </div>
+                                <div class="product-share-wrapper">
+                                    @*<div class="profile-share">
+                                            <a href="author.html" class="avatar" data-tooltip="Mark Jonee"><img src="assets/images/client/client-6.png" alt="Nft_Profile"></a>
+                                            <a href="author.html" class="avatar" data-tooltip="Jone"><img src="assets/images/client/client-10.png" alt="Nft_Profile"></a>
+                                            <a href="author.html" class="avatar" data-tooltip="MArk"><img src="assets/images/client/client-9.png" alt="Nft_Profile"></a>
+                                            <a class="more-author-text" href="#">11+ Place Bit.</a>
+                                        </div>*@
+                                    <div class="share-btn share-btn-activation dropdown">
+                                        <button class="icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <svg viewBox="0 0 14 4" fill="none" width="16" height="16" class="sc-bdnxRM sc-hKFxyN hOiKLt">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 2C3.5 2.82843 2.82843 3.5 2 3.5C1.17157 3.5 0.5 2.82843 0.5 2C0.5 1.17157 1.17157 0.5 2 0.5C2.82843 0.5 3.5 1.17157 3.5 2ZM8.5 2C8.5 2.82843 7.82843 3.5 7 3.5C6.17157 3.5 5.5 2.82843 5.5 2C5.5 1.17157 6.17157 0.5 7 0.5C7.82843 0.5 8.5 1.17157 8.5 2ZM11.999 3.5C12.8274 3.5 13.499 2.82843 13.499 2C13.499 1.17157 12.8274 0.5 11.999 0.5C11.1706 0.5 10.499 1.17157 10.499 2C10.499 2.82843 11.1706 3.5 11.999 3.5Z" fill="currentColor"></path>
+                                            </svg>
+                                        </button>
+
+                                        <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                                            <button type="button" class="btn-setting-text share-text" data-bs-toggle="modal" data-bs-target="#shareModal">
+                                                Share
+                                            </button>
+                                            <button type="button" class="btn-setting-text report-text" data-bs-toggle="modal" data-bs-target="#reportModal">
+                                                Report
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                @* Product name *@
+                                <a href="product-details.html"><span class="product-name">Charmander</span></a>
+                                <span class="latest-bid">Highest bid 1/20</span>
+                                <div class="bid-react-area">
+                                    <div class="last-bid">0.244wETH</div>
+                                    <div class="react-area">
+                                        <svg viewBox="0 0 17 16" fill="none" width="16" height="16" class="sc-bdnxRM sc-hKFxyN kBvkOu">
+                                            <path d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z" stroke="currentColor" stroke-width="2"></path>
+                                        </svg>
+                                        <span class="number">322</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button type="button" class="btn btn-primary mt--30" data-bs-toggle="modal" data-bs-target="#cardDetails">Details</button>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <!-- end single product -->
+                        <!-- start single product -->
+                        <div class="grid-metro-item cat-3 cat--4">
+                            <div class="product-style-one no-overlay">
+                                <div class="card-thumbnail">
+                                    <a href="product-details.html"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png" alt="NFT_portfolio"></a>
+                                </div>
+                                <div class="product-share-wrapper">
+                                    @*<div class="profile-share">
+                                            <a href="author.html" class="avatar" data-tooltip="Jone BIden"><img src="assets/images/client/client-1.png" alt="Nft_Profile"></a>
+                                            <a href="author.html" class="avatar" data-tooltip="BIden"><img src="assets/images/client/client-9.png" alt="Nft_Profile"></a>
+                                            <a href="author.html" class="avatar" data-tooltip="Jone"><img src="assets/images/client/client-3.png" alt="Nft_Profile"></a>
+                                            <a class="more-author-text" href="#">9+ Place Bit.</a>
+                                        </div>*@
+                                    <div class="share-btn share-btn-activation dropdown">
+                                        <button class="icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <svg viewBox="0 0 14 4" fill="none" width="16" height="16" class="sc-bdnxRM sc-hKFxyN hOiKLt">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 2C3.5 2.82843 2.82843 3.5 2 3.5C1.17157 3.5 0.5 2.82843 0.5 2C0.5 1.17157 1.17157 0.5 2 0.5C2.82843 0.5 3.5 1.17157 3.5 2ZM8.5 2C8.5 2.82843 7.82843 3.5 7 3.5C6.17157 3.5 5.5 2.82843 5.5 2C5.5 1.17157 6.17157 0.5 7 0.5C7.82843 0.5 8.5 1.17157 8.5 2ZM11.999 3.5C12.8274 3.5 13.499 2.82843 13.499 2C13.499 1.17157 12.8274 0.5 11.999 0.5C11.1706 0.5 10.499 1.17157 10.499 2C10.499 2.82843 11.1706 3.5 11.999 3.5Z" fill="currentColor"></path>
+                                            </svg>
+                                        </button>
+
+                                        <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                                            <button type="button" class="btn-setting-text share-text" data-bs-toggle="modal" data-bs-target="#shareModal">
+                                                Share
+                                            </button>
+                                            <button type="button" class="btn-setting-text report-text" data-bs-toggle="modal" data-bs-target="#reportModal">
+                                                Report
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <a href="product-details.html"><span class="product-name">Squirtle</span></a>
+                                <span class="latest-bid">Highest bid 5/11</span>
+                                <div class="bid-react-area">
+                                    <div class="last-bid">0.892wETH</div>
+                                    <div class="react-area">
+                                        <svg viewBox="0 0 17 16" fill="none" width="16" height="16" class="sc-bdnxRM sc-hKFxyN kBvkOu">
+                                            <path d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z" stroke="currentColor" stroke-width="2"></path>
+                                        </svg>
+                                        <span class="number">420</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button type="button" class="btn btn-primary mt--30" data-bs-toggle="modal" data-bs-target="#cardDetails">Details</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end single product -->
+                        <!-- start single product -->
+                        <div class="grid-metro-item cat-2">
+                            <div class="product-style-one no-overlay">
+                                <div class="card-thumbnail">
+                                    <a href="product-details.html"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/010.png" alt="NFT_portfolio"></a>
+                                </div>
+                                <div class="product-share-wrapper">
+                                    @*<div class="profile-share">
+                <a href="author.html" class="avatar" data-tooltip="Twest Master"><img src="assets/images/client/client-9.png" alt="Nft_Profile"></a>
+                <a href="author.html" class="avatar" data-tooltip="Twest"><img src="assets/images/client/client-9.png" alt="Nft_Profile"></a>
+                <a href="author.html" class="avatar" data-tooltip="Master"><img src="assets/images/client/client-9.png" alt="Nft_Profile"></a>
+                <a class="more-author-text" href="#">48+ Place Bit.</a>
+            </div>*@
+                                    <div class="share-btn share-btn-activation dropdown">
+                                        <button class="icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <svg viewBox="0 0 14 4" fill="none" width="16" height="16" class="sc-bdnxRM sc-hKFxyN hOiKLt">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 2C3.5 2.82843 2.82843 3.5 2 3.5C1.17157 3.5 0.5 2.82843 0.5 2C0.5 1.17157 1.17157 0.5 2 0.5C2.82843 0.5 3.5 1.17157 3.5 2ZM8.5 2C8.5 2.82843 7.82843 3.5 7 3.5C6.17157 3.5 5.5 2.82843 5.5 2C5.5 1.17157 6.17157 0.5 7 0.5C7.82843 0.5 8.5 1.17157 8.5 2ZM11.999 3.5C12.8274 3.5 13.499 2.82843 13.499 2C13.499 1.17157 12.8274 0.5 11.999 0.5C11.1706 0.5 10.499 1.17157 10.499 2C10.499 2.82843 11.1706 3.5 11.999 3.5Z" fill="currentColor"></path>
+                                            </svg>
+                                        </button>
+
+                                        <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                                            <button type="button" class="btn-setting-text share-text" data-bs-toggle="modal" data-bs-target="#shareModal">
+                                                Share
+                                            </button>
+                                            <button type="button" class="btn-setting-text report-text" data-bs-toggle="modal" data-bs-target="#reportModal">
+                                                Report
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <a href="product-details.html"><span class="product-name">Caterpie</span></a>
+                                <span class="latest-bid">Highest bid 2/31</span>
+                                <div class="bid-react-area">
+                                    <div class="last-bid">0.2128wETH</div>
+                                    <div class="react-area">
+                                        <svg viewBox="0 0 17 16" fill="none" width="16" height="16" class="sc-bdnxRM sc-hKFxyN kBvkOu">
+                                            <path d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z" stroke="currentColor" stroke-width="2"></path>
+                                        </svg>
+                                        <span class="number">12</span>
+
+                                    </div>
+                                </div>
+                                <div>
+                                    <button type="button" class="btn btn-primary mt--30" data-bs-toggle="modal" data-bs-target="#cardDetails">Details</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end single product -->
+                        <!-- start single product -->
+                        <div class="grid-metro-item cat--1 cat--2">
+                            <div class="product-style-one no-overlay">
+                                <div class="card-thumbnail">
+                                    <a href="product-details.html"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/011.png" alt="NFT_portfolio"></a>
+                                </div>
+                                <div class="product-share-wrapper">
+                                    @*<div class="profile-share">
+                <a href="author.html" class="avatar" data-tooltip="Barua Time"><img src="assets/images/client/client-2.png" alt="Nft_Profile"></a>
+                <a href="author.html" class="avatar" data-tooltip="Barua Mir"><img src="assets/images/client/client-9.png" alt="Nft_Profile"></a>
+                <a href="author.html" class="avatar" data-tooltip="Barua Sobuj"><img src="assets/images/client/client-10.png" alt="Nft_Profile"></a>
+                <a class="more-author-text" href="#">26+ Place Bit.</a>
+            </div>*@
+                                    <div class="share-btn share-btn-activation dropdown">
+                                        <button class="icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <svg viewBox="0 0 14 4" fill="none" width="16" height="16" class="sc-bdnxRM sc-hKFxyN hOiKLt">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 2C3.5 2.82843 2.82843 3.5 2 3.5C1.17157 3.5 0.5 2.82843 0.5 2C0.5 1.17157 1.17157 0.5 2 0.5C2.82843 0.5 3.5 1.17157 3.5 2ZM8.5 2C8.5 2.82843 7.82843 3.5 7 3.5C6.17157 3.5 5.5 2.82843 5.5 2C5.5 1.17157 6.17157 0.5 7 0.5C7.82843 0.5 8.5 1.17157 8.5 2ZM11.999 3.5C12.8274 3.5 13.499 2.82843 13.499 2C13.499 1.17157 12.8274 0.5 11.999 0.5C11.1706 0.5 10.499 1.17157 10.499 2C10.499 2.82843 11.1706 3.5 11.999 3.5Z" fill="currentColor"></path>
+                                            </svg>
+                                        </button>
+
+                                        <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                                            <button type="button" class="btn-setting-text share-text" data-bs-toggle="modal" data-bs-target="#shareModal">
+                                                Share
+                                            </button>
+                                            <button type="button" class="btn-setting-text report-text" data-bs-toggle="modal" data-bs-target="#reportModal">
+                                                Report
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <a href="product-details.html"><span class="product-name">Metapod</span></a>
+                                <span class="latest-bid">Highest bid 3/16</span>
+                                <div class="bid-react-area">
+                                    <div class="last-bid">0.265wETH</div>
+                                    <div class="react-area">
+                                        <svg viewBox="0 0 17 16" fill="none" width="16" height="16" class="sc-bdnxRM sc-hKFxyN kBvkOu">
+                                            <path d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z" stroke="currentColor" stroke-width="2"></path>
+                                        </svg>
+                                        <span class="number">20</span>
+                                    </div>
+
+                                </div>
+                                <div>
+                                    <button type="button" class="btn btn-primary mt--30" data-bs-toggle="modal" data-bs-target="#cardDetails">Details</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end single product -->
+                        <!-- start single product -->
+                        <div class="grid-metro-item cat--1 cat--2">
+                            <div class="product-style-one no-overlay">
+                                <div class="card-thumbnail">
+                                    <a href="product-details.html"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/012.png" alt="NFT_portfolio"></a>
+                                </div>
+                                <div class="product-share-wrapper">
+                                    @*<div class="profile-share">
+                <a href="author.html" class="avatar" data-tooltip="Tulu Bain"><img src="assets/images/client/client-1.png" alt="Nft_Profile"></a>
+                <a href="author.html" class="avatar" data-tooltip="Tulu"><img src="assets/images/client/client-9.png" alt="Nft_Profile"></a>
+                <a href="author.html" class="avatar" data-tooltip="Bain"><img src="assets/images/client/client-6.png" alt="Nft_Profile"></a>
+                <a class="more-author-text" href="#">16+ Place Bit.</a>
+            </div>*@
+                                    <div class="share-btn share-btn-activation dropdown">
+                                        <button class="icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <svg viewBox="0 0 14 4" fill="none" width="16" height="16" class="sc-bdnxRM sc-hKFxyN hOiKLt">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 2C3.5 2.82843 2.82843 3.5 2 3.5C1.17157 3.5 0.5 2.82843 0.5 2C0.5 1.17157 1.17157 0.5 2 0.5C2.82843 0.5 3.5 1.17157 3.5 2ZM8.5 2C8.5 2.82843 7.82843 3.5 7 3.5C6.17157 3.5 5.5 2.82843 5.5 2C5.5 1.17157 6.17157 0.5 7 0.5C7.82843 0.5 8.5 1.17157 8.5 2ZM11.999 3.5C12.8274 3.5 13.499 2.82843 13.499 2C13.499 1.17157 12.8274 0.5 11.999 0.5C11.1706 0.5 10.499 1.17157 10.499 2C10.499 2.82843 11.1706 3.5 11.999 3.5Z" fill="currentColor"></path>
+                                            </svg>
+                                        </button>
+
+                                        <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                                            <button type="button" class="btn-setting-text share-text" data-bs-toggle="modal" data-bs-target="#shareModal">
+                                                Share
+                                            </button>
+                                            <button type="button" class="btn-setting-text report-text" data-bs-toggle="modal" data-bs-target="#reportModal">
+                                                Report
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <a href="product-details.html"><span class="product-name">Butterfree</span></a>
+                                <span class="latest-bid">Highest bid 6/50</span>
+                                <div class="bid-react-area">
+                                    <div class="last-bid">0.244wETH</div>
+                                    <div class="react-area">
+                                        <svg viewBox="0 0 17 16" fill="none" width="16" height="16" class="sc-bdnxRM sc-hKFxyN kBvkOu">
+                                            <path d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z" stroke="currentColor" stroke-width="2"></path>
+                                        </svg>
+                                        <span class="number">205</span>
+                                    </div>
+
+                                </div>
+                                <div>
+                                    <button type="button" class="btn btn-primary mt--30" data-bs-toggle="modal" data-bs-target="#cardDetails">Details</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end single product -->
+                        <!-- start single product -->
+                        <div class="grid-metro-item cat--1 cat--2">
+                            <div class="product-style-one no-overlay">
+                                <div class="card-thumbnail">
+                                    <a href="product-details.html"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/013.png" alt="NFT_portfolio"></a>
+                                </div>
+                                <div class="product-share-wrapper">
+                                    @*<div class="profile-share">
+                <a href="author.html" class="avatar" data-tooltip="Barua Shan"><img src="assets/images/client/client-9.png" alt="Nft_Profile"></a>
+                <a href="author.html" class="avatar" data-tooltip="Barua"><img src="assets/images/client/client-1.png" alt="Nft_Profile"></a>
+                <a href="author.html" class="avatar" data-tooltip="Shan"><img src="assets/images/client/client-10.png" alt="Nft_Profile"></a>
+                <a class="more-author-text" href="#">23+ Place Bit.</a>
+            </div>*@
+                                    <div class="share-btn share-btn-activation dropdown">
+                                        <button class="icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <svg viewBox="0 0 14 4" fill="none" width="16" height="16" class="sc-bdnxRM sc-hKFxyN hOiKLt">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 2C3.5 2.82843 2.82843 3.5 2 3.5C1.17157 3.5 0.5 2.82843 0.5 2C0.5 1.17157 1.17157 0.5 2 0.5C2.82843 0.5 3.5 1.17157 3.5 2ZM8.5 2C8.5 2.82843 7.82843 3.5 7 3.5C6.17157 3.5 5.5 2.82843 5.5 2C5.5 1.17157 6.17157 0.5 7 0.5C7.82843 0.5 8.5 1.17157 8.5 2ZM11.999 3.5C12.8274 3.5 13.499 2.82843 13.499 2C13.499 1.17157 12.8274 0.5 11.999 0.5C11.1706 0.5 10.499 1.17157 10.499 2C10.499 2.82843 11.1706 3.5 11.999 3.5Z" fill="currentColor"></path>
+                                            </svg>
+                                        </button>
+
+                                        <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                                            <button type="button" class="btn-setting-text share-text" data-bs-toggle="modal" data-bs-target="#shareModal">
+                                                Share
+                                            </button>
+                                            <button type="button" class="btn-setting-text report-text" data-bs-toggle="modal" data-bs-target="#reportModal">
+                                                Report
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <a href="product-details.html"><span class="product-name">Weedle</span></a>
+                                <span class="latest-bid">Highest bid 1/10</span>
+                                <div class="bid-react-area">
+                                    <div class="last-bid">0.450wETH</div>
+                                    <div class="react-area">
+                                        <svg viewBox="0 0 17 16" fill="none" width="16" height="16" class="sc-bdnxRM sc-hKFxyN kBvkOu">
+                                            <path d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z" stroke="currentColor" stroke-width="2"></path>
+                                        </svg>
+                                        <span class="number">65</span>
+                                    </div>
+
+                                </div>
+                                <div>
+                                    <button type="button" class="btn btn-primary mt--30" data-bs-toggle="modal" data-bs-target="#cardDetails">Details</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end single product -->
+                        <!-- start single product -->
+                        <div class="grid-metro-item cat--4 cat-3">
+                            <div class="product-style-one no-overlay">
+                                <div class="card-thumbnail">
+                                    <a href="product-details.html"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/016.png" alt="NFT_portfolio"></a>
+                                </div>
+                                <div class="product-share-wrapper">
+                                    @*<div class="profile-share">
+                <a href="author.html" class="avatar" data-tooltip="David Wornar"><img src="assets/images/client/client-9.png" alt="Nft_Profile"></a>
+                <a href="author.html" class="avatar" data-tooltip="Wornar"><img src="assets/images/client/client-10.png" alt="Nft_Profile"></a>
+                <a href="author.html" class="avatar" data-tooltip="David"><img src="assets/images/client/client-11.png" alt="Nft_Profile"></a>
+                <a class="more-author-text" href="#">9+ Place Bit.</a>
+            </div>*@
+                                    <div class="share-btn share-btn-activation dropdown">
+                                        <button class="icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <svg viewBox="0 0 14 4" fill="none" width="16" height="16" class="sc-bdnxRM sc-hKFxyN hOiKLt">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 2C3.5 2.82843 2.82843 3.5 2 3.5C1.17157 3.5 0.5 2.82843 0.5 2C0.5 1.17157 1.17157 0.5 2 0.5C2.82843 0.5 3.5 1.17157 3.5 2ZM8.5 2C8.5 2.82843 7.82843 3.5 7 3.5C6.17157 3.5 5.5 2.82843 5.5 2C5.5 1.17157 6.17157 0.5 7 0.5C7.82843 0.5 8.5 1.17157 8.5 2ZM11.999 3.5C12.8274 3.5 13.499 2.82843 13.499 2C13.499 1.17157 12.8274 0.5 11.999 0.5C11.1706 0.5 10.499 1.17157 10.499 2C10.499 2.82843 11.1706 3.5 11.999 3.5Z" fill="currentColor"></path>
+                                            </svg>
+                                        </button>
+
+                                        <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                                            <button type="button" class="btn-setting-text share-text" data-bs-toggle="modal" data-bs-target="#shareModal">
+                                                Share
+                                            </button>
+                                            <button type="button" class="btn-setting-text report-text" data-bs-toggle="modal" data-bs-target="#reportModal">
+                                                Report
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <a href="product-details.html"><span class="product-name">Pidgey</span></a>
+                                <span class="latest-bid">Highest bid 2/22</span>
+                                <div class="bid-react-area">
+                                    <div class="last-bid">0.311wETH</div>
+                                    <div class="react-area">
+                                        <svg viewBox="0 0 17 16" fill="none" width="16" height="16" class="sc-bdnxRM sc-hKFxyN kBvkOu">
+                                            <path d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z" stroke="currentColor" stroke-width="2"></path>
+                                        </svg>
+                                        <span class="number">56</span>
+                                    </div>
+
+                                </div>
+                                <div>
+                                    <button type="button" class="btn btn-primary mt--30" data-bs-toggle="modal" data-bs-target="#cardDetails">Details</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end single product -->
+                        <!-- start single product -->
+                        <div class="grid-metro-item cat-3 cat-2">
+                            <div class="product-style-one no-overlay">
+                                <div class="card-thumbnail">
+                                    <a href="product-details.html"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/019.png" alt="NFT_portfolio"></a>
+                                </div>
+                                <div class="product-share-wrapper">
+                                    @*<div class="profile-share">
+                <a href="author.html" class="avatar" data-tooltip="Notanki Barua"><img src="assets/images/client/client-1.png" alt="Nft_Profile"></a>
+                <a href="author.html" class="avatar" data-tooltip="Barua"><img src="assets/images/client/client-2.png" alt="Nft_Profile"></a>
+                <a href="author.html" class="avatar" data-tooltip="Notanki"><img src="assets/images/client/client-3.png" alt="Nft_Profile"></a>
+                <a class="more-author-text" href="#">36+ Place Bit.</a>
+            </div>*@
+                                    <div class="share-btn share-btn-activation dropdown">
+                                        <button class="icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <svg viewBox="0 0 14 4" fill="none" width="16" height="16" class="sc-bdnxRM sc-hKFxyN hOiKLt">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 2C3.5 2.82843 2.82843 3.5 2 3.5C1.17157 3.5 0.5 2.82843 0.5 2C0.5 1.17157 1.17157 0.5 2 0.5C2.82843 0.5 3.5 1.17157 3.5 2ZM8.5 2C8.5 2.82843 7.82843 3.5 7 3.5C6.17157 3.5 5.5 2.82843 5.5 2C5.5 1.17157 6.17157 0.5 7 0.5C7.82843 0.5 8.5 1.17157 8.5 2ZM11.999 3.5C12.8274 3.5 13.499 2.82843 13.499 2C13.499 1.17157 12.8274 0.5 11.999 0.5C11.1706 0.5 10.499 1.17157 10.499 2C10.499 2.82843 11.1706 3.5 11.999 3.5Z" fill="currentColor"></path>
+                                            </svg>
+                                        </button>
+
+                                        <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                                            <button type="button" class="btn-setting-text share-text" data-bs-toggle="modal" data-bs-target="#shareModal">
+                                                Share
+                                            </button>
+                                            <button type="button" class="btn-setting-text report-text" data-bs-toggle="modal" data-bs-target="#reportModal">
+                                                Report
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <a href="product-details.html"><span class="product-name">Rattata</span></a>
+                                <span class="latest-bid">Highest bid 2/10</span>
+                                <div class="bid-react-area">
+                                    <div class="last-bid">0.244wETH</div>
+                                    <div class="react-area">
+                                        <svg viewBox="0 0 17 16" fill="none" width="16" height="16" class="sc-bdnxRM sc-hKFxyN kBvkOu">
+                                            <path d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z" stroke="currentColor" stroke-width="2"></path>
+                                        </svg>
+                                        <span class="number">89</span>
+                                    </div>
+
+                                </div>
+                                <div>
+                                    <button type="button" class="btn btn-primary mt--30" data-bs-toggle="modal" data-bs-target="#cardDetails">Details</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end single product -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
     @* -----------------MOBILE MENU DROP DOWN ---------------*@
 
     <!--<div class="popup-mobile-menu">
@@ -134,12 +634,10 @@
                     </li>
 
                 </ul>-->
-                @*--------------------------------------------------------------------------*@
-            <!--</nav>
+    @*--------------------------------------------------------------------------*@
+    <!--</nav>
         </div>
     </div>-->
-
-
     <!-- start banner area -->
     <!--<div class="slider-style-5 rn-section-gapTop">
         <div class="container">
