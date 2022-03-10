@@ -20,9 +20,7 @@ namespace Pokemon.Models
         public PokemonType PokemonType { get; set; }
         //LISTA APO TYPES
 
-        public int? ImageId { get; set; }
-        public Image Image { get; set; }
-
+        //images
 
         //user-card polla pros ena
 
