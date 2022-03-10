@@ -20,9 +20,12 @@
             //PokemonType t2 = new PokemonType() { Kind = "Water" };
             //PokemonType t3 = new PokemonType() { Kind = "Fire" };
 
+            //Image i1 = new Image() { Url = "~/Assets/Images/005.png" };
+
+
+            //Card c1 = new Card() { Name = "Charmander", SerialNumber = 1, Attack = 2, Defence = 20, Rarity = Rarity.Common, User = null };
+            //c1.PokemonTypes = new List<PokemonType>() { t3, t2 };
             
-
-
             // Card c1 = new Card() { Name = "Pikachu", SerialNumber = 1, PokemonTypeId = 1, PokemonType = t1};
             //Card c3 = new Card() { Name = "Pikachu", SerialNumber = 3, PokemonTypeId = 1, PokemonType = t1 };
             //Card c4 = new Card() { Name = "Pikachu", SerialNumber = 4, PokemonTypeId = 1, PokemonType = t1 };

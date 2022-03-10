@@ -8,7 +8,7 @@ namespace Pokemon.Models
 {
     public class Card
     {
-        public int Id { get; set; }
+        public int CardId { get; set; }
         public string Name { get; set; }
         public int SerialNumber { get; set; }
         public int Attack { get; set; }
@@ -24,6 +24,8 @@ namespace Pokemon.Models
 
         public int ImageID { get; set; }
         public Image Image { get; set; }
+
+        public ApplicationUser User { get; set; }
 
 
 
