@@ -20,7 +20,6 @@
             PokemonType t2 = new PokemonType() { Kind = "Water" };
             PokemonType t3 = new PokemonType() { Kind = "Fire" };
 
-            Image i1 = new Image() { Url = "~/Assets/Images/005.png" };
             
 
 
