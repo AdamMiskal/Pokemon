@@ -65,7 +65,7 @@
                         </div>
                         <form id="header-search-1" action="#" method="GET" class="large-mobile-blog-search">
                             <div class="rn-search-mobile form-group">
-                                <button type="submit" class="search-button"><i class="feather-search"></i></button>
+                                <button type="submit" class="search-button"><i class="mainmenu"></i></button>
                                 <input type="text" placeholder="Search ...">
                             </div>
                         </form>
@@ -86,7 +86,7 @@
                             
                             <ul class="mainmenu">
                                 <li>
-                                    <a class="" href="">Account</a>
+                                    <a class="" href=@Url.Action("Index","Login")>Login</a>
                             </ul>
                             
                         </nav>
@@ -179,6 +179,53 @@
                 </div>
             </div>
         </div>
+        
     </header>
     <!-- End Header Area -->
     </body>
+<body>
+    <div class="popup-mobile-menu">
+        <div class="inner">
+            <div class="header-top">
+                <div class="logo logo-custom-css">
+                    <a class="logo-light" href="index.html"><img src="assets/images/logo/logo-white.png" alt="nft-logo"></a>
+                    <a class="logo-dark" href="index.html"><img src="assets/images/logo/logo-dark.png" alt="nft-logo"></a>
+                </div>
+                <div class="close-menu">
+                    <button class="close-button">
+                        <i class="feather-x"></i>
+                    </button>
+                </div>
+            </div>
+            <nav>
+
+
+
+                <ul class="mainmenu">
+
+
+                    <li>
+                        <a href=@Url.Action("Index","Login")>Login</a>
+                    </li>
+                    <li>
+                        <a href=@Url.Action("Index","Home")>Home</a>
+                    </li>
+                    <li>
+                        <a href=@Url.Action("Index","MyCollection")>My Collection</a>
+                    </li>
+                    <li>
+                        <a href=@Url.Action("Index","CardDatabase")>Card Database</a>
+                    </li>
+                    <li>
+                        <a href=@Url.Action("Index","Marketplace")>Marketplace</a>
+                    </li>
+                    <li>
+                        <a href=@Url.Action("Index","Packs")>Packs</a>
+                    </li>
+
+                </ul>
+                @*--------------------------------------------------------------------------*@
+            </nav>
+        </div>
+    </div>
+</body>
