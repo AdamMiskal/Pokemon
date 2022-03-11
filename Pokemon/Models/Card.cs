@@ -22,8 +22,8 @@ namespace Pokemon.Models
         //Navigation Properties
         public List<PokemonType> PokemonTypes { get; set; }
 
-        public int ImageID { get; set; }
-        public Image Image { get; set; }
+        public int? ImageID { get; set; }
+        public virtual Image Image { get; set; }
 
         public ApplicationUser User { get; set; }
 

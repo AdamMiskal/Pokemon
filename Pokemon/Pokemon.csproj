@@ -206,8 +206,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Images\001.png" />
+    <Content Include="Assets\Images\004.png" />
     <Content Include="Assets\Images\005.png" />
     <Content Include="Assets\Images\007.png" />
+    <Content Include="Assets\Images\010.png" />
+    <Content Include="Assets\Images\013.png" />
+    <Content Include="Assets\Images\016.png" />
+    <Content Include="Assets\Images\023.png" />
+    <Content Include="Assets\Images\025.png" />
     <Content Include="Assets\Images\72d15ffc.png" />
     <Content Include="Assets\Images\a6a58181.png" />
     <Content Include="Assets\Images\charm.png" />

@@ -10,6 +10,6 @@ namespace Pokemon.Models
         public int ImageID { get; set; }
         public string Url { get; set; }
 
-        public List<Card> Cards { get; set; }
+        public virtual ICollection<Card> Cards { get; set; }
     }
 }
