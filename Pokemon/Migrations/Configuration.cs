@@ -25,14 +25,14 @@
             PokemonType t7 = new PokemonType() { Kind = "Poison" };
             PokemonType t8 = new PokemonType() { Kind = "Electric" };
 
-            Image i1 = new Image() { Url = "~/Assets/Images/001.png" };
-            Image i2 = new Image() { Url = "~/Assets/Images/004.png" };
-            Image i3 = new Image() { Url = "~/Assets/Images/007.png" };
-            Image i4 = new Image() { Url = "~/Assets/Images/010.png" };
-            Image i5 = new Image() { Url = "~/Assets/Images/013.png" };
-            Image i6 = new Image() { Url = "~/Assets/Images/016.png" };
-            Image i7 = new Image() { Url = "~/Assets/Images/023.png" };
-            Image i8 = new Image() { Url = "~/Assets/Images/025.png" };
+            Image i1 = new Image() { Url = "/Assets/Images/001.png" };
+            Image i2 = new Image() { Url = "/Assets/Images/004.png" };
+            Image i3 = new Image() { Url = "/Assets/Images/007.png" };
+            Image i4 = new Image() { Url = "/Assets/Images/010.png" };
+            Image i5 = new Image() { Url = "/Assets/Images/013.png" };
+            Image i6 = new Image() { Url = "/Assets/Images/016.png" };
+            Image i7 = new Image() { Url = "/Assets/Images/023.png" };
+            Image i8 = new Image() { Url = "/Assets/Images/025.png" };
 
             Card c1 = new Card() { Name = "Bulbasaur", SerialNumber = 1, Attack = 1, Defence = 1, Rarity = Rarity.Common };
             Card c2 = new Card() { Name = "Bulbasaur", SerialNumber = 2, Attack = 1, Defence = 1, Rarity = Rarity.Common };
