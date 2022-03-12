@@ -187,39 +187,65 @@
                 <div class="col-12">
                     <div class="grid-metro4 mesonry-list">
                         <div class="resizer"></div>
-                        <!-- start single product -->
+                        <!--<!-- start single product -->
+
+
+
+                        @foreach (var card in Model)
+                        {
+
                         <div class="grid-metro-item cat--1 cat--3">
                             <div class="product-style-one no-overlay">
                                 <div class="card-thumbnail">
-                                    <a href="product-details.html"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png" alt="NFT_portfolio"></a>
+                                    <a href=@Url.Action("CardDetails","CardDatabase",new { id=card.CardId})><img src=@card.Image.Url alt="NFT_portfolio"></a>    @*IMAGE POKEMON*@
                                 </div>
-                                <div class="product-share-wrapper">
-                                    @*<div class="profile-share">
-                                            <a href="author.html" class="avatar" data-tooltip="Mark Jonee"><img src="assets/images/client/client-6.png" alt="Nft_Profile"></a>
-                                            <a href="author.html" class="avatar" data-tooltip="Jone"><img src="assets/images/client/client-10.png" alt="Nft_Profile"></a>
-                                            <a href="author.html" class="avatar" data-tooltip="MArk"><img src="assets/images/client/client-9.png" alt="Nft_Profile"></a>
-                                            <a class="more-author-text" href="#">11+ Place Bit.</a>
-                                        </div>*@
-                                    <div class="share-btn share-btn-activation dropdown">
-                                        <button class="icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <svg viewBox="0 0 14 4" fill="none" width="16" height="16" class="sc-bdnxRM sc-hKFxyN hOiKLt">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 2C3.5 2.82843 2.82843 3.5 2 3.5C1.17157 3.5 0.5 2.82843 0.5 2C0.5 1.17157 1.17157 0.5 2 0.5C2.82843 0.5 3.5 1.17157 3.5 2ZM8.5 2C8.5 2.82843 7.82843 3.5 7 3.5C6.17157 3.5 5.5 2.82843 5.5 2C5.5 1.17157 6.17157 0.5 7 0.5C7.82843 0.5 8.5 1.17157 8.5 2ZM11.999 3.5C12.8274 3.5 13.499 2.82843 13.499 2C13.499 1.17157 12.8274 0.5 11.999 0.5C11.1706 0.5 10.499 1.17157 10.499 2C10.499 2.82843 11.1706 3.5 11.999 3.5Z" fill="currentColor"></path>
-                                            </svg>
-                                        </button>
-
-                                        <div class="share-btn-setting dropdown-menu dropdown-menu-end">
-                                            <button type="button" class="btn-setting-text share-text" data-bs-toggle="modal" data-bs-target="#shareModal">
-                                                Share
-                                            </button>
-                                            <button type="button" class="btn-setting-text report-text" data-bs-toggle="modal" data-bs-target="#reportModal">
-                                                Report
-                                            </button>
-                                        </div>
-
+                                <a href="product-details.html"><span class="product-name">@card.Name</span></a>
+                                <span class="latest-bid">Common/rare</span>
+                                <div class="bid-react-area">
+                                    <div class="last-bid">0.244wETH</div>
+                                    <div class="react-area">
+                                        <span class="number">SN @card.SerialNumber</span>
                                     </div>
                                 </div>
-                                @* Product name *@
-                                <a href="product-details.html"><span class="product-name">Charmander</span></a>
+                            </div>
+                        </div>
+                        }
+
+
+
+
+                        <!--<div class="grid-metro-item cat--1 cat--3">
+                        <div class="product-style-one no-overlay">
+                            <div class="card-thumbnail">
+                                <a href="product-details.html"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png" alt="NFT_portfolio"></a>
+                            </div>
+                            <div class="product-share-wrapper">-->
+                        @*<div class="profile-share">
+                                <a href="author.html" class="avatar" data-tooltip="Mark Jonee"><img src="assets/images/client/client-6.png" alt="Nft_Profile"></a>
+                                <a href="author.html" class="avatar" data-tooltip="Jone"><img src="assets/images/client/client-10.png" alt="Nft_Profile"></a>
+                                <a href="author.html" class="avatar" data-tooltip="MArk"><img src="assets/images/client/client-9.png" alt="Nft_Profile"></a>
+                                <a class="more-author-text" href="#">11+ Place Bit.</a>
+                            </div>*@
+                        <!--<div class="share-btn share-btn-activation dropdown">
+                                <button class="icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <svg viewBox="0 0 14 4" fill="none" width="16" height="16" class="sc-bdnxRM sc-hKFxyN hOiKLt">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 2C3.5 2.82843 2.82843 3.5 2 3.5C1.17157 3.5 0.5 2.82843 0.5 2C0.5 1.17157 1.17157 0.5 2 0.5C2.82843 0.5 3.5 1.17157 3.5 2ZM8.5 2C8.5 2.82843 7.82843 3.5 7 3.5C6.17157 3.5 5.5 2.82843 5.5 2C5.5 1.17157 6.17157 0.5 7 0.5C7.82843 0.5 8.5 1.17157 8.5 2ZM11.999 3.5C12.8274 3.5 13.499 2.82843 13.499 2C13.499 1.17157 12.8274 0.5 11.999 0.5C11.1706 0.5 10.499 1.17157 10.499 2C10.499 2.82843 11.1706 3.5 11.999 3.5Z" fill="currentColor"></path>
+                                    </svg>
+                                </button>
+
+                                <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                                    <button type="button" class="btn-setting-text share-text" data-bs-toggle="modal" data-bs-target="#shareModal">
+                                        Share
+                                    </button>
+                                    <button type="button" class="btn-setting-text report-text" data-bs-toggle="modal" data-bs-target="#reportModal">
+                                        Report
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>-->
+                        @* Product name *@
+                        <!--<a href="product-details.html"><span class="product-name">Charmander</span></a>
                                 <span class="latest-bid">Highest bid 1/20</span>
                                 <div class="bid-react-area">
                                     <div class="last-bid">0.244wETH</div>
@@ -236,22 +262,22 @@
 
 
                             </div>
-                        </div>
+                        </div>-->
                         <!-- end single product -->
                         <!-- start single product -->
-                        <div class="grid-metro-item cat-3 cat--4">
-                            <div class="product-style-one no-overlay">
-                                <div class="card-thumbnail">
-                                    <a href="product-details.html"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png" alt="NFT_portfolio"></a>
-                                </div>
-                                <div class="product-share-wrapper">
-                                    @*<div class="profile-share">
-                                            <a href="author.html" class="avatar" data-tooltip="Jone BIden"><img src="assets/images/client/client-1.png" alt="Nft_Profile"></a>
-                                            <a href="author.html" class="avatar" data-tooltip="BIden"><img src="assets/images/client/client-9.png" alt="Nft_Profile"></a>
-                                            <a href="author.html" class="avatar" data-tooltip="Jone"><img src="assets/images/client/client-3.png" alt="Nft_Profile"></a>
-                                            <a class="more-author-text" href="#">9+ Place Bit.</a>
-                                        </div>*@
-                                    <div class="share-btn share-btn-activation dropdown">
+                        <!--<div class="grid-metro-item cat-3 cat--4">
+                        <div class="product-style-one no-overlay">
+                            <div class="card-thumbnail">
+                                <a href="product-details.html"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png" alt="NFT_portfolio"></a>
+                            </div>
+                            <div class="product-share-wrapper">-->
+                        @*<div class="profile-share">
+                                <a href="author.html" class="avatar" data-tooltip="Jone BIden"><img src="assets/images/client/client-1.png" alt="Nft_Profile"></a>
+                                <a href="author.html" class="avatar" data-tooltip="BIden"><img src="assets/images/client/client-9.png" alt="Nft_Profile"></a>
+                                <a href="author.html" class="avatar" data-tooltip="Jone"><img src="assets/images/client/client-3.png" alt="Nft_Profile"></a>
+                                <a class="more-author-text" href="#">9+ Place Bit.</a>
+                            </div>*@
+                        <!--<div class="share-btn share-btn-activation dropdown">
                                         <button class="icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             <svg viewBox="0 0 14 4" fill="none" width="16" height="16" class="sc-bdnxRM sc-hKFxyN hOiKLt">
                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 2C3.5 2.82843 2.82843 3.5 2 3.5C1.17157 3.5 0.5 2.82843 0.5 2C0.5 1.17157 1.17157 0.5 2 0.5C2.82843 0.5 3.5 1.17157 3.5 2ZM8.5 2C8.5 2.82843 7.82843 3.5 7 3.5C6.17157 3.5 5.5 2.82843 5.5 2C5.5 1.17157 6.17157 0.5 7 0.5C7.82843 0.5 8.5 1.17157 8.5 2ZM11.999 3.5C12.8274 3.5 13.499 2.82843 13.499 2C13.499 1.17157 12.8274 0.5 11.999 0.5C11.1706 0.5 10.499 1.17157 10.499 2C10.499 2.82843 11.1706 3.5 11.999 3.5Z" fill="currentColor"></path>
@@ -284,22 +310,22 @@
                                     <button type="button" class="btn btn-primary mt--30" data-bs-toggle="modal" data-bs-target="#cardDetails">Details</button>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                         <!-- end single product -->
                         <!-- start single product -->
-                        <div class="grid-metro-item cat-2">
-                            <div class="product-style-one no-overlay">
-                                <div class="card-thumbnail">
-                                    <a href="product-details.html"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/010.png" alt="NFT_portfolio"></a>
-                                </div>
-                                <div class="product-share-wrapper">
-                                    @*<div class="profile-share">
-                <a href="author.html" class="avatar" data-tooltip="Twest Master"><img src="assets/images/client/client-9.png" alt="Nft_Profile"></a>
-                <a href="author.html" class="avatar" data-tooltip="Twest"><img src="assets/images/client/client-9.png" alt="Nft_Profile"></a>
-                <a href="author.html" class="avatar" data-tooltip="Master"><img src="assets/images/client/client-9.png" alt="Nft_Profile"></a>
-                <a class="more-author-text" href="#">48+ Place Bit.</a>
-            </div>*@
-                                    <div class="share-btn share-btn-activation dropdown">
+                        <!--<div class="grid-metro-item cat-2">
+                        <div class="product-style-one no-overlay">
+                            <div class="card-thumbnail">
+                                <a href="product-details.html"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/010.png" alt="NFT_portfolio"></a>
+                            </div>
+                            <div class="product-share-wrapper">-->
+                        @*<div class="profile-share">
+                                <a href="author.html" class="avatar" data-tooltip="Twest Master"><img src="assets/images/client/client-9.png" alt="Nft_Profile"></a>
+                                <a href="author.html" class="avatar" data-tooltip="Twest"><img src="assets/images/client/client-9.png" alt="Nft_Profile"></a>
+                                <a href="author.html" class="avatar" data-tooltip="Master"><img src="assets/images/client/client-9.png" alt="Nft_Profile"></a>
+                                <a class="more-author-text" href="#">48+ Place Bit.</a>
+                            </div>*@
+                        <!--<div class="share-btn share-btn-activation dropdown">
                                         <button class="icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             <svg viewBox="0 0 14 4" fill="none" width="16" height="16" class="sc-bdnxRM sc-hKFxyN hOiKLt">
                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 2C3.5 2.82843 2.82843 3.5 2 3.5C1.17157 3.5 0.5 2.82843 0.5 2C0.5 1.17157 1.17157 0.5 2 0.5C2.82843 0.5 3.5 1.17157 3.5 2ZM8.5 2C8.5 2.82843 7.82843 3.5 7 3.5C6.17157 3.5 5.5 2.82843 5.5 2C5.5 1.17157 6.17157 0.5 7 0.5C7.82843 0.5 8.5 1.17157 8.5 2ZM11.999 3.5C12.8274 3.5 13.499 2.82843 13.499 2C13.499 1.17157 12.8274 0.5 11.999 0.5C11.1706 0.5 10.499 1.17157 10.499 2C10.499 2.82843 11.1706 3.5 11.999 3.5Z" fill="currentColor"></path>
@@ -333,22 +359,22 @@
                                     <button type="button" class="btn btn-primary mt--30" data-bs-toggle="modal" data-bs-target="#cardDetails">Details</button>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                         <!-- end single product -->
                         <!-- start single product -->
-                        <div class="grid-metro-item cat--1 cat--2">
-                            <div class="product-style-one no-overlay">
-                                <div class="card-thumbnail">
-                                    <a href="product-details.html"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/011.png" alt="NFT_portfolio"></a>
-                                </div>
-                                <div class="product-share-wrapper">
-                                    @*<div class="profile-share">
-                <a href="author.html" class="avatar" data-tooltip="Barua Time"><img src="assets/images/client/client-2.png" alt="Nft_Profile"></a>
-                <a href="author.html" class="avatar" data-tooltip="Barua Mir"><img src="assets/images/client/client-9.png" alt="Nft_Profile"></a>
-                <a href="author.html" class="avatar" data-tooltip="Barua Sobuj"><img src="assets/images/client/client-10.png" alt="Nft_Profile"></a>
-                <a class="more-author-text" href="#">26+ Place Bit.</a>
-            </div>*@
-                                    <div class="share-btn share-btn-activation dropdown">
+                        <!--<div class="grid-metro-item cat--1 cat--2">
+                        <div class="product-style-one no-overlay">
+                            <div class="card-thumbnail">
+                                <a href="product-details.html"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/011.png" alt="NFT_portfolio"></a>
+                            </div>
+                            <div class="product-share-wrapper">-->
+                        @*<div class="profile-share">
+                                <a href="author.html" class="avatar" data-tooltip="Barua Time"><img src="assets/images/client/client-2.png" alt="Nft_Profile"></a>
+                                <a href="author.html" class="avatar" data-tooltip="Barua Mir"><img src="assets/images/client/client-9.png" alt="Nft_Profile"></a>
+                                <a href="author.html" class="avatar" data-tooltip="Barua Sobuj"><img src="assets/images/client/client-10.png" alt="Nft_Profile"></a>
+                                <a class="more-author-text" href="#">26+ Place Bit.</a>
+                            </div>*@
+                        <!--<div class="share-btn share-btn-activation dropdown">
                                         <button class="icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             <svg viewBox="0 0 14 4" fill="none" width="16" height="16" class="sc-bdnxRM sc-hKFxyN hOiKLt">
                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 2C3.5 2.82843 2.82843 3.5 2 3.5C1.17157 3.5 0.5 2.82843 0.5 2C0.5 1.17157 1.17157 0.5 2 0.5C2.82843 0.5 3.5 1.17157 3.5 2ZM8.5 2C8.5 2.82843 7.82843 3.5 7 3.5C6.17157 3.5 5.5 2.82843 5.5 2C5.5 1.17157 6.17157 0.5 7 0.5C7.82843 0.5 8.5 1.17157 8.5 2ZM11.999 3.5C12.8274 3.5 13.499 2.82843 13.499 2C13.499 1.17157 12.8274 0.5 11.999 0.5C11.1706 0.5 10.499 1.17157 10.499 2C10.499 2.82843 11.1706 3.5 11.999 3.5Z" fill="currentColor"></path>
@@ -382,22 +408,22 @@
                                     <button type="button" class="btn btn-primary mt--30" data-bs-toggle="modal" data-bs-target="#cardDetails">Details</button>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                         <!-- end single product -->
                         <!-- start single product -->
-                        <div class="grid-metro-item cat--1 cat--2">
-                            <div class="product-style-one no-overlay">
-                                <div class="card-thumbnail">
-                                    <a href="product-details.html"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/012.png" alt="NFT_portfolio"></a>
-                                </div>
-                                <div class="product-share-wrapper">
-                                    @*<div class="profile-share">
-                <a href="author.html" class="avatar" data-tooltip="Tulu Bain"><img src="assets/images/client/client-1.png" alt="Nft_Profile"></a>
-                <a href="author.html" class="avatar" data-tooltip="Tulu"><img src="assets/images/client/client-9.png" alt="Nft_Profile"></a>
-                <a href="author.html" class="avatar" data-tooltip="Bain"><img src="assets/images/client/client-6.png" alt="Nft_Profile"></a>
-                <a class="more-author-text" href="#">16+ Place Bit.</a>
-            </div>*@
-                                    <div class="share-btn share-btn-activation dropdown">
+                        <!--<div class="grid-metro-item cat--1 cat--2">
+                        <div class="product-style-one no-overlay">
+                            <div class="card-thumbnail">
+                                <a href="product-details.html"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/012.png" alt="NFT_portfolio"></a>
+                            </div>
+                            <div class="product-share-wrapper">-->
+                        @*<div class="profile-share">
+                                <a href="author.html" class="avatar" data-tooltip="Tulu Bain"><img src="assets/images/client/client-1.png" alt="Nft_Profile"></a>
+                                <a href="author.html" class="avatar" data-tooltip="Tulu"><img src="assets/images/client/client-9.png" alt="Nft_Profile"></a>
+                                <a href="author.html" class="avatar" data-tooltip="Bain"><img src="assets/images/client/client-6.png" alt="Nft_Profile"></a>
+                                <a class="more-author-text" href="#">16+ Place Bit.</a>
+                            </div>*@
+                        <!--<div class="share-btn share-btn-activation dropdown">
                                         <button class="icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             <svg viewBox="0 0 14 4" fill="none" width="16" height="16" class="sc-bdnxRM sc-hKFxyN hOiKLt">
                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 2C3.5 2.82843 2.82843 3.5 2 3.5C1.17157 3.5 0.5 2.82843 0.5 2C0.5 1.17157 1.17157 0.5 2 0.5C2.82843 0.5 3.5 1.17157 3.5 2ZM8.5 2C8.5 2.82843 7.82843 3.5 7 3.5C6.17157 3.5 5.5 2.82843 5.5 2C5.5 1.17157 6.17157 0.5 7 0.5C7.82843 0.5 8.5 1.17157 8.5 2ZM11.999 3.5C12.8274 3.5 13.499 2.82843 13.499 2C13.499 1.17157 12.8274 0.5 11.999 0.5C11.1706 0.5 10.499 1.17157 10.499 2C10.499 2.82843 11.1706 3.5 11.999 3.5Z" fill="currentColor"></path>
@@ -431,22 +457,22 @@
                                     <button type="button" class="btn btn-primary mt--30" data-bs-toggle="modal" data-bs-target="#cardDetails">Details</button>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                         <!-- end single product -->
                         <!-- start single product -->
-                        <div class="grid-metro-item cat--1 cat--2">
-                            <div class="product-style-one no-overlay">
-                                <div class="card-thumbnail">
-                                    <a href="product-details.html"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/013.png" alt="NFT_portfolio"></a>
-                                </div>
-                                <div class="product-share-wrapper">
-                                    @*<div class="profile-share">
-                <a href="author.html" class="avatar" data-tooltip="Barua Shan"><img src="assets/images/client/client-9.png" alt="Nft_Profile"></a>
-                <a href="author.html" class="avatar" data-tooltip="Barua"><img src="assets/images/client/client-1.png" alt="Nft_Profile"></a>
-                <a href="author.html" class="avatar" data-tooltip="Shan"><img src="assets/images/client/client-10.png" alt="Nft_Profile"></a>
-                <a class="more-author-text" href="#">23+ Place Bit.</a>
-            </div>*@
-                                    <div class="share-btn share-btn-activation dropdown">
+                        <!--<div class="grid-metro-item cat--1 cat--2">
+                        <div class="product-style-one no-overlay">
+                            <div class="card-thumbnail">
+                                <a href="product-details.html"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/013.png" alt="NFT_portfolio"></a>
+                            </div>
+                            <div class="product-share-wrapper">-->
+                        @*<div class="profile-share">
+                                <a href="author.html" class="avatar" data-tooltip="Barua Shan"><img src="assets/images/client/client-9.png" alt="Nft_Profile"></a>
+                                <a href="author.html" class="avatar" data-tooltip="Barua"><img src="assets/images/client/client-1.png" alt="Nft_Profile"></a>
+                                <a href="author.html" class="avatar" data-tooltip="Shan"><img src="assets/images/client/client-10.png" alt="Nft_Profile"></a>
+                                <a class="more-author-text" href="#">23+ Place Bit.</a>
+                            </div>*@
+                        <!--<div class="share-btn share-btn-activation dropdown">
                                         <button class="icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             <svg viewBox="0 0 14 4" fill="none" width="16" height="16" class="sc-bdnxRM sc-hKFxyN hOiKLt">
                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 2C3.5 2.82843 2.82843 3.5 2 3.5C1.17157 3.5 0.5 2.82843 0.5 2C0.5 1.17157 1.17157 0.5 2 0.5C2.82843 0.5 3.5 1.17157 3.5 2ZM8.5 2C8.5 2.82843 7.82843 3.5 7 3.5C6.17157 3.5 5.5 2.82843 5.5 2C5.5 1.17157 6.17157 0.5 7 0.5C7.82843 0.5 8.5 1.17157 8.5 2ZM11.999 3.5C12.8274 3.5 13.499 2.82843 13.499 2C13.499 1.17157 12.8274 0.5 11.999 0.5C11.1706 0.5 10.499 1.17157 10.499 2C10.499 2.82843 11.1706 3.5 11.999 3.5Z" fill="currentColor"></path>
@@ -480,22 +506,22 @@
                                     <button type="button" class="btn btn-primary mt--30" data-bs-toggle="modal" data-bs-target="#cardDetails">Details</button>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                         <!-- end single product -->
                         <!-- start single product -->
-                        <div class="grid-metro-item cat--4 cat-3">
-                            <div class="product-style-one no-overlay">
-                                <div class="card-thumbnail">
-                                    <a href="product-details.html"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/016.png" alt="NFT_portfolio"></a>
-                                </div>
-                                <div class="product-share-wrapper">
-                                    @*<div class="profile-share">
-                <a href="author.html" class="avatar" data-tooltip="David Wornar"><img src="assets/images/client/client-9.png" alt="Nft_Profile"></a>
-                <a href="author.html" class="avatar" data-tooltip="Wornar"><img src="assets/images/client/client-10.png" alt="Nft_Profile"></a>
-                <a href="author.html" class="avatar" data-tooltip="David"><img src="assets/images/client/client-11.png" alt="Nft_Profile"></a>
-                <a class="more-author-text" href="#">9+ Place Bit.</a>
-            </div>*@
-                                    <div class="share-btn share-btn-activation dropdown">
+                        <!--<div class="grid-metro-item cat--4 cat-3">
+                        <div class="product-style-one no-overlay">
+                            <div class="card-thumbnail">
+                                <a href="product-details.html"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/016.png" alt="NFT_portfolio"></a>
+                            </div>
+                            <div class="product-share-wrapper">-->
+                        @*<div class="profile-share">
+                                <a href="author.html" class="avatar" data-tooltip="David Wornar"><img src="assets/images/client/client-9.png" alt="Nft_Profile"></a>
+                                <a href="author.html" class="avatar" data-tooltip="Wornar"><img src="assets/images/client/client-10.png" alt="Nft_Profile"></a>
+                                <a href="author.html" class="avatar" data-tooltip="David"><img src="assets/images/client/client-11.png" alt="Nft_Profile"></a>
+                                <a class="more-author-text" href="#">9+ Place Bit.</a>
+                            </div>*@
+                        <!--<div class="share-btn share-btn-activation dropdown">
                                         <button class="icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             <svg viewBox="0 0 14 4" fill="none" width="16" height="16" class="sc-bdnxRM sc-hKFxyN hOiKLt">
                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 2C3.5 2.82843 2.82843 3.5 2 3.5C1.17157 3.5 0.5 2.82843 0.5 2C0.5 1.17157 1.17157 0.5 2 0.5C2.82843 0.5 3.5 1.17157 3.5 2ZM8.5 2C8.5 2.82843 7.82843 3.5 7 3.5C6.17157 3.5 5.5 2.82843 5.5 2C5.5 1.17157 6.17157 0.5 7 0.5C7.82843 0.5 8.5 1.17157 8.5 2ZM11.999 3.5C12.8274 3.5 13.499 2.82843 13.499 2C13.499 1.17157 12.8274 0.5 11.999 0.5C11.1706 0.5 10.499 1.17157 10.499 2C10.499 2.82843 11.1706 3.5 11.999 3.5Z" fill="currentColor"></path>
@@ -529,56 +555,56 @@
                                     <button type="button" class="btn btn-primary mt--30" data-bs-toggle="modal" data-bs-target="#cardDetails">Details</button>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                         <!-- end single product -->
                         <!-- start single product -->
-                        <div class="grid-metro-item cat-3 cat-2">
-                            <div class="product-style-one no-overlay">
-                                <div class="card-thumbnail">
-                                    <a href="product-details.html"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/019.png" alt="NFT_portfolio"></a>
-                                </div>
-                                <div class="product-share-wrapper">
-                                    @*<div class="profile-share">
-                <a href="author.html" class="avatar" data-tooltip="Notanki Barua"><img src="assets/images/client/client-1.png" alt="Nft_Profile"></a>
-                <a href="author.html" class="avatar" data-tooltip="Barua"><img src="assets/images/client/client-2.png" alt="Nft_Profile"></a>
-                <a href="author.html" class="avatar" data-tooltip="Notanki"><img src="assets/images/client/client-3.png" alt="Nft_Profile"></a>
-                <a class="more-author-text" href="#">36+ Place Bit.</a>
-            </div>*@
-                                    <div class="share-btn share-btn-activation dropdown">
-                                        <button class="icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <svg viewBox="0 0 14 4" fill="none" width="16" height="16" class="sc-bdnxRM sc-hKFxyN hOiKLt">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 2C3.5 2.82843 2.82843 3.5 2 3.5C1.17157 3.5 0.5 2.82843 0.5 2C0.5 1.17157 1.17157 0.5 2 0.5C2.82843 0.5 3.5 1.17157 3.5 2ZM8.5 2C8.5 2.82843 7.82843 3.5 7 3.5C6.17157 3.5 5.5 2.82843 5.5 2C5.5 1.17157 6.17157 0.5 7 0.5C7.82843 0.5 8.5 1.17157 8.5 2ZM11.999 3.5C12.8274 3.5 13.499 2.82843 13.499 2C13.499 1.17157 12.8274 0.5 11.999 0.5C11.1706 0.5 10.499 1.17157 10.499 2C10.499 2.82843 11.1706 3.5 11.999 3.5Z" fill="currentColor"></path>
-                                            </svg>
-                                        </button>
+                        <!--<div class="grid-metro-item cat-3 cat-2">
+                        <div class="product-style-one no-overlay">
+                            <div class="card-thumbnail">
+                                <a href="product-details.html"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/019.png" alt="NFT_portfolio"></a>
+                            </div>
+                            <div class="product-share-wrapper">-->
+                        @*<div class="profile-share">
+                                <a href="author.html" class="avatar" data-tooltip="Notanki Barua"><img src="assets/images/client/client-1.png" alt="Nft_Profile"></a>
+                                <a href="author.html" class="avatar" data-tooltip="Barua"><img src="assets/images/client/client-2.png" alt="Nft_Profile"></a>
+                                <a href="author.html" class="avatar" data-tooltip="Notanki"><img src="assets/images/client/client-3.png" alt="Nft_Profile"></a>
+                                <a class="more-author-text" href="#">36+ Place Bit.</a>
+                            </div>*@
+                        @*<div class="share-btn share-btn-activation dropdown">
+                                            <button class="icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <svg viewBox="0 0 14 4" fill="none" width="16" height="16" class="sc-bdnxRM sc-hKFxyN hOiKLt">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 2C3.5 2.82843 2.82843 3.5 2 3.5C1.17157 3.5 0.5 2.82843 0.5 2C0.5 1.17157 1.17157 0.5 2 0.5C2.82843 0.5 3.5 1.17157 3.5 2ZM8.5 2C8.5 2.82843 7.82843 3.5 7 3.5C6.17157 3.5 5.5 2.82843 5.5 2C5.5 1.17157 6.17157 0.5 7 0.5C7.82843 0.5 8.5 1.17157 8.5 2ZM11.999 3.5C12.8274 3.5 13.499 2.82843 13.499 2C13.499 1.17157 12.8274 0.5 11.999 0.5C11.1706 0.5 10.499 1.17157 10.499 2C10.499 2.82843 11.1706 3.5 11.999 3.5Z" fill="currentColor"></path>
+                                                </svg>
+                                            </button>
 
-                                        <div class="share-btn-setting dropdown-menu dropdown-menu-end">
-                                            <button type="button" class="btn-setting-text share-text" data-bs-toggle="modal" data-bs-target="#shareModal">
-                                                Share
-                                            </button>
-                                            <button type="button" class="btn-setting-text report-text" data-bs-toggle="modal" data-bs-target="#reportModal">
-                                                Report
-                                            </button>
+                                            <div class="share-btn-setting dropdown-menu dropdown-menu-end">
+                                                <button type="button" class="btn-setting-text share-text" data-bs-toggle="modal" data-bs-target="#shareModal">
+                                                    Share
+                                                </button>
+                                                <button type="button" class="btn-setting-text report-text" data-bs-toggle="modal" data-bs-target="#reportModal">
+                                                    Report
+                                                </button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <a href="product-details.html"><span class="product-name">Rattata</span></a>
+                                    <span class="latest-bid">Highest bid 2/10</span>
+                                    <div class="bid-react-area">
+                                        <div class="last-bid">0.244wETH</div>
+                                        <div class="react-area">
+                                            <svg viewBox="0 0 17 16" fill="none" width="16" height="16" class="sc-bdnxRM sc-hKFxyN kBvkOu">
+                                                <path d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z" stroke="currentColor" stroke-width="2"></path>
+                                            </svg>
+                                            <span class="number">89</span>
                                         </div>
 
                                     </div>
-                                </div>
-                                <a href="product-details.html"><span class="product-name">Rattata</span></a>
-                                <span class="latest-bid">Highest bid 2/10</span>
-                                <div class="bid-react-area">
-                                    <div class="last-bid">0.244wETH</div>
-                                    <div class="react-area">
-                                        <svg viewBox="0 0 17 16" fill="none" width="16" height="16" class="sc-bdnxRM sc-hKFxyN kBvkOu">
-                                            <path d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z" stroke="currentColor" stroke-width="2"></path>
-                                        </svg>
-                                        <span class="number">89</span>
+                                    <div>
+                                        <button type="button" class="btn btn-primary mt--30" data-bs-toggle="modal" data-bs-target="#cardDetails">Details</button>
                                     </div>
-
                                 </div>
-                                <div>
-                                    <button type="button" class="btn btn-primary mt--30" data-bs-toggle="modal" data-bs-target="#cardDetails">Details</button>
-                                </div>
-                            </div>
-                        </div>
+                            </div>-->*@
                         <!-- end single product -->
                     </div>
                 </div>
