@@ -17,6 +17,17 @@ namespace Pokemon.Controllers
             return View();
         }
 
+
+        // GET: /Account/Register
+        [AllowAnonymous]
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
