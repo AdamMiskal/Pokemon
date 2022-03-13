@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Pokemon.Models;
+using System.Collections.Generic;
 
 namespace Pokemon.Controllers
 {
@@ -387,7 +388,7 @@ namespace Pokemon.Controllers
 
         //
         // POST: /Account/LogOff
-        [HttpPost]
+        //[HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {

@@ -15,7 +15,7 @@
    
     <!-- Start Header -->
     <header style="text-align:right;" class="rn-header haeder-default black-logo-version header--fixed header--sticky ">
-        <div style="margin-left:0px; align-items:flex-end;"  class="container">
+        <div style="margin-left:0px; align-items:flex-end;" class="container">
 
             <div class="header-inner">
                 <div class="header-left">
@@ -51,14 +51,14 @@
                 </div>
                 <div class="header-right">
                     @*<div class="setting-option d-none d-lg-block">
-                        <form class="search-form-wrapper" action="#">
-                            <input type="search" placeholder="Search Here" aria-label="Search">
-                            <div class="search-icon">
-                                <button><i class="feather-search"></i></button>
-                            </div>
-                        </form>
-                    </div>*@
-                    <div class="setting-option rn-icon-list d-block d-lg-none">
+            <form class="search-form-wrapper" action="#">
+                <input type="search" placeholder="Search Here" aria-label="Search">
+                <div class="search-icon">
+                    <button><i class="feather-search"></i></button>
+                </div>
+            </form>
+        </div>*@
+                    @*<div class="setting-option rn-icon-list d-block d-lg-none">
                         <div class="icon-box search-mobile-icon">
                             <button><i class="feather-search"></i></button>
                         </div>
@@ -68,19 +68,19 @@
                                 <input type="text" placeholder="Search ...">
                             </div>
                         </form>
-                    </div>
+                    </div>*@
 
 
                     @* Connect WAllet KOUBAKI*@
                     @*<div class="setting-option header-btn rbt-site-header" id="rbt-site-header">
-                            <div class="icon-box">
-                                <a id="connectbtn" class="btn btn-primary-alta btn-small" href="connect.html">Wallet connect</a>
-                            </div>
-                        </div>*@
+            <div class="icon-box">
+                <a id="connectbtn" class="btn btn-primary-alta btn-small" href="connect.html">Wallet connect</a>
+            </div>
+        </div>*@
 
 
-                    @* Account Koubaki *@
-                    <div class="mainmenu-wrapper">
+                    @* Login Koubaki *@
+                    @*<div class="mainmenu-wrapper">
                         <nav id="sideNav" class="mainmenu-nav d-none d-xl-block">
 
                             <ul class="mainmenu">
@@ -89,15 +89,16 @@
                             </ul>
 
                         </nav>
-                    </div>
+                    </div>*@
 
                     @*Kabanaki*@
 
                     @*<div class="setting-option rn-icon-list notification-badge">
-                            <div class="icon-box">
-                                <a href="activity.html"><i class="feather-bell"></i><span class="badge">6</span></a>
-                            </div>
-                        </div>*@
+            <div class="icon-box">
+                <a href="activity.html"><i class="feather-bell"></i><span class="badge">6</span></a>
+            </div>
+        </div>*@
+
 
                     <div class="header_admin" id="header_admin">
                         <div class="setting-option rn-icon-list user-account">
@@ -148,6 +149,7 @@
 
 
 
+
                     @*Drop Menu Gia Mobile H' Mikrotero Parathiro*@
                     <div class="setting-option mobile-menu-bar d-block d-xl-none">
                         <div class="hamberger">
@@ -174,10 +176,65 @@
                         </ul>
                     </div>
 
+                    @using Microsoft.AspNet.Identity
+                    @if (Request.IsAuthenticated)
+                    {
+                        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                             <div class="mainmenu-wrapper">
+                                 <nav class="mainmenu-nav d-none d-xl-block">
+                                     <ul class="mainmenu navbar-right">
+                                         <li>
+                                             @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                                         </li>
+                                         <li>
+                                             <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                                         </li>
+                                     </ul>
+                                 </nav>
+                           </div>
+                        }
+                    }
+                    else
+                    {
+
+                        <div class="mainmenu-wrapper">
+                            <nav id="sideNav" class="mainmenu-nav d-none d-xl-block">
+
+                                <ul class="mainmenu">
+                                   
+                                    <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                                </ul>
+
+                            </nav>
+                        </div>
+
+
+                        @*<ul class="nav navbar-nav navbar-right">
+                            <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                            <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                        </ul>*@
+                    }
+
 
                 </div>
             </div>
         </div>
+
+
+
+
+
+      
+
+
+
+
+
+
+
 
     </header>
     <!-- End Header Area -->
@@ -205,9 +262,27 @@
                 <ul class="mainmenu">
 
 
-                    <li>
-                        <a href=@Url.Action("Index","Login")>Login</a>
-                    </li>
+                    @if (Request.IsAuthenticated)
+                    {
+                        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+
+                            <li>
+                                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                            </li>
+                            <li>
+                                <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                            </li>
+                        }
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                    }
+
+
                     <li>
                         <a href=@Url.Action("Index","Home")>Home</a>
                     </li>
@@ -225,8 +300,8 @@
                     </li>
 
                 </ul>
-                @*--------------------------------------------------------------------------*@
-            </nav>
-        </div>
-    </div>
+                                    @*--------------------------------------------------------------------------*@
+                                </nav>
+                            </div>
+</div>
 </body>

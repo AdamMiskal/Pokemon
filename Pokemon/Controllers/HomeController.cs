@@ -10,6 +10,8 @@ namespace Pokemon.Controllers
     public class HomeController : Controller
     {
         ApplicationDbContext db = new ApplicationDbContext();
+
+        [RequireHttps]
         public ActionResult Index(ApplicationDbContext db)
         {
             var card = db.Cards.ToList();
