@@ -45,24 +45,29 @@ namespace Pokemon
             // This is similar to the RememberMe option when you log in.
             app.UseTwoFactorRememberBrowserCookie(DefaultAuthenticationTypes.TwoFactorRememberBrowserCookie);
 
-            // Uncomment the following lines to enable logging in with third party login providers
+            //Uncomment the following lines to enable logging in with third party login providers
             //app.UseMicrosoftAccountAuthentication(
             //    clientId: "",
-            //    clientSecret: "");
+            //   clientSecret: "");
 
             //app.UseTwitterAuthentication(
-            //   consumerKey: "",
-            //   consumerSecret: "");
+            //  consumerKey: "",
+            //  consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+              appId: "1158843881528496",
+               appSecret: "5d359e87fe313fe5df077f32a947b82b");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "976965108088-q0ioq8d25u4oqnlajho72ck4j949tg58.apps.googleusercontent.com",
+                ClientSecret = "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"
+            });
+
+
+            
+
+
         }
     }
 }
