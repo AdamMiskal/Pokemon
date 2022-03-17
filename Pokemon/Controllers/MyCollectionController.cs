@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pokemon.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,14 @@ namespace Pokemon.Controllers
 {
     public class MyCollectionController : Controller
     {
+        ApplicationDbContext db = new ApplicationDbContext();
         // GET: MyCollection
         public ActionResult Index()
         {
-            return View();
+            
+            return View(User);
         }
+
+        
     }
 }

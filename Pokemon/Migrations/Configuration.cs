@@ -1,5 +1,7 @@
 ﻿namespace Pokemon.Migrations
 {
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using Pokemon.Models;
     using System;
     using System.Collections.Generic;
@@ -16,6 +18,23 @@
 
         protected override void Seed(Pokemon.Models.ApplicationDbContext context)
         {
+
+
+
+           
+
+
+            
+
+
+
+
+
+
+
+
+
+
             PokemonType t1 = new PokemonType() { Kind = "Grass" };
             PokemonType t2 = new PokemonType() { Kind = "Water" };
             PokemonType t3 = new PokemonType() { Kind = "Fire" };
@@ -160,7 +179,47 @@
             //context.SaveChanges();
 
 
+            if (!context.Roles.Any(r => r.Name == "Customer"))
+            {
+                var store = new RoleStore<IdentityRole>(context);
+                var manager = new RoleManager<IdentityRole>(store);
+                var role = new IdentityRole { Name = "Customer" };
 
+                manager.Create(role);
+
+            }
+
+            if (!context.Roles.Any(r => r.Name == "Admin"))
+            {
+                var store = new RoleStore<IdentityRole>(context);
+                var manager = new RoleManager<IdentityRole>(store);
+                var role = new IdentityRole { Name = "Customer" };
+
+                manager.Create(role);
+
+            }
+            if (!context.Users.Any(u => u.UserName == "admin@gmail.com"))
+            {
+                var store = new UserStore<ApplicationUser>(context);
+                var userManager = new UserManager<ApplicationUser>(store);
+
+                var passwordHash = new PasswordHasher();
+
+                var user = new ApplicationUser()
+                {
+                    UserName = "admin@gmail.com",
+                    Email = "admin@gmail.com",
+
+                    PasswordHash = passwordHash.HashPassword("Admin1234!")
+                };
+                var tool = new List<Card>() { c1,c5 };
+                user.Cards.AddRange(tool);
+
+                userManager.Create(user);
+                userManager.AddToRole(user.Id, "Admin");
+
+
+            }
 
 
 

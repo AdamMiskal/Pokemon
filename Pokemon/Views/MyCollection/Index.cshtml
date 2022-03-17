@@ -1,7 +1,11 @@
-﻿
+﻿@model IEnumerable<Pokemon.Models.ApplicationUser>
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>MY COLLECTION WORKS</h2>
 
+@foreach (var user in Model.Cards)
+{
+    <p>@user.</p>
+}
