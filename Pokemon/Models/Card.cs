@@ -28,8 +28,8 @@ namespace Pokemon.Models
         
        
         public string ApplicationUserId { get; set; }
-       //[ForeignKey("ApplicationUserId")]
-        public ApplicationUser User { get; set; }
+        [ForeignKey("ApplicationUserId")]
+        public virtual ApplicationUser User { get; set; }
 
 
 

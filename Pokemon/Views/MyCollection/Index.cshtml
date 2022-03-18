@@ -11,5 +11,10 @@
     @item.Email
     <br />
     @item.Balance
+    
+    foreach (var cr in item.Cards)
+    {
+        @cr.Attack
+    }
 }
 

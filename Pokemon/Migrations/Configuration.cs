@@ -138,7 +138,7 @@
             context.Cards.AddRange(cards);
             context.PokemonType.AddRange(pokemonTypes);
             context.Images.AddRange(images);
-            context.SaveChanges();
+            
 
             //Card c1 = new Card() { Name = "Charmander", SerialNumber = 1, Attack = 2, Defence = 20, Rarity = Rarity.Common, User = null };
             //c1.PokemonTypes = new List<PokemonType>() { t3, t2 };
@@ -186,17 +186,17 @@
                 var role = new IdentityRole { Name = "Customer" };
 
                 manager.Create(role);
-
+                context.Roles.Add(role);
             }
 
             if (!context.Roles.Any(r => r.Name == "Admin"))
             {
                 var store = new RoleStore<IdentityRole>(context);
                 var manager = new RoleManager<IdentityRole>(store);
-                var role = new IdentityRole { Name = "Customer" };
+                var role = new IdentityRole { Name = "Admin" };
 
                 manager.Create(role);
-
+                context.Roles.Add(role);
             }
             if (!context.Users.Any(u => u.UserName == "admin@gmail.com"))
             {
@@ -223,12 +223,12 @@
                 c3.User = user;
 
                 context.Users.Add(user);
-                context.SaveChanges();
+                
                 
             }
 
-            
 
+            context.SaveChanges();
 
         }
     }
