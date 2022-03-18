@@ -209,19 +209,25 @@
                 {
                     UserName = "admin@gmail.com",
                     Email = "admin@gmail.com",
-
+                    Balance=55555,
+                    Cards = {c1,c5,c3},
                     PasswordHash = passwordHash.HashPassword("Admin1234!")
                 };
-                var tool = new List<Card>() { c1,c5 };
-                user.Cards.AddRange(tool);
+                
 
                 userManager.Create(user);
                 userManager.AddToRole(user.Id, "Admin");
 
+                c1.User = user;
+                c5.User = user;
+                c3.User = user;
 
+                context.Users.Add(user);
+                context.SaveChanges();
+                
             }
 
-
+            
 
 
         }

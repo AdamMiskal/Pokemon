@@ -12,9 +12,9 @@ namespace Pokemon.Controllers
         ApplicationDbContext db = new ApplicationDbContext();
         // GET: MyCollection
         public ActionResult Index()
-        {
+        { 
             
-            return View(User);
+            return View(db.Users.ToList());
         }
 
         

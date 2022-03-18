@@ -3,9 +3,13 @@
     ViewBag.Title = "Index";
 }
 
-<h2>MY COLLECTION WORKS</h2>
 
-@foreach (var user in Model.Cards)
+@foreach (var item in Model)
 {
-    <p>@user.</p>
+    @item.UserName
+    <br />
+    @item.Email
+    <br />
+    @item.Balance
 }
+
