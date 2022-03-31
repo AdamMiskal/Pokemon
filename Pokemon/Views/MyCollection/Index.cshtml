@@ -1,20 +1,12 @@
 ﻿@model IEnumerable<Pokemon.Models.ApplicationUser>
-@{
-    ViewBag.Title = "Index";
-}
-
 
 @foreach (var item in Model)
 {
-    @item.UserName
-    <br />
     @item.Email
-    <br />
-    @item.Balance
     
-    foreach (var cr in item.Cards)
+    foreach (var kee in item.Cards)
     {
-        @cr.Attack
+        @kee.Name
     }
 }
 

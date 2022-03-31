@@ -11,12 +11,12 @@ namespace Pokemon.Controllers
 {
     public class CardDatabaseController : Controller
     {
-        ApplicationDbContext db = new ApplicationDbContext();
+        ApplicationDbContext db = new ApplicationDbContext() ;
         // GET: CardDatabase
         public ActionResult Index()
         {
-        
-            
+
+           
             return View(db.Cards.Where(x => x.SerialNumber == 1).Include(x => x.Image).ToList());
         }
 
