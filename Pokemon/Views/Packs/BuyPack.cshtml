@@ -1,7 +1,7 @@
-﻿
-@{
-    ViewBag.Title = "BuyPack";
+﻿@model IEnumerable<Pokemon.Models.Card>
+
+@foreach (var pokemon  in Model)
+{
+    <h1>@pokemon.Name</h1>
+    <h1>@pokemon.Rarity</h1>
 }
-
-<h2>BuyPack Works</h2>
-
