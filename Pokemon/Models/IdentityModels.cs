@@ -5,18 +5,22 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.Validation;
+using System.Linq;
 
 namespace Pokemon.Models
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
-      
+        
+
         public int Balance { get; set; }
-
+       
         public ICollection<Card> Cards  { get; set; }
-
-
+        
+        
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -29,21 +33,46 @@ namespace Pokemon.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+
+     
+
         public ApplicationDbContext()
             : base("Sindesmos", throwIfV1Schema: false)
         {
+                   
+
+
+
+        }
+
+        public override int SaveChanges()
+        {
+            try
+            {
+                return base.SaveChanges();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                string errorMessages = string.Join("; ", ex.EntityValidationErrors.SelectMany(x => x.ValidationErrors).Select(x => x.PropertyName + ": " + x.ErrorMessage));
+                throw new DbEntityValidationException(errorMessages);
+            }
         }
 
         public static ApplicationDbContext Create()
         {
+
+            
             return new ApplicationDbContext();
         }
+     
 
+        
         public DbSet<Card> Cards { get; set; }
         public DbSet<PokemonType> PokemonType { get; set; }
         public DbSet<Image> Images { get; set; }
 
        
         
+        //public System.Data.Entity.DbSet<Pokemon.Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }

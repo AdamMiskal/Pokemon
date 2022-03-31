@@ -15,22 +15,20 @@ namespace Pokemon.Models
         public int Attack { get; set; }
         public int Defence { get; set; }
         public Rarity Rarity { get; set; }
-
-
-
-
+       
 
         //Navigation Properties
         public List<PokemonType> PokemonTypes { get; set; }
 
         public int? ImageID { get; set; }
         public virtual Image Image { get; set; }
-        
-       
+
+
         public string ApplicationUserId { get; set; }
         [ForeignKey("ApplicationUserId")]
+        
         public virtual ApplicationUser User { get; set; }
-
+       
 
 
 
