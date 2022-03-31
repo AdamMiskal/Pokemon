@@ -1,4 +1,5 @@
-﻿using Pokemon.Models;
+﻿using Microsoft.AspNet.Identity;
+using Pokemon.Models;
 using Pokemon.Models.HelperModels;
 using Pokemon.Repository;
 using System;
@@ -18,7 +19,10 @@ namespace Pokemon.Controllers
         // GET: Packs
         public ActionResult Index()
         {
-            return View();
+            var userId = User.Identity.GetUserId();
+            var Usser = db.Users.Find(userId);
+            return View(Usser);
+
         }
 
         public ActionResult BuyPack(BuyPackModel model)
@@ -32,7 +36,7 @@ namespace Pokemon.Controllers
             var cards = db.Cards.Where(c => c.ApplicationUserId == null).ToList();
             var newPack = CreatePack.NewPack(model.PackValue, cards, model.UserId);
 
-            return View(newPack.Cards.ToList());
+           return View(newPack.Cards.ToList());
         }
 
 
