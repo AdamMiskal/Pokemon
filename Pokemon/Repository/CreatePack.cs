@@ -8,9 +8,11 @@ namespace Pokemon.Repository
 {
     public class CreatePack
     {
-        public static void NewPack(int packvalue,List<Card> cards,string userid)
+        public static Pack NewPack(int packvalue,List<Card> cards,string userid)
         {
             Random rnd = new Random();
+            Pack finalNewPack = new Pack();
+            
             List<int> randomNumbers = new List<int>();
             int numberOfCards = 0;
             switch (packvalue)
@@ -30,7 +32,10 @@ namespace Pokemon.Repository
             foreach (var number in randomNumbers)
             {
                 cards[number].ApplicationUserId = userid;
+                finalNewPack.Cards.Add(cards[number]);
             }
+
+            return finalNewPack;
 
 
 

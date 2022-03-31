@@ -1,8 +1,10 @@
 ﻿using Pokemon.Models;
+using Pokemon.Models.HelperModels;
 using Pokemon.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -19,12 +21,18 @@ namespace Pokemon.Controllers
             return View();
         }
 
-        public ActionResult BuyPack(string userid,int packvalue)
+        public ActionResult BuyPack(BuyPackModel model)
         {
-            var cards = db.Cards.Where(c => c.ApplicationUserId == null).ToList();
-            CreatePack.NewPack(packvalue, cards,userid);
+            var user = db.Users.Find(model.UserId);
+            if (user.Balance < model.PackValue)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);//tha to allaksoume me ena view diko mas
+            }
 
-            return View();
+            var cards = db.Cards.Where(c => c.ApplicationUserId == null).ToList();
+            var newPack = CreatePack.NewPack(model.PackValue, cards, model.UserId);
+
+            return View(newPack.Cards.ToList());
         }
 
 
