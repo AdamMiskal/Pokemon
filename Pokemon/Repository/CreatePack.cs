@@ -17,7 +17,7 @@ namespace Pokemon.Repository
             int numberOfCards = 0;
             switch (packvalue)
             {
-                case 5:numberOfCards = 3; break;
+                case 3:numberOfCards = 3; break;
                 case 7:numberOfCards = 5; break;
                 case 10:numberOfCards = 10; break;
                 default:

@@ -23,7 +23,7 @@ namespace Pokemon.Controllers
             var keepo = db.Users.Include(x=>x.Cards).ToList();
             
 
-            return View(keepo);
+            return View();
         }
        
 
