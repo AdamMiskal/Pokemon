@@ -3,6 +3,38 @@
     ViewBag.Title = "Index";
 }
 
+<style>
+    #list-item-3 .container .row .col-12 .grid-metro4 .grid-metro-item .product-style-one .bid-react-area{
+        display: flex;
+        flex-direction: column;
+        justify-content:space-evenly;
+       
+
+    }
+
+        #list-item-3 .container .row .col-12 .grid-metro4 .grid-metro-item .product-style-one .bid-react-area .last-bid {
+            display: flex;
+            justify-content: space-between;
+        }
+
+    #list-item-3 .container .row .col-12 .grid-metro4 .grid-metro-item .product-style-one .bid-react-area .react-area{
+        display:flex;
+        justify-content:right;
+        background-color:transparent;
+        color:grey;
+        margin:0px;
+        padding:0px;
+    }
+
+    #list-item-3 .container .row .col-12 .grid-metro4 .grid-metro-item .product-style-one .bid-react-area .last-bid{
+        border:dashed 1px;
+        margin:2px;
+        border-radius:4px;
+        padding:3px;
+    }
+</style>
+
+
 <body class="template-color-1 with-particles">
     <div id="particles-js"></div>
      @*Preloader*@ 
@@ -98,14 +130,15 @@
                         {
 
                             <div class="grid-metro-item cat--1 cat--3">
-                                <div class="product-style-one no-overlay">
+                                <div class="product-style-one no-overlay"> 
                                     <div class="card-thumbnail">
                                         <a href=@Url.Action("CardDetails","CardDatabase",new { id=card.CardId})><img src=@card.Image.Url alt="NFT_portfolio"></a>    @*IMAGE POKEMON*@
                                     </div>
                                     <a href="product-details.html"><span class="product-name">@card.Name</span></a>
                                     <span class="latest-bid">Common/rare</span>
                                     <div class="bid-react-area">
-                                        <div class="last-bid">0.244wETH</div>
+                                        <div class="last-bid"><i>Last Sale Price</i><i>0.250eth</i> </div>
+                                        <div class="last-bid"><i>Average Sale Price</i><i> 0.150eth</i> </div>
                                         <div class="react-area">
                                             <span class="number">SN @card.SerialNumber</span>
                                         </div>
@@ -114,10 +147,6 @@
                             </div>
 
                         }
-
-                      
-
-
                     </div>
                 </div>
             </div>
@@ -126,7 +155,7 @@
     </div>
     
 
-    </div>-->
+    
 
     <!-- collection area Start -->
     <div class="rn-collection-area rn-section-gapBottom">
@@ -147,6 +176,8 @@
 
             <div class="row g-5">
                 <!-- start single collention -->
+
+           
                 <div data-sal="slide-up" data-sal-delay="150" data-sal-duration="800" class="col-lg-6 col-xxl-3 col-xl-4 col-md-6 col-sm-6 col-12">
                     <a href="product-details.html" class="rn-collection-inner-one">
                         <div class="collection-wrapper">
@@ -170,7 +201,7 @@
                 </div>
                 <!-- End single collention -->
                 <!-- start single collention -->
-                <div data-sal="slide-up" data-sal-delay="200" data-sal-duration="800" class="col-lg-6 col-xxl-3 col-xl-4 col-md-6 col-sm-6 col-12">
+                @*<div data-sal="slide-up" data-sal-delay="200" data-sal-duration="800" class="col-lg-6 col-xxl-3 col-xl-4 col-md-6 col-sm-6 col-12">
                     <a href="product-details.html" class="rn-collection-inner-one">
                         <div class="collection-wrapper">
                             <div class="collection-big-thumbnail">
@@ -190,10 +221,10 @@
                             </div>
                         </div>
                     </a>
-                </div>
+                </div>*@
                 <!-- End single collention -->
                 <!-- start single collention -->
-                <div data-sal="slide-up" data-sal-delay="250" data-sal-duration="800" class="col-lg-6 col-xxl-3 col-xl-4 col-md-6 col-sm-6 col-12">
+                @*<div data-sal="slide-up" data-sal-delay="250" data-sal-duration="800" class="col-lg-6 col-xxl-3 col-xl-4 col-md-6 col-sm-6 col-12">
                     <a href="product-details.html" class="rn-collection-inner-one">
                         <div class="collection-wrapper">
                             <div class="collection-big-thumbnail">
@@ -213,10 +244,10 @@
                             </div>
                         </div>
                     </a>
-                </div>
+                </div>*@
                 <!-- End single collention -->
                 <!-- start single collention -->
-                <div data-sal="slide-up" data-sal-delay="350" data-sal-duration="800" class="col-lg-6 col-xxl-3 col-xl-4 col-md-6 col-sm-6 col-12">
+                @*<div data-sal="slide-up" data-sal-delay="350" data-sal-duration="800" class="col-lg-6 col-xxl-3 col-xl-4 col-md-6 col-sm-6 col-12">
                     <a href="product-details." class="rn-collection-inner-one">
                         <div class="collection-wrapper">
                             <div class="collection-big-thumbnail">
@@ -236,14 +267,14 @@
                             </div>
                         </div>
                     </a>
-                </div>
+                </div>*@
                 <!-- End single collention -->
             </div>
         </div>
     </div>
     <!-- collection area End -->
 
-    <script>
+    @*<script>
         particlesJS('particles-js',
 
             {
@@ -364,6 +395,6 @@
             }
 
         );
-    </script>
+    </script>*@
 </body>
 

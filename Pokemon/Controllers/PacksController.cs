@@ -35,8 +35,8 @@ namespace Pokemon.Controllers
 
             var cards = db.Cards.Where(c => c.ApplicationUserId == null).ToList();
             var newPack = CreatePack.NewPack(model.PackValue, cards, model.UserId);
-
-           return View(newPack.Cards.ToList());
+            db.SaveChanges();
+           return View(newPack);
         }
 
 
