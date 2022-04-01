@@ -1,7 +1,209 @@
-﻿
+﻿@model IEnumerable<Pokemon.Models.Card>
 @{
+
     ViewBag.Title = "Index";
 }
 
 <h2>Marketplace Works</h2>
 
+
+<!-- end page title area -->
+<!-- Start product area -->
+<div class="rn-product-area rn-section-gapTop">
+    <div class="container">
+        <div class="row mb--50 ">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                <h3 class="title mb--0">Pokemon Marketplace</h3>
+
+            </div>
+
+        </div>
+
+        <div>
+            <div>
+                <div>
+                    <button class="btn btn-primary" style="margin-top:20px">List Your PokemonCard</button>
+                </div>
+            </div>
+
+         <div class="default-exp-wrapper align-items-lg-start">
+
+             <div class="inner">
+                 <div>
+                     <input style="height:40px; margin-top: 22px; border:solid; background-color: white; border-width: 1px;" class="ui-icon-seek-end" type="text" placeholder="Search Pokemon Name" />
+                 </div>
+
+                 <div class="filter-select-option">
+
+                     <label class="filter-leble"></label>
+                     <select>
+                         <option data-display="All">All</option>
+                         <option value="1">Owned</option>
+                         <option value="2">Not Owned</option>
+                         
+                     </select>
+                 </div>
+
+                 <div class="filter-select-option">
+
+                     <label class="filter-leble"></label>
+                     <select>
+                         <option data-display="Type">All</option>
+                         <option value="1">Grass</option>
+                         <option value="2">Fire</option>
+                         <option value="3">Water</option>
+                         <option value="4">Electric</option>
+                         <option value="5">Ground</option>
+                         <option value="6">Rock</option>
+                     </select>
+                 </div>
+
+                 <div class="filter-select-option">
+                     <label class="filter-leble"></label>
+                     <select>
+                         <option data-display="Rarity">All</option>
+                         <option value="1">Common</option>
+                         <option value="2">Rare</option>
+                         <option value="3">Legendary</option>
+                     </select>
+                 </div>
+
+
+
+
+                 <div class="filter-select-option">
+                     <label class="filter-leble">Price Range</label>
+                     <div class="price_filter s-filter clear">
+                         <form action="#" method="GET">
+                             <div id="slider-range"></div>
+                             <div class="slider__range--output">
+                                 <div class="price__output--wrap">
+                                     <div class="price--output">
+                                         <span>Price :</span><input type="text" id="amount" readonly>
+                                     </div>
+                                     @*<div class="price--filter">
+                                <a class="btn btn-primary btn-small" href="#">Filter</a>
+                            </div>*@
+                                 </div>
+                             </div>
+                         </form>
+                     </div>
+
+                 </div>
+
+             </div>
+         </div>
+
+         <br />
+         <br />
+         <hr />
+          <div class="box-table table-responsive">
+            <table class="table upcoming-projects">
+                <thead>
+                    <tr>
+                       
+                        <th>
+                            <span>Pokemon</span>
+                        </th>
+                        <th>
+                            <span>Type</span>
+                        </th>
+                        <th>
+                            <span>Rarity</span>
+                        </th>
+                        <th>
+                            <span>Owner's Name</span>
+                        </th>
+                        <th>
+                            <span>Not Owned</span>
+                        </th>
+                        <th>
+                            <span>Owned</span>
+                        </th>
+                        <th>
+                            <span>Price</span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="ranking">
+                    <tr class="color-light">
+                        
+                        <td>
+                            <div class="product-wrapper d-flex align-items-center">
+                                <a href="product-details.html" class="thumbnail">
+
+                                    <img src="../../Assets/Images/001.png" />
+                                </a>
+                                <span>Bulbasaur</span>
+                            </div>
+                        </td>
+                        <td><span>Grass</span></td>
+                        <td><span>Common</span></td>
+                        <td><span>Ash Ketchup</span></td>
+                        <td><span>22</span></td>
+                        <td><span>8</span></td>
+                        <td><span>50</span></td>
+                    </tr>
+                   
+                </tbody>
+             </table>
+          </div>
+      </div>
+
+
+        
+    </div>
+
+
+
+
+
+
+
+
+    <!-- end product area -->
+    <!-- Modal -->
+    <div class="rn-popup-modal share-modal-wrapper modal fade" id="shareModal" tabindex="-1" aria-hidden="true">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i data-feather="x"></i></button>
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content share-wrapper">
+                <div class="modal-header share-area">
+                    <h5 class="modal-title">Share this NFT</h5>
+                </div>
+                <div class="modal-body">
+                    <ul class="social-share-default">
+                        <li><a href="#"><span class="icon"><i data-feather="facebook"></i></span><span class="text">facebook</span></a></li>
+                        <li><a href="#"><span class="icon"><i data-feather="twitter"></i></span><span class="text">twitter</span></a></li>
+                        <li><a href="#"><span class="icon"><i data-feather="linkedin"></i></span><span class="text">linkedin</span></a></li>
+                        <li><a href="#"><span class="icon"><i data-feather="instagram"></i></span><span class="text">instagram</span></a></li>
+                        <li><a href="#"><span class="icon"><i data-feather="youtube"></i></span><span class="text">youtube</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="rn-popup-modal report-modal-wrapper modal fade" id="reportModal" tabindex="-1" aria-hidden="true">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i data-feather="x"></i></button>
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content report-content-wrapper">
+                <div class="modal-header report-modal-header">
+                    <h5 class="modal-title">
+                        Why are you reporting?
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <p>Describe why you think this item should be removed from marketplace</p>
+                    <div class="report-form-box">
+                        <h6 class="title">Message</h6>
+                        <textarea name="message" placeholder="Write issues"></textarea>
+                        <div class="report-button">
+                            <button type="button" class="btn btn-primary mr--10 w-auto">Report</button>
+                            <button type="button" class="btn btn-primary-alta w-auto" data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
