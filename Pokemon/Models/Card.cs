@@ -15,7 +15,12 @@ namespace Pokemon.Models
         public int Attack { get; set; }
         public int Defence { get; set; }
         public Rarity Rarity { get; set; }
-       
+
+
+        //PROPERTY GIA TO MARKETPLACE---------------------------------------
+        public Boolean Market { get; set; }
+        public int? Price { get; set; }
+
 
         //Navigation Properties
         public List<PokemonType> PokemonTypes { get; set; }
@@ -29,7 +34,7 @@ namespace Pokemon.Models
         
         public virtual ApplicationUser User { get; set; }
        
-
+        
 
 
 

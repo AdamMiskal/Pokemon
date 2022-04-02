@@ -40,11 +40,11 @@
             Image i7 = new Image() { Url = "/Assets/Images/023.png" };
             Image i8 = new Image() { Url = "/Assets/Images/025.png" };
             
-            Card c1 = new Card() { Name = "Bulbasaur", SerialNumber = 1, Attack = 1, Defence = 1, Rarity = Rarity.Common };
+            Card c1 = new Card() { Name = "Bulbasaur", SerialNumber = 1, Attack = 1, Defence = 1, Rarity = Rarity.Common,Market=true};
             Card c2 = new Card() { Name = "Bulbasaur", SerialNumber = 2, Attack = 1, Defence = 1, Rarity = Rarity.Common };
             Card c3 = new Card() { Name = "Bulbasaur", SerialNumber = 3, Attack = 1, Defence = 1, Rarity = Rarity.Common };
             
-            Card c4 = new Card() { Name = "Charmander", SerialNumber = 1, Attack = 1, Defence = 1, Rarity = Rarity.Common };
+            Card c4 = new Card() { Name = "Charmander", SerialNumber = 1, Attack = 1, Defence = 1, Rarity = Rarity.Common,Market=true };
             Card c5 = new Card() { Name = "Charmander", SerialNumber = 2, Attack = 1, Defence = 1, Rarity = Rarity.Common };
             Card c6 = new Card() { Name = "Charmander", SerialNumber = 3, Attack = 1, Defence = 1, Rarity = Rarity.Common };
             

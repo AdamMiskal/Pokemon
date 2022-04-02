@@ -25,6 +25,7 @@ namespace Pokemon.Controllers
 
         }
 
+        [HttpPost]
         public ActionResult BuyPack(BuyPackModel model)
         {
             var user = db.Users.Find(model.UserId);

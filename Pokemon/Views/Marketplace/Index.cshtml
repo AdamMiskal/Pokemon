@@ -3,7 +3,7 @@
 
     ViewBag.Title = "Index";
 }
-
+@using Microsoft.AspNet.Identity
 <h2>Marketplace Works</h2>
 
 
@@ -26,132 +26,143 @@
                 </div>
             </div>
 
-         <div class="default-exp-wrapper align-items-lg-start">
+            <div class="default-exp-wrapper align-items-lg-start">
 
-             <div class="inner">
-                 <div>
-                     <input style="height:40px; margin-top: 22px; border:solid; background-color: white; border-width: 1px;" class="ui-icon-seek-end" type="text" placeholder="Search Pokemon Name" />
-                 </div>
+                <div class="inner">
+                    <div>
+                        <input style="height:40px; margin-top: 22px; border:solid; background-color: white; border-width: 1px;" class="ui-icon-seek-end" type="text" placeholder="Search Pokemon Name" />
+                    </div>
 
-                 <div class="filter-select-option">
+                    <div class="filter-select-option">
 
-                     <label class="filter-leble"></label>
-                     <select>
-                         <option data-display="All">All</option>
-                         <option value="1">Owned</option>
-                         <option value="2">Not Owned</option>
-                         
-                     </select>
-                 </div>
+                        <label class="filter-leble"></label>
+                        <select>
+                            <option data-display="All">All</option>
+                            <option value="1">Owned</option>
+                            <option value="2">Not Owned</option>
 
-                 <div class="filter-select-option">
+                        </select>
+                    </div>
 
-                     <label class="filter-leble"></label>
-                     <select>
-                         <option data-display="Type">All</option>
-                         <option value="1">Grass</option>
-                         <option value="2">Fire</option>
-                         <option value="3">Water</option>
-                         <option value="4">Electric</option>
-                         <option value="5">Ground</option>
-                         <option value="6">Rock</option>
-                     </select>
-                 </div>
+                    <div class="filter-select-option">
 
-                 <div class="filter-select-option">
-                     <label class="filter-leble"></label>
-                     <select>
-                         <option data-display="Rarity">All</option>
-                         <option value="1">Common</option>
-                         <option value="2">Rare</option>
-                         <option value="3">Legendary</option>
-                     </select>
-                 </div>
+                        <label class="filter-leble"></label>
+                        <select>
+                            <option data-display="Type">All</option>
+                            <option value="1">Grass</option>
+                            <option value="2">Fire</option>
+                            <option value="3">Water</option>
+                            <option value="4">Electric</option>
+                            <option value="5">Ground</option>
+                            <option value="6">Rock</option>
+                        </select>
+                    </div>
 
-
+                    <div class="filter-select-option">
+                        <label class="filter-leble"></label>
+                        <select>
+                            <option data-display="Rarity">All</option>
+                            <option value="1">Common</option>
+                            <option value="2">Rare</option>
+                            <option value="3">Legendary</option>
+                        </select>
+                    </div>
 
 
-                 <div class="filter-select-option">
-                     <label class="filter-leble">Price Range</label>
-                     <div class="price_filter s-filter clear">
-                         <form action="#" method="GET">
-                             <div id="slider-range"></div>
-                             <div class="slider__range--output">
-                                 <div class="price__output--wrap">
-                                     <div class="price--output">
-                                         <span>Price :</span><input type="text" id="amount" readonly>
-                                     </div>
-                                     @*<div class="price--filter">
-                                <a class="btn btn-primary btn-small" href="#">Filter</a>
-                            </div>*@
-                                 </div>
-                             </div>
-                         </form>
-                     </div>
-
-                 </div>
-
-             </div>
-         </div>
-
-         <br />
-         <br />
-         <hr />
-          <div class="box-table table-responsive">
-            <table class="table upcoming-projects">
-                <thead>
-                    <tr>
-                       
-                        <th>
-                            <span>Pokemon</span>
-                        </th>
-                        <th>
-                            <span>Type</span>
-                        </th>
-                        <th>
-                            <span>Rarity</span>
-                        </th>
-                        <th>
-                            <span>Owner's Name</span>
-                        </th>
-                        <th>
-                            <span>Not Owned</span>
-                        </th>
-                        <th>
-                            <span>Owned</span>
-                        </th>
-                        <th>
-                            <span>Price</span>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody class="ranking">
-                    <tr class="color-light">
-                        
-                        <td>
-                            <div class="product-wrapper d-flex align-items-center">
-                                <a href="product-details.html" class="thumbnail">
-
-                                    <img src="../../Assets/Images/001.png" />
-                                </a>
-                                <span>Bulbasaur</span>
-                            </div>
-                        </td>
-                        <td><span>Grass</span></td>
-                        <td><span>Common</span></td>
-                        <td><span>Ash Ketchup</span></td>
-                        <td><span>22</span></td>
-                        <td><span>8</span></td>
-                        <td><span>50</span></td>
-                    </tr>
-                   
-                </tbody>
-             </table>
-          </div>
-      </div>
 
 
-        
+                    <div class="filter-select-option">
+                        <label class="filter-leble"></label>
+                        <select>
+                            <option data-display="Sort Price">Price (Descending)</option>
+                            <option value="1">Price (Ascending)</option>
+
+
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+
+            <br />
+            <br />
+            <hr />
+            <div class="box-table table-responsive">
+                <table class="table upcoming-projects">
+                    <thead>
+                        <tr>
+
+                            <th>
+                                <span>Pokemon</span>
+                            </th>
+                            <th>
+                                <span>Type</span>
+                            </th>
+                            <th>
+                                <span>Rarity</span>
+                            </th>
+                            <th>
+                                <span>Owner's Name</span>
+                            </th>
+
+                            <th>
+                                <span>Price</span>
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="ranking">
+
+
+
+                        @foreach (var card in Model)
+                        {
+                        <tr class="color-light">
+                            <td>
+                                <div class="product-wrapper d-flex align-items-center">
+                                    <a href="product-details.html" class="thumbnail">
+
+                                        <img src=@card.Image.Url />
+                                    </a>
+                                    <span>@card.Name</span>
+                                </div>
+                            </td>
+                            <td>
+                                <ul class="list-unstyled">
+                                    @foreach (var type in card.PokemonTypes)
+                                    {
+                                        <li>
+                                            @type.Kind
+                                        </li>
+                                    }
+
+                                </ul>
+                            </td>
+                            <td><span>@card.Rarity</span></td>
+                            <td><span>@card.User.UserName</span></td>
+
+
+                            <td><span>@card.CardId</span></td>
+                            <td><span>@card.SerialNumber</span></td>
+
+
+                            <td><span>50</span></td>
+                            <td>
+                                <a href=@Url.Action("BuyCard","Marketplace", new { id = card.CardId }) class="btn btn-danger">Buy Mothafucka</a>
+                            </td>
+                        </tr>
+                        }
+
+
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+
     </div>
 
 
