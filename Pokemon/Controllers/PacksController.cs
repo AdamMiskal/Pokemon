@@ -19,13 +19,13 @@ namespace Pokemon.Controllers
         // GET: Packs
         public ActionResult Index()
         {
-            var userId = User.Identity.GetUserId();
-            var Usser = db.Users.Find(userId);
-            return View(Usser);
+            //var userId = User.Identity.GetUserId();
+            //var Usser = db.Users.Find(userId);
+            return View();
 
         }
 
-        [HttpPost]
+        
         public ActionResult BuyPack(BuyPackModel model)
         {
             var user = db.Users.Find(model.UserId);

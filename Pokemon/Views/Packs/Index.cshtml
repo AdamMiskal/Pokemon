@@ -1,5 +1,5 @@
 ﻿@model Pokemon.Models.ApplicationUser
-
+@using Microsoft.AspNet.Identity
 
 <div>
     
@@ -12,20 +12,20 @@
 
         <img style="height:300px" src="~/Assets/Images/001.png" />"
         <br />
-        <a href=@Url.Action("BuyPack","Packs",new {UserId=Model.Id ,PackValue=3 })>Buy Leaf Pack</a>
+        <a href=@Url.Action("BuyPack", "Packs", new { UserId = User.Identity.GetUserId(), PackValue = 3 })>Buy Leaf Pack</a>
     </div>
 
     <div class="col">
 
         <img style="height:300px" src="~/Assets/Images/004.png" />
         <br />
-        <a href=@Url.Action("BuyPack","Packs",new {UserId=Model.Id ,PackValue=5 })>Buy Fire Pack</a>
+        <a href=@Url.Action("BuyPack","Packs",new {UserId=User.Identity.GetUserId() ,PackValue=5 })>Buy Fire Pack</a>
     </div>
 
     <div class="col">
         <img style="height:300px" src="~/Assets/Images/007.png" />
         <br />
-        <a href=@Url.Action("BuyPack","Packs",new {UserId=Model.Id ,PackValue=7 })>Buy Water Pack</a>
+        <a href=@Url.Action("BuyPack","Packs",new {UserId=User.Identity.GetUserId() ,PackValue=7 })>Buy Water Pack</a>
         
     </div>
 
