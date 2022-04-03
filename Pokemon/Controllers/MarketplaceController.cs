@@ -16,9 +16,11 @@ namespace Pokemon.Controllers
         // GET: Marketplace
         public ActionResult Index()
         {
-            var market = db.Cards.Where(x => x.Market == true).Include(x=>x.PokemonTypes).Include(x=>x.User).ToList();
+            //var market = db.Cards.Where(x => x.Market == true).Include(x=>x.PokemonTypes).Include(x=>x.User).ToList();
+            var market=db.Cards.Include(x => x.PokemonTypes).Include(x => x.User).ToList();
             return View(market);
         }
+
 
 
         //Card userId seller-->buyer
@@ -44,24 +46,11 @@ namespace Pokemon.Controllers
                 return HttpNotFound();
 
             }
+           
             card.ApplicationUserId = User.Identity.GetUserId();
 
             card.Market = false;
 
-            //var card = db.Cards.Find(model.Value);
-
-            //card.ApplicationUserId = model.BuyerId;
-
-
-
-
-            //if (user.Balance < model.PackValue)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);//tha to allaksoume me ena view diko mas
-            //}
-
-            //var cards = db.Cards.Where(c => c.ApplicationUserId == null).ToList();
-            //var newPack = CreatePack.NewPack(model.PackValue, cards, model.UserId);
             db.SaveChanges();
            
             return RedirectToAction("Index","Mycollection");
