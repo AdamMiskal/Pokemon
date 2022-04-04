@@ -58,6 +58,24 @@ namespace Pokemon.Controllers
 
        }
 
+        public ActionResult Listcard(int CardId, int Price) {
+            Card card = db.Cards.Find(CardId);
+
+
+            card.Price = Price;
+            card.Market = true;
+
+            return RedirectToAction("Index", "Mycollection");
+        }
+        public ActionResult CancelList(int CardId) {
+            Card card = db.Cards.Find(CardId);
+            card.Price = null;
+            card.Market = false;
+            return RedirectToAction("Index", "Mycollection");
+        }
+
+
+
 
         protected override void Dispose(bool disposing)
         {
