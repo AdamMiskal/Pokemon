@@ -276,6 +276,14 @@ namespace Pokemon.Controllers
             return View(model);
         }
 
+        // GET: /Manage/EditProfile
+        public ActionResult EditProfile()
+        {
+            return View();
+        }
+
+
+
         //
         // GET: /Manage/ManageLogins
         public async Task<ActionResult> ManageLogins(ManageMessageId? message)
