@@ -142,7 +142,7 @@
                 var store = new RoleStore<IdentityRole>(context);
                 var manager = new RoleManager<IdentityRole>(store);
                 var role = new IdentityRole { Name = "Admin" };
-            
+                 
                 manager.Create(role);
                 
             }
@@ -158,7 +158,7 @@
                 {
                     UserName = "admin@gmail.com",
                     Email = "admin@gmail.com",
-                    //Balance = 55,
+                    Balance = 1000,
                     //Cards = new List<Card>() { c4,c5},
                     PasswordHash = passwordHash.HashPassword("Admin1234!")
                 };

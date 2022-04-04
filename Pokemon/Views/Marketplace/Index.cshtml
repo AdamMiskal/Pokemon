@@ -6,16 +6,16 @@
 @using Microsoft.AspNet.Identity
 
 
-@foreach (var item in Model)
-{
-    if (User.Identity.GetUserId() == item.ApplicationUserId && Request.IsAuthenticated)
+@*@foreach (var item in Model)
     {
-        <img src=@item.Image.Url />
-    }
-   
+        if (User.Identity.GetUserId() == item.ApplicationUserId && Request.IsAuthenticated)
+        {
+            <img src=@item.Image.Url />
+        }
 
 
-}
+
+    }*@
 
 
 <style>
@@ -38,7 +38,7 @@
 
     /* Modal Content/Box */
     .modal-content {
-        background-image: url('https://www.teahub.io/photos/full/16-165638_cool-dark-pokemon-backgrounds.jpg');
+        background-color: black;
         background-repeat: no-repeat;
         background-position: center;
         margin: 15% auto; /* 15% from the top and centered */
@@ -63,7 +63,7 @@
         }
 </style>
 
-<h2>Marketplace Works</h2>
+
 
 
 
@@ -96,7 +96,7 @@
             {
                 <div>
                     <div style="margin-top:20px; height:40px; font-size:16px;" class="btn btn-primary">
-                        <a   >@Html.ActionLink("Log In to List Your Cards", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</a>
+                        <a>@Html.ActionLink("Log In to List Your Cards", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</a>
                     </div>
                 </div>
             }
@@ -145,7 +145,7 @@
                                         <tr class="color-light">
                                             <td>
                                                 <div class="product-wrapper d-flex align-items-center">
-                                                    <a href="product-details.html" class="thumbnail">
+                                                    <a href=@Url.Action("CardDetails","CardDatabase",new { id=card.CardId}) class="thumbnail">
 
                                                         <img src=@card.Image.Url />
                                                     </a>
@@ -169,14 +169,30 @@
 
                                             <td><span>@card.CardId</span></td>
                                             <td><span>@card.SerialNumber</span></td>
-                                            <td><input style="border-radius:5px; height:40px; width:300px;  border:solid; background-color: white; border-width: 1px;" type="number" placeholder="Enter The Price" value="1" min="1" /></td>
+
+                                            <td></td>
+
+
+                                            @using (Html.BeginForm("Listcard", "Marketplace"))
+                                            {
+                                                <td>
+
+                                                    <input id="listingprice" name="price" style="margin-top:10px;border-radius:5px; height:40px; width:300px;  border:solid; background-color: white; border-width: 1px;" type="number" placeholder="Enter The Price" value="1" min="1" />
+
+                                                    <input type="hidden" name="CardId" value="@card.CardId" />
+
+                                                    <input type="submit" value="List Card" />
+
+                                                </td>
+
+                                            }
 
 
 
-                                            <td>
-                                                <a style="text-decoration:none;" href="" class="btn btn-primary">List in Marketplace</a>
-                                            </td>
                                         </tr>
+
+
+
                                     }
 
                                 }
@@ -225,8 +241,13 @@
                             <th onclick="sortTable(3)">
                                 <span>Owner's Name</span>
                             </th>
-
                             <th onclick="sortTable(4)">
+                                <span>Id</span>
+                            </th>
+                            <th onclick="sortTable(5)">
+                                <span>Serialnumber</span>
+                            </th>
+                            <th onclick="sortTable(6)">
                                 <span>Price</span>
                             </th>
                         </tr>
@@ -243,7 +264,7 @@
                                 <tr class="color-light">
                                     <td>
                                         <div class="product-wrapper d-flex align-items-center">
-                                            <a href="product-details.html" class="thumbnail">
+                                            <a href=@Url.Action("CardDetails","CardDatabase",new { id=card.CardId}) class="thumbnail">
 
                                                 <img src=@card.Image.Url />
                                             </a>
@@ -269,10 +290,57 @@
                                     <td><span>@card.SerialNumber</span></td>
 
 
-                                    <td><span>50</span></td>
-                                    <td>
-                                        <a href=@Url.Action("BuyCard","Marketplace", new { id = card.CardId }) class="btn btn-danger">Buy Mothafucka</a>
-                                    </td>
+                                    <td><span>@card.Price</span></td>
+
+
+
+
+                                    @if (Request.IsAuthenticated)
+                                    {
+
+                                        if (card.ApplicationUserId == User.Identity.GetUserId())
+                                        {
+                                            <td>
+                                                <a style="text-decoration:none; width:150px;" href=@Url.Action("CancelList","Marketplace", new { CardId= card.CardId }) class="btn btn-danger">Cancel Sale</a>
+                                            </td>
+                                        }
+                                        else
+                                        {
+                                            <td>
+                                                <a style="text-decoration:none; width:150px;" href=@Url.Action("BuyCard","Marketplace", new { id = card.CardId, Price= card.Price}) class="btn btn-success">Buyout</a>
+                                            </td>
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        
+                                            <td >
+                                                <a  class="btn btn-primary" style="width:160px; text-decoration:none;" href=@Url.Action("Login","Account")   >Log In</a>
+                                            </td>
+                                        
+                                    }
+
+
+
+
+
+
+
+
+                                    @*@if (card.ApplicationUserId == User.Identity.GetUserId())
+                                    {
+                                        <td>
+                                            <a style="text-decoration:none; width:150px;" href=@Url.Action("CancelList","Marketplace", new { CardId= card.CardId }) class="btn btn-danger">Cancel Sale</a>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td>
+                                            <a style="text-decoration:none; width:150px;" href=@Url.Action("BuyCard","Marketplace", new { id = card.CardId, Price= card.Price}) class="btn btn-success">Buyout</a>
+                                        </td>
+                                    }*@
+
                                 </tr>
                             }
 
@@ -293,111 +361,111 @@
 
 
 
-    
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script>
-        //SearchBar
-        $(document).ready(function () {
-            $("#myInput").on("keyup", function () {
-                var value = $(this).val().toLowerCase();
-                $("#myTable tr").filter(function () {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    //SearchBar
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
         });
+    });
 
 
 
-        //Sorting sta Thead
-        function sortTable(n) {
-            var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-            table = document.getElementById("myTable1");
-            switching = true;
-            // Set the sorting direction to ascending:
-            dir = "asc";
-            /* Make a loop that will continue until
-            no switching has been done: */
-            while (switching) {
-                // Start by saying: no switching is done:
-                switching = false;
-                rows = table.rows;
-                /* Loop through all table rows (except the
-                first, which contains table headers): */
-                for (i = 1; i < (rows.length - 1); i++) {
-                    // Start by saying there should be no switching:
-                    shouldSwitch = false;
-                    /* Get the two elements you want to compare,
-                    one from current row and one from the next: */
-                    x = rows[i].getElementsByTagName("TD")[n];
-                    y = rows[i + 1].getElementsByTagName("TD")[n];
-                    /* Check if the two rows should switch place,
-                    based on the direction, asc or desc: */
+    //Sorting sta Thead
+    function sortTable(n) {
+        var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+        table = document.getElementById("myTable1");
+        switching = true;
+        // Set the sorting direction to ascending:
+        dir = "asc";
+        /* Make a loop that will continue until
+        no switching has been done: */
+        while (switching) {
+            // Start by saying: no switching is done:
+            switching = false;
+            rows = table.rows;
+            /* Loop through all table rows (except the
+            first, which contains table headers): */
+            for (i = 1; i < (rows.length - 1); i++) {
+                // Start by saying there should be no switching:
+                shouldSwitch = false;
+                /* Get the two elements you want to compare,
+                one from current row and one from the next: */
+                x = rows[i].getElementsByTagName("TD")[n];
+                y = rows[i + 1].getElementsByTagName("TD")[n];
+                /* Check if the two rows should switch place,
+                based on the direction, asc or desc: */
 
 
 
-                    if (dir == "asc") {
-                        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                            // If so, mark as a switch and break the loop:
-                            shouldSwitch = true;
-                            break;
-                        }
-                    } else if (dir == "desc") {
-                        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                            // If so, mark as a switch and break the loop:
-                            shouldSwitch = true;
-                            break;
-                        }
+                if (dir == "asc") {
+                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                        // If so, mark as a switch and break the loop:
+                        shouldSwitch = true;
+                        break;
                     }
-                }
-                if (shouldSwitch) {
-                    /* If a switch has been marked, make the switch
-                    and mark that a switch has been done: */
-                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                    switching = true;
-                    // Each time a switch is done, increase this count by 1:
-                    switchcount++;
-                } else {
-                    /* If no switching has been done AND the direction is "asc",
-                    set the direction to "desc" and run the while loop again. */
-                    if (switchcount == 0 && dir == "asc") {
-                        dir = "desc";
-                        switching = true;
+                } else if (dir == "desc") {
+                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                        // If so, mark as a switch and break the loop:
+                        shouldSwitch = true;
+                        break;
                     }
                 }
             }
+            if (shouldSwitch) {
+                /* If a switch has been marked, make the switch
+                and mark that a switch has been done: */
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+                // Each time a switch is done, increase this count by 1:
+                switchcount++;
+            } else {
+                /* If no switching has been done AND the direction is "asc",
+                set the direction to "desc" and run the while loop again. */
+                if (switchcount == 0 && dir == "asc") {
+                    dir = "desc";
+                    switching = true;
+                }
+            }
         }
+    }
 
 
-        //Box Modal SCRIPTS
-        // Get the modal
-        var modal = document.getElementById("myModal");
+    //Box Modal SCRIPTS
+    // Get the modal
+    var modal = document.getElementById("myModal");
 
-        // Get the button that opens the modal
-        var btn = document.getElementById("myBtn");
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
 
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
 
-        // When the user clicks on the button, open the modal
-        
+    // When the user clicks on the button, open the modal
 
-        btn.onclick = function () {
-            modal.style.display = "block";
-        }
 
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function () {
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
             modal.style.display = "none";
         }
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
+    }
 
 
 
-    </script>
+</script>

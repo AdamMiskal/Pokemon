@@ -14,6 +14,8 @@ namespace Pokemon.Controllers
     {
         ApplicationDbContext db = new ApplicationDbContext();
         // GET: Marketplace
+
+
         public ActionResult Index()
         {
             //var market = db.Cards.Where(x => x.Market == true).Include(x=>x.PokemonTypes).Include(x=>x.User).ToList();
@@ -27,10 +29,16 @@ namespace Pokemon.Controllers
         //Value--> afere8ei apo to banalnce tou buyer
         //value--> proste8ei sto seller
 
-       public ActionResult BuyCard(int? id)
+       public ActionResult BuyCard(int? id ,int price )
        {
 
-
+            var user = db.Users.Find( User.Identity.GetUserId());
+            
+            if ( user.Balance >= price )
+            {
+                user.Balance -= price;
+            }
+           
 
             if (id==null)
             {
@@ -58,19 +66,33 @@ namespace Pokemon.Controllers
 
        }
 
-        public ActionResult Listcard(int CardId, int Price) {
-            Card card = db.Cards.Find(CardId);
 
+        public ActionResult Listcard(int? CardId, int? Price) {
+            Card card = db.Cards.Find(CardId);
+            
 
             card.Price = Price;
             card.Market = true;
 
+            db.SaveChanges();
             return RedirectToAction("Index", "Mycollection");
         }
-        public ActionResult CancelList(int CardId) {
-            Card card = db.Cards.Find(CardId);
-            card.Price = null;
+
+        public ActionResult CancelList(int? CardId) {
+            var card = db.Cards.Find(CardId);
+
+            if (card.Price==null)
+            {
+                
+            }
+            else
+            {
+                card.Price = null;
+            }
+            
+            
             card.Market = false;
+            db.SaveChanges();
             return RedirectToAction("Index", "Mycollection");
         }
 
