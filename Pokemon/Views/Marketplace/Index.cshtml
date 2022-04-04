@@ -8,11 +8,11 @@
 
 @foreach (var item in Model)
 {
-    if (User.Identity.GetUserId() == item.ApplicationUserId)
+    if (User.Identity.GetUserId() == item.ApplicationUserId && Request.IsAuthenticated)
     {
         <img src=@item.Image.Url />
     }
-
+   
 
 
 }
@@ -83,12 +83,23 @@
 
 
         <div>
-            <div>
-                <div>
-                    <button id="myBtn" class="btn btn-primary" style="margin-top:20px">List Your PokemonCard</button>
-                </div>
-            </div>
 
+            @if (Request.IsAuthenticated)
+            {
+                <div>
+                    <div>
+                        <button id="myBtn" class="btn btn-primary" style="margin-top:20px">List Your PokemonCard</button>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div>
+                    <div style="margin-top:20px; height:40px; font-size:16px;" class="btn btn-primary">
+                        <a   >@Html.ActionLink("Log In to List Your Cards", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</a>
+                    </div>
+                </div>
+            }
 
             <!-- The Modal -->
             <div id="myModal" class="modal">
@@ -98,9 +109,9 @@
                     <span class="close top-right">&times;</span>
                     <br />
                     <h2 style="color:white;">List Your Card in Marketplace</h2>
-                   
-                   
-                        <table  class="table upcoming-projects">
+
+                    <div class="table table-responsive">
+                        <table style="width:90%" class="table upcoming-projects">
                             <thead>
                                 <tr>
 
@@ -176,10 +187,10 @@
                             </tbody>
                         </table>
 
-
                     </div>
-
                 </div>
+
+            </div>
 
 
             <div>
@@ -369,6 +380,8 @@
         var span = document.getElementsByClassName("close")[0];
 
         // When the user clicks on the button, open the modal
+        
+
         btn.onclick = function () {
             modal.style.display = "block";
         }
