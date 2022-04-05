@@ -1,195 +1,28 @@
-﻿
-
-    @using Microsoft.AspNet.Identity
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-@using Microsoft.AspNet.Identity
+﻿@using Microsoft.AspNet.Identity
 @using Pokemon.Models;
 @using System.Data.Entity;
 
 
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-
-    <!-- Start Header -->
-    <header style="text-align:right;" class="rn-header haeder-default black-logo-version header--fixed header--sticky ">
-        <div style=" align-items:flex-end;" class="container p-0">
-
-            <div class="header-inner">
-                <div class="header-left">
-                    <a class="logo-light" href=@Url.Action("Index","Home")><img height="85" width="85" src="~/Assets/Images/EliteFour-removebg-preview.png" alt="nft-logo"></a>
-                    <div class="logo-thumbnail logo-custom-css">
-                    </div>
-                    <div class="mainmenu-wrapper" style="width:90%;">
-                        <nav id="sideNav" class="mainmenu-nav d-none d-xl-block">
-                            <!-- Start Mainmanu Nav -->
-                            <ul class="mainmenu">
-                                <li>
-                                    <a href=@Url.Action("Index","Home")>Home</a>
-                                </li>
-                                @*<li>
-                                    <a href=@Url.Action("Index","MyCollection")>My Collection</a>
-                                </li>*@
-                                <li>
-                                    <a href=@Url.Action("Index","CardDatabase")>Card Database</a>
-                                </li>
-                                <li>
-                                    <a href=@Url.Action("Index","Marketplace")>Marketplace</a>
-                                </li>
-                                <li>
-                                    <a href=@Url.Action("Index","Packs")>Packs</a>
-                                </li>
-
-                            </ul>
-                            <!-- End Mainmanu Nav -->
-                        </nav>
-                    </div>
+<!-- Start Header -->
+<header style="text-align:right;" class="rn-header haeder-default black-logo-version header--fixed header--sticky ">
+    <div style=" align-items:flex-end;" class="container p-0">
+        <div class="header-inner">
+            <div class="header-left">
+                <a class="logo-light" href=@Url.Action("Index","Home")><img height="85" width="85" src="~/Assets/Images/EliteFour-removebg-preview.png" alt="nft-logo"></a>
+                <div class="logo-thumbnail logo-custom-css">
                 </div>
-                <div class="header-right ">
-
-
-
-                    @*Drop Menu Gia Mobile H' Mikrotero Parathiro*@
-                    <div class="setting-option mobile-menu-bar d-block d-xl-none">
-                        <div class="hamberger">
-                            <button class="hamberger-button">
-                                <i class="feather-menu"></i>
-                            </button>
-                        </div>
-                    </div>
-
-
-
-                    @if (Request.IsAuthenticated)
-                    {
-                        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-                        {
-                            @Html.AntiForgeryToken()
-
-                            <div class="mainmenu-wrapper">
-                                <nav class="mainmenu-nav d-none d-xl-block">
-                                    <ul class="mainmenu navbar-right">
-                        ApplicationDbContext db = new ApplicationDbContext();
-
-                        var keepo = db.Users.Find(User.Identity.GetUserId());
-
-                        <div class="mainmenu-wrapper">
-                            <nav class="mainmenu-nav d-none d-xl-block">
-                                <ul class="mainmenu navbar-right">
-
-                                        <li>
-                                            <a href="@Url.Action("Index","MyCollection")" class="p-0 has-droupdown text-right">
-                                                <h4 class="bi bi-person-fill" style="padding:25px; margin:0px;"></h4>
-                                            </a>
-                                            <ul class="submenu">
-                                                <li class="text-center d-flex flex-row ">
-                                                    <img src="https://www.seekpng.com/png/small/353-3532499_badgeleopard-the-energy-types-of-the-pokemon-tcg.png" alt="Alternate Text" height="60" width="60" class="border border-light rounded-circle ml--10 mr--10" />
-                                                    <a class="p-0 mr--100 " href=@Url.Action("Index", "Manage")>Welcome @User.Identity.GetUserName()</a>
-
-                                                </li>
-
-                                                <li><hr style="width:50%;text-align:center;margin-left:25%; margin-top:15px;" /></li>
-                                                <li>Balance: </li>
-                                                <li style="align-items:center;"> <a class="p-0" href="javascript:document.getElementById('logoutForm').submit()">Log Out</a></li>
-                                                
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <li><hr style="width:50%;text-align:center;margin-left:25%; margin-top:15px;" /></li>
-                                            <li>@keepo.Balance</li>
-                                            <li> <a class="p-0" href="javascript:document.getElementById('logoutForm').submit()">Log Out</a></li>
-
-                                        </ul>
-                                    </li>
-                                    <li>
-
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        }
-                    }
-                    else
-                    {
-
-                        <div class="mainmenu-wrapper">
-                            <nav id="sideNav" class="mainmenu-nav d-none d-xl-block">
-
-                                <ul class="mainmenu">
-
-                                    <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-                                </ul>
-
-                            </nav>
-                        </div>
-
-
-                    }
-
-
-                    @*Koubaki Light Dark*@
-                    <div id="my_switcher" class="my_switcher setting-option">
-                        <ul>
-                            <li>
-                                <a href="javascript: void(0);" data-theme="light" class="setColor light">
-                                    <img class="sun-image" src="~/Znuron/nuron/assets/images/icons/sun-01.svg" alt="Sun images">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript: void(0);" data-theme="dark" class="setColor dark">
-                                    <img class="Victor Image" src="~/Znuron/nuron/assets/images/icons/vector.svg" alt="Vector Images">
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    @*Notification*@
-                    <div class="setting-option rn-icon-list notification-badge">
-                        <div class="icon-box">
-                            <a href="#"><i class="feather-bell"></i><!--<span class="badge">6</span>--></a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-
-    </header>
-    <!-- End Header Area -->
-    <!-- Start Header Mobile -->
-    <div class="popup-mobile-menu">
-        <div class="inner">
-            <div class="header-top">
-                <div>
-
-                    <a class="logo-light" style="margin-left:0px" href=@Url.Action("Index","Home")><img height="120" width="120" src="~/Assets/Images/EliteFour-removebg-preview.png" alt="nft-logo"></a>
-
-
-                </div>
-                <div class="close-menu">
-                    <button class="close-button">
-                        <i class="feather-x"></i>
-                    </button>
-                </div>
-            </div>
-            <nav>
-
-                <ul class="mainmenu">
-
-                    @if (Request.IsAuthenticated)
-                    {
-                        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
-                        {
-                            @Html.AntiForgeryToken()
-
-                            <li>
-                                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-                                <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
-                            </li>
-
+                <div class="mainmenu-wrapper" style="width:90%;">
+                    <nav id="sideNav" class="mainmenu-nav d-none d-xl-block">
+                        <!-- Start Mainmanu Nav -->
+                        <ul class="mainmenu">
                             <li>
                                 <a href=@Url.Action("Index","Home")>Home</a>
                             </li>
+                            @*<li>
+                                    <a href=@Url.Action("Index","MyCollection")>My Collection</a>
+                                </li>*@
                             <li>
                                 <a href=@Url.Action("Index","CardDatabase")>Card Database</a>
                             </li>
@@ -197,16 +30,116 @@
                                 <a href=@Url.Action("Index","Marketplace")>Marketplace</a>
                             </li>
                             <li>
-                                <a href=@Url.Action("Index", "Packs")>Packs</a>
+                                <a href=@Url.Action("Index","Packs")>Packs</a>
                             </li>
-                            <li>
-                                <a href=@Url.Action("Index","MyCollection")>My Collection</a>
-                            </li>
-                        }
-                    }
-                    else
+                        </ul>
+                        <!-- End Mainmanu Nav -->
+                    </nav>
+                </div>
+            </div>
+            <div class="header-right ">
+                @*Drop Menu Gia Mobile H' Mikrotero Parathiro*@
+                <div class="setting-option mobile-menu-bar d-block d-xl-none">
+                    <div class="hamberger">
+                        <button class="hamberger-button">
+                            <i class="feather-menu"></i>
+                        </button>
+                    </div>
+                </div>
+                @if (Request.IsAuthenticated)
+                {
+                    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
                     {
-                        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+
+                        ApplicationDbContext db = new ApplicationDbContext();
+                        var user = db.Users.Find(User.Identity.GetUserId());
+
+
+                        @Html.AntiForgeryToken()
+                        <div class="mainmenu-wrapper">
+                            <nav class="mainmenu-nav d-none d-xl-block">
+                                <ul class="mainmenu navbar-right">
+                                    <li>
+                                        <a href="@Url.Action("Index","MyCollection")" class="p-0 has-droupdown text-right">
+                                            <h4 class="bi bi-person-fill" style="padding:25px; margin:0px;"></h4>
+                                        </a>
+                                        <ul class="submenu">
+                                            <li class="text-center d-flex flex-row ">
+                                                <img src="https://www.seekpng.com/png/small/353-3532499_badgeleopard-the-energy-types-of-the-pokemon-tcg.png" alt="Alternate Text" height="60" width="60" class="border border-light rounded-circle ml--10 mr--10" />
+                                                <a class="p-0 mr--100 " href=@Url.Action("Index", "Manage")>Welcome @User.Identity.GetUserName()</a>
+                                            </li>
+                                            <li><hr style="width:50%;text-align:center;margin-left:25%; margin-top:15px;" /></li>
+                                            <li>Balance: @user.Balance </li>
+                                            <li style="align-items:center;"> <a class="p-0" href="javascript:document.getElementById('logoutForm').submit()">Log Out</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="mainmenu-wrapper">
+                        <nav id="sideNav" class="mainmenu-nav d-none d-xl-block">
+                            <ul class="mainmenu">
+                                <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                            </ul>
+                        </nav>
+                    </div>
+                }
+                @*Koubaki Light Dark*@
+                <div id="my_switcher" class="my_switcher setting-option">
+                    <ul>
+                        <li>
+                            <a href="javascript: void(0);" data-theme="light" class="setColor light">
+                                <img class="sun-image" src="~/Znuron/nuron/assets/images/icons/sun-01.svg" alt="Sun images">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);" data-theme="dark" class="setColor dark">
+                                <img class="Victor Image" src="~/Znuron/nuron/assets/images/icons/vector.svg" alt="Vector Images">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                @*Notification*@
+                <div class="setting-option rn-icon-list notification-badge">
+                    <div class="icon-box">
+                        <a href="#"><i class="feather-bell"></i><!--<span class="badge">6</span>--></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- End Header Area -->
+<!-- Start Header Mobile -->
+<div class="popup-mobile-menu">
+    <div class="inner">
+        <div class="header-top">
+            <div>
+                <a class="logo-light" style="margin-left:0px" href=@Url.Action("Index","Home")><img height="120" width="120" src="~/Assets/Images/EliteFour-removebg-preview.png" alt="nft-logo"></a>
+            </div>
+            <div class="close-menu">
+                <button class="close-button">
+                    <i class="feather-x"></i>
+                </button>
+            </div>
+        </div>
+        <nav>
+            <ul class="mainmenu">
+                @if (Request.IsAuthenticated)
+                {
+                    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <li>
+                            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                            <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                        </li>
                         <li>
                             <a href=@Url.Action("Index","Home")>Home</a>
                         </li>
@@ -214,23 +147,33 @@
                             <a href=@Url.Action("Index","CardDatabase")>Card Database</a>
                         </li>
                         <li>
-                                <a href=@Url.Action("Index","Marketplace")>Marketplace</a>
-                         </li>
-                        <li>
-                            <a href=@Url.Action("Index","Packs")>Packs</a>
+                            <a href=@Url.Action("Index","Marketplace")>Marketplace</a>
                         </li>
-
+                        <li>
+                            <a href=@Url.Action("Index", "Packs")>Packs</a>
+                        </li>
+                        <li>
+                            <a href=@Url.Action("Index","MyCollection")>My Collection</a>
+                        </li>
                     }
-
-                </ul>
-            </nav>
-        </div>
-    </div>
-    <!-- End Header Mobile -->
-    @*@Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })*@
+                }
+                else
+                {
+                    <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                    <li>
+                        <a href=@Url.Action("Index","Home")>Home</a>
+                    </li>
+                    <li>
+                        <a href=@Url.Action("Index","CardDatabase")>Card Database</a>
+                    </li>
+                    <li>
+                        <a href=@Url.Action("Index","Marketplace")>Marketplace</a>
+                    </li>
+                    <li>
+                        <a href=@Url.Action("Index","Packs")>Packs</a>
+                    </li>
+                }
             </ul>
         </nav>
     </div>
 </div>
-<!-- End Header Mobile -->
-@*@Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })*@
