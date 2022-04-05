@@ -187,7 +187,7 @@
                 {
                     UserName = "Test1@gmail.com",
                     Email = "Test1@gmail.com",
-                    Balance = 55,
+                    Balance = 1000,
                     PasswordHash = passwordHash.HashPassword("Test1234!")
                 };
 

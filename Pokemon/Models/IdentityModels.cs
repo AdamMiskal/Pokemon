@@ -16,7 +16,7 @@ namespace Pokemon.Models
     {
         
 
-        public int Balance { get; set; }
+        public double Balance { get; set; }
        
         public ICollection<Card> Cards  { get; set; }
         

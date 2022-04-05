@@ -19,7 +19,7 @@ namespace Pokemon.Controllers
         public ActionResult Index()
         {
             //var market = db.Cards.Where(x => x.Market == true).Include(x=>x.PokemonTypes).Include(x=>x.User).ToList();
-            var market=db.Cards.Include(x => x.PokemonTypes).Include(x => x.User).ToList();
+            var market = db.Cards.Include(x => x.PokemonTypes).Include(x => x.User).ToList();
             return View(market);
         }
 
@@ -29,18 +29,15 @@ namespace Pokemon.Controllers
         //Value--> afere8ei apo to banalnce tou buyer
         //value--> proste8ei sto seller
 
-       public ActionResult BuyCard(int? id ,int price )
-       {
+        public ActionResult BuyCard(int? id, int price)
+        {
 
-            var user = db.Users.Find( User.Identity.GetUserId());
-            
-            if ( user.Balance >= price )
-            {
-                user.Balance -= price;
-            }
-           
+            var user = db.Users.Find(User.Identity.GetUserId());
 
-            if (id==null)
+
+
+
+            if (id == null)
             {
 
                 return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
@@ -49,27 +46,44 @@ namespace Pokemon.Controllers
 
             Card card = db.Cards.Find(id);
 
-            if (card==null)
+            var a = db.Users.FirstOrDefault(x => x.Email == "admin@gmail.com");
+            var result = a.Id
+;
+            if (card == null)
             {
                 return HttpNotFound();
 
             }
-           
+            if (user.Balance >= price)
+            {
+                user.Balance -= price;
+                var owner = db.Users.Find(card.ApplicationUserId);
+                owner.Balance += price - price * 0.1;
+                var admin = db.Users.Find(result);
+            }
+            else
+            {
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+
+            }
+
+
             card.ApplicationUserId = User.Identity.GetUserId();
 
             card.Market = false;
 
             db.SaveChanges();
-           
-            return RedirectToAction("Index","Mycollection");
-          
 
-       }
+            return RedirectToAction("Index", "Mycollection");
 
 
-        public ActionResult Listcard(int? CardId, int? Price) {
+        }
+
+
+        public ActionResult Listcard(int? CardId, int? Price)
+        {
             Card card = db.Cards.Find(CardId);
-            
+
 
             card.Price = Price;
             card.Market = true;
@@ -78,19 +92,20 @@ namespace Pokemon.Controllers
             return RedirectToAction("Index", "Mycollection");
         }
 
-        public ActionResult CancelList(int? CardId) {
+        public ActionResult CancelList(int? CardId)
+        {
             var card = db.Cards.Find(CardId);
 
-            if (card.Price==null)
+            if (card.Price == null)
             {
-                
+
             }
             else
             {
                 card.Price = null;
             }
-            
-            
+
+
             card.Market = false;
             db.SaveChanges();
             return RedirectToAction("Index", "Mycollection");
