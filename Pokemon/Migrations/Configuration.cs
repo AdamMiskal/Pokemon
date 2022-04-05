@@ -166,7 +166,11 @@
                  c1.User = us1;
                  c4.User = us1;
                  c6.User = us1;
-            
+                c1.Price = 200;
+                c4.Price = 300;
+                c6.Price = 100;
+
+
                 userManager.Create(us1);
                 userManager.AddToRole(us1.Id, "Admin");
 
