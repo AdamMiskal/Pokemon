@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Data.Entity;
 using Pokemon.Models.HelperModels;
 using Microsoft.AspNet.Identity;
+using Pokemon.Repository;
 
 namespace Pokemon.Controllers
 {
@@ -19,7 +20,7 @@ namespace Pokemon.Controllers
         public ActionResult Index()
         {
             //var market = db.Cards.Where(x => x.Market == true).Include(x=>x.PokemonTypes).Include(x=>x.User).ToList();
-            var market=db.Cards.Include(x => x.PokemonTypes).Include(x => x.User).ToList();
+            var market = db.Cards.Include(x => x.PokemonTypes).Include(x => x.User).ToList();
             return View(market);
         }
 
@@ -29,33 +30,51 @@ namespace Pokemon.Controllers
         //Value--> afere8ei apo to banalnce tou buyer
         //value--> proste8ei sto seller
 
-       public ActionResult BuyCard(int? id ,int price )
-       {
+        public ActionResult BuyCard(int? id, int price)
+        {
+            Card card = db.Cards.Find(id);
 
-            var user = db.Users.Find( User.Identity.GetUserId());
+            var buyer = db.Users.Find(User.Identity.GetUserId());
+            var owner = db.Users.Find(card.ApplicationUserId);
+            var searchAdmin = db.Users.FirstOrDefault(x => x.Email == "admin@gmail.com");
+            var resultId = searchAdmin.Id;
+            var admin = db.Users.Find(resultId);
             
-            if ( user.Balance >= price )
-            {
-                user.Balance -= price;
-            }
-           
 
-            if (id==null)
+
+
+
+
+
+            if (id == null)
             {
 
                 return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
 
             }
 
-            Card card = db.Cards.Find(id);
 
-            if (card==null)
+
+            
+            if (card == null)
             {
                 return HttpNotFound();
 
             }
+<<<<<<< HEAD
            
             
+=======
+            if (buyer.Balance >= price)
+            {
+                BuyCardTranferMoney.TranferMoney(owner, buyer, admin, price);
+            }
+            else
+            {
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+
+            }
+>>>>>>> d50d9ea1f36637266f16cf132f176a38dde03af9
 
 
             card.ApplicationUserId = User.Identity.GetUserId();
@@ -63,16 +82,25 @@ namespace Pokemon.Controllers
             card.Market = false;
 
             db.SaveChanges();
+<<<<<<< HEAD
            
             return RedirectToAction("Index","Mycollection");
           
             
        }
+=======
+
+            return RedirectToAction("Index", "Mycollection");
+>>>>>>> d50d9ea1f36637266f16cf132f176a38dde03af9
 
 
-        public ActionResult Listcard(int? CardId, int? Price) {
+        }
+
+
+        public ActionResult Listcard(int? CardId, int? Price)
+        {
             Card card = db.Cards.Find(CardId);
-            
+
 
             card.Price = Price;
             card.Market = true;
@@ -81,19 +109,20 @@ namespace Pokemon.Controllers
             return RedirectToAction("Index", "Mycollection");
         }
 
-        public ActionResult CancelList(int? CardId) {
+        public ActionResult CancelList(int? CardId)
+        {
             var card = db.Cards.Find(CardId);
 
-            if (card.Price==null)
+            if (card.Price == null)
             {
-                
+
             }
             else
             {
                 card.Price = null;
             }
-            
-            
+
+
             card.Market = false;
             db.SaveChanges();
             return RedirectToAction("Index", "Mycollection");
