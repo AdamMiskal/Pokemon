@@ -17,6 +17,43 @@
                     <nav id="sideNav" class="mainmenu-nav d-none d-xl-block">
                         <!-- Start Mainmanu Nav -->
                         <ul class="mainmenu">
+<<<<<<< HEAD
+                            @if (Request.IsAuthenticated)
+                            {
+
+                                <li>
+                                    <a href=@Url.Action("Index","Home")>Home</a>
+                                </li>
+                                <li>
+                                    <a href=@Url.Action("Index","MyCollection")>My Collection</a>
+                                </li>
+                                <li>
+                                    <a href=@Url.Action("Index","CardDatabase")>Card Database</a>
+                                </li>
+
+                                <li>
+                                    <a href=@Url.Action("Index", "Packs")>Packs</a>
+                                </li>
+
+
+                            }
+                            else
+                            {
+                             
+                                <li>
+                                    <a href=@Url.Action("Index","Home")>Home</a>
+                                </li>
+                                <li>
+                                    <a href=@Url.Action("Index","CardDatabase")>Card Database</a>
+                                </li>
+                                <li>
+                                    <a href=@Url.Action("Index","Marketplace")>Marketplace</a>
+                                </li>
+                                <li>
+                                    <a href=@Url.Action("Index","Packs")>Packs</a>
+                                </li>
+                            }
+=======
                             <li>
                                 <a href=@Url.Action("Index","Home")>Home</a>
                             </li>
@@ -32,6 +69,7 @@
                             <li>
                                 <a href=@Url.Action("Index","Packs")>Packs</a>
                             </li>
+>>>>>>> d50d9ea1f36637266f16cf132f176a38dde03af9
                         </ul>
                         <!-- End Mainmanu Nav -->
                     </nav>

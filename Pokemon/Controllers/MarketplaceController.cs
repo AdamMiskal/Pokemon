@@ -57,6 +57,10 @@ namespace Pokemon.Controllers
                 return HttpNotFound();
 
             }
+<<<<<<< HEAD
+           
+            
+=======
             if (buyer.Balance >= price)
             {
                 BuyCardTranferMoney.TranferMoney(owner, buyer, admin, price);
@@ -66,6 +70,7 @@ namespace Pokemon.Controllers
                 return RedirectToAction("Index","Errors",new { message="NOT ENOUGH BALANCE TO BUY THIS CARD"});
 
             }
+>>>>>>> d50d9ea1f36637266f16cf132f176a38dde03af9
 
 
             card.ApplicationUserId = User.Identity.GetUserId();
@@ -73,8 +78,16 @@ namespace Pokemon.Controllers
             card.Market = false;
 
             db.SaveChanges();
+<<<<<<< HEAD
+           
+            return RedirectToAction("Index","Mycollection");
+          
+            
+       }
+=======
 
             return RedirectToAction("Index", "Mycollection");
+>>>>>>> d50d9ea1f36637266f16cf132f176a38dde03af9
 
 
         }
