@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Data.Entity;
 using Pokemon.Models.HelperModels;
 using Microsoft.AspNet.Identity;
+using Pokemon.Repository;
 
 namespace Pokemon.Controllers
 {
@@ -31,8 +32,16 @@ namespace Pokemon.Controllers
 
         public ActionResult BuyCard(int? id, int price)
         {
+            Card card = db.Cards.Find(id);
 
-            var user = db.Users.Find(User.Identity.GetUserId());
+            var buyer = db.Users.Find(User.Identity.GetUserId());
+            var owner = db.Users.Find(card.ApplicationUserId);
+            var searchAdmin = db.Users.FirstOrDefault(x => x.Email == "admin@gmail.com");
+            var resultId = searchAdmin.Id;
+            var admin = db.Users.Find(resultId);
+            
+
+
 
 
 
@@ -44,22 +53,17 @@ namespace Pokemon.Controllers
 
             }
 
-            Card card = db.Cards.Find(id);
 
-            var a = db.Users.FirstOrDefault(x => x.Email == "admin@gmail.com");
-            var result = a.Id
-;
+
+            
             if (card == null)
             {
                 return HttpNotFound();
 
             }
-            if (user.Balance >= price)
+            if (buyer.Balance >= price)
             {
-                user.Balance -= price;
-                var owner = db.Users.Find(card.ApplicationUserId);
-                owner.Balance += price - price * 0.1;
-                var admin = db.Users.Find(result);
+                BuyCardTranferMoney.TranferMoney(owner, buyer, admin, price);
             }
             else
             {
