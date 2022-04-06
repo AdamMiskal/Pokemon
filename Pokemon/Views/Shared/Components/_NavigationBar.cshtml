@@ -17,7 +17,7 @@
                     <nav id="sideNav" class="mainmenu-nav d-none d-xl-block">
                         <!-- Start Mainmanu Nav -->
                         <ul class="mainmenu">
-<<<<<<< HEAD
+
                             @if (Request.IsAuthenticated)
                             {
 
@@ -30,7 +30,9 @@
                                 <li>
                                     <a href=@Url.Action("Index","CardDatabase")>Card Database</a>
                                 </li>
-
+                                <li>
+                                    <a href=@Url.Action("Index","Marketplace")>Marketplace</a>
+                                </li>
                                 <li>
                                     <a href=@Url.Action("Index", "Packs")>Packs</a>
                                 </li>
@@ -39,7 +41,7 @@
                             }
                             else
                             {
-                             
+
                                 <li>
                                     <a href=@Url.Action("Index","Home")>Home</a>
                                 </li>
@@ -53,23 +55,9 @@
                                     <a href=@Url.Action("Index","Packs")>Packs</a>
                                 </li>
                             }
-=======
-                            <li>
-                                <a href=@Url.Action("Index","Home")>Home</a>
-                            </li>
-                            <li>
-                                    <a href=@Url.Action("Index","MyCollection")>My Collection</a>
-                                </li>
-                            <li>
-                                <a href=@Url.Action("Index","CardDatabase")>Card Database</a>
-                            </li>
-                            <li>
-                                <a href=@Url.Action("Index","Marketplace")>Marketplace</a>
-                            </li>
-                            <li>
-                                <a href=@Url.Action("Index","Packs")>Packs</a>
-                            </li>
->>>>>>> d50d9ea1f36637266f16cf132f176a38dde03af9
+
+
+
                         </ul>
                         <!-- End Mainmanu Nav -->
                     </nav>
@@ -107,7 +95,7 @@
                                                 <a class="p-0 mr--100 " href=@Url.Action("Index", "Manage")>Welcome @User.Identity.GetUserName()</a>
                                             </li>
                                             <li><hr style="width:50%;text-align:center;margin-left:25%; margin-top:15px;" /></li>
-                                            <li>Balance: @user.Balance </li>
+                                            <li>Balance:@user.Balance</li>
                                             <li style="align-items:center;"> <a class="p-0" href="javascript:document.getElementById('logoutForm').submit()">Log Out</a></li>
                                         </ul>
                                     </li>
