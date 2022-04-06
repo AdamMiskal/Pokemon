@@ -32,19 +32,7 @@ namespace Pokemon.Controllers
 
         public ActionResult BuyCard(int? id, int price)
         {
-            Card card = db.Cards.Find(id);
-
-            var buyer = db.Users.Find(User.Identity.GetUserId());
-            var owner = db.Users.Find(card.ApplicationUserId);
-            var searchAdmin = db.Users.FirstOrDefault(x => x.Email == "admin@gmail.com");
-            var resultId = searchAdmin.Id;
-            var admin = db.Users.Find(resultId);
             
-
-
-
-
-
 
             if (id == null)
             {
@@ -52,10 +40,18 @@ namespace Pokemon.Controllers
                 return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
 
             }
+            Card card = db.Cards.Find(id);
+
+            var buyer = db.Users.Find(User.Identity.GetUserId());
+            var owner = db.Users.Find(card.ApplicationUserId);
+            var searchAdmin = db.Users.FirstOrDefault(x => x.Email == "admin@gmail.com");
+            var resultId = searchAdmin.Id;
+            var admin = db.Users.Find(resultId);
 
 
 
-            
+
+
             if (card == null)
             {
                 return HttpNotFound();
@@ -67,7 +63,7 @@ namespace Pokemon.Controllers
             }
             else
             {
-                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+                return RedirectToAction("Index","Errors",new { message="NOT ENOUGH BALANCE TO BUY THIS CARD"});
 
             }
 
