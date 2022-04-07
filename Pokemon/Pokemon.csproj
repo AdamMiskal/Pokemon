@@ -193,11 +193,13 @@
     <Compile Include="Controllers\MarketplaceController.cs" />
     <Compile Include="Controllers\MyCollectionController.cs" />
     <Compile Include="Controllers\PacksController.cs" />
+    <Compile Include="Controllers\PayPalPaymentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\PayPalConfiguration.cs" />
     <Compile Include="Models\HelperModels\BuyCardModel.cs" />
     <Compile Include="Models\HelperModels\BuyPackModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -800,9 +802,13 @@
     <Content Include="Views\Packs\BuyPack.cshtml" />
     <Content Include="Views\Manage\EditProfile.cshtml" />
     <Content Include="Views\Errors\Index.cshtml" />
+    <Content Include="Views\Payment\PaymentWithPaypal.cshtml" />
+    <Content Include="Views\Payment\SuccessViewPayPal.cshtml" />
+    <Content Include="Views\Payment\FailedViewPayPal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\PaypalPayment\" />
     <Folder Include="Views\PayPal\" />
   </ItemGroup>
   <ItemGroup>
