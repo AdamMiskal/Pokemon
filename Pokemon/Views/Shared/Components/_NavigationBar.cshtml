@@ -94,6 +94,15 @@
                                                 <img src="https://www.seekpng.com/png/small/353-3532499_badgeleopard-the-energy-types-of-the-pokemon-tcg.png" alt="Alternate Text" height="60" width="60" class="border border-light rounded-circle ml--10 mr--10" />
                                                 <a class="p-0 mr--100 " href=@Url.Action("Index", "Manage")>Welcome @User.Identity.GetUserName()</a>
                                             </li>
+
+                                            @* EDW EISAI------------------------------------------  *@
+
+                                            <li>
+                                                <a href=@Url.Action("PaymentWithPaypal","PayPalPayment",new { keepo="1" })>PayPal</a>
+                                            </li>
+
+
+
                                             <li><hr style="width:50%;text-align:center;margin-left:25%; margin-top:15px;" /></li>
                                             <li>Balance:@user.Balance</li>
                                             <li style="align-items:center;"> <a class="p-0" href="javascript:document.getElementById('logoutForm').submit()">Log Out</a></li>

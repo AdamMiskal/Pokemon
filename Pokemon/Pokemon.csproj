@@ -803,7 +803,7 @@
     <Content Include="Views\Manage\EditProfile.cshtml" />
     <Content Include="Views\Errors\Index.cshtml" />
     <Content Include="Views\Payment\PaymentWithPaypal.cshtml" />
-    <Content Include="Views\Payment\SuccessViewPayPal.cshtml" />
+    <Content Include="Views\Payment\SuccessView.cshtml" />
     <Content Include="Views\Payment\FailedViewPayPal.cshtml" />
   </ItemGroup>
   <ItemGroup>

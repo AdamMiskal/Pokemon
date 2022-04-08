@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
    namespace Pokemon.Controllers
    {  
-     public class PaymentController : Controller
+     public class PayPalPaymentController : Controller
      {
-        public ActionResult PaymentWithPaypal(string Cancel = null)
+        public ActionResult PaymentWithPaypal(string keepo)
         {
             APIContext apiContext = PayPalConfiguration.GetAPIContext();
             try
@@ -17,9 +17,9 @@ using System.Web.Mvc;
                 string payerId = Request.Params["PayerID"];
                 if (string.IsNullOrEmpty(payerId))
                 {
-                    string baseURI = Request.Url.Scheme + "://" + Request.Url.Authority + "/Payment/PaymentWithPayPal?";
+                    string baseURI = Request.Url.Scheme + "://" + Request.Url.Authority + "/PayPalPayment/PaymentWithPayPal?";
                     var guid = Convert.ToString((new Random()).Next(100000));
-                    var createdPayment = this.CreatePayment(apiContext, baseURI + "guid=" + guid);
+                    var createdPayment = this.CreatePayment(apiContext, baseURI + "guid=" + guid,keepo);
                     var links = createdPayment.links.GetEnumerator();
                     string paypalRedirectUrl = null;
                     while (links.MoveNext())
@@ -47,7 +47,7 @@ using System.Web.Mvc;
             {
                 throw ex;
             }
-            return View("SuccessView");
+            return RedirectToAction("Index","Home");
         }
         private PayPal.Api.Payment payment;
         private Payment ExecutePayment(APIContext apiContext, string payerId, string paymentId)
@@ -62,7 +62,7 @@ using System.Web.Mvc;
             };
             return this.payment.Execute(apiContext, paymentExecution);
         }
-        private Payment CreatePayment(APIContext apiContext, string redirectUrl)
+        private Payment CreatePayment(APIContext apiContext, string redirectUrl,string keepo)
         {
 
             var itemList = new ItemList()
@@ -74,8 +74,8 @@ using System.Web.Mvc;
             {
                 name = "PokeTokens",
                 currency = "USD",
-                price = "10",
-                quantity = "15",
+                price = keepo,
+                quantity = "1",
                 //sku = "abc"
             });
             var payer = new Payer()
@@ -93,13 +93,13 @@ using System.Web.Mvc;
             {
                 tax = "0",
                 shipping = "0",
-                subtotal = "150"
+                subtotal = keepo
             };
             //Final amount with details  
             var amount = new Amount()
             {
                 currency = "USD",
-                total = "150", // Total must be equal to sum of tax, shipping and subtotal.  
+                total = keepo, // Total must be equal to sum of tax, shipping and subtotal.  
                 details = details
             };
             var transactionList = new List<Transaction>();
