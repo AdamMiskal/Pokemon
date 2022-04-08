@@ -45,6 +45,8 @@ namespace Pokemon.Controllers
             if (buyer.Balance >= price)
             {
                 BuyCardTranferMoney.TranferMoney(owner, buyer, admin, price);
+                Sales sale = new Sales() { PokemonName = card.Name, Price = price };
+                db.Sales.Add(sale);
             }
             else
             {

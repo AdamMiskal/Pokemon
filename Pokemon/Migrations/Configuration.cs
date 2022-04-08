@@ -48,11 +48,11 @@
             Card c5 = new Card() { Name = "Charmander", SerialNumber = 2, Attack = 1, Defence = 1, Rarity = Rarity.Common };
             Card c6 = new Card() { Name = "Charmander", SerialNumber = 3, Attack = 1, Defence = 1, Rarity = Rarity.Common };
             
-            Card c7 = new Card() { Name = "Squirtle", SerialNumber = 1, Attack = 1, Defence = 1, Rarity = Rarity.Common };
-            Card c8 = new Card() { Name = "Squirtle", SerialNumber = 2, Attack = 1, Defence = 1, Rarity = Rarity.Common };
-            Card c9 = new Card() { Name = "Squirtle", SerialNumber = 3, Attack = 1, Defence = 1, Rarity = Rarity.Common };
+            Card c7 = new Card() { Name = "Squirtle", SerialNumber = 1, Attack = 1, Defence = 1, Rarity = Rarity.Common, Market = true };
+            Card c8 = new Card() { Name = "Squirtle", SerialNumber = 2, Attack = 1, Defence = 1, Rarity = Rarity.Common, Market = true };
+            Card c9 = new Card() { Name = "Squirtle", SerialNumber = 3, Attack = 1, Defence = 1, Rarity = Rarity.Common, Market = true };
             
-            Card c10 = new Card() { Name = "Caterpie", SerialNumber = 1, Attack = 1, Defence = 1, Rarity = Rarity.Common };
+            Card c10 = new Card() { Name = "Caterpie", SerialNumber = 1, Attack = 1, Defence = 1, Rarity = Rarity.Common, Market = true };
             Card c11 = new Card() { Name = "Caterpie", SerialNumber = 2, Attack = 1, Defence = 1, Rarity = Rarity.Common };
             Card c12 = new Card() { Name = "Caterpie", SerialNumber = 3, Attack = 1, Defence = 1, Rarity = Rarity.Common };
             
@@ -166,6 +166,14 @@
                  c1.User = us1;
                  c4.User = us1;
                  c6.User = us1;
+                c7.User = us1;
+                c8.User = us1;
+                c9.User = us1;
+                c10.User = us1;
+                c7.Price = 150;
+                c8.Price = 220;
+                c9.Price = 100;
+                c10.Price = 200;
                 c1.Price = 200;
                 c4.Price = 300;
                 c6.Price = 100;
@@ -187,7 +195,7 @@
                 {
                     UserName = "Test1@gmail.com",
                     Email = "Test1@gmail.com",
-                    Balance = 10,
+                    Balance = 10000,
                     PasswordHash = passwordHash.HashPassword("Test1234!")
                 };
 

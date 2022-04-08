@@ -210,6 +210,7 @@
     <Compile Include="Models\Pack.cs" />
     <Compile Include="Models\PokemonType.cs" />
     <Compile Include="Models\Rarity.cs" />
+    <Compile Include="Models\Sales.cs" />
     <Compile Include="Models\SetRoles.cs" />
     <Compile Include="Models\UserCard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

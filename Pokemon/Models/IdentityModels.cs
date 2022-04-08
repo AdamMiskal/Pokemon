@@ -70,6 +70,8 @@ namespace Pokemon.Models
         public DbSet<Card> Cards { get; set; }
         public DbSet<PokemonType> PokemonType { get; set; }
         public DbSet<Image> Images { get; set; }
+        public DbSet<Sales> Sales { get; set; }
+
 
        
         
