@@ -68,7 +68,7 @@
                             <div class="tab-content rn-pd-content" id="v-pills-tabContent">
                                 <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                     <div class="rn-pd-thumbnail">
-                                        <img src="@Model.Image.Url" alt="EIKONA POKEMON"> @*den leitourgei oute edw...*@
+                                        <img src="@Model.Image.Url" alt="EIKONA POKEMON">
                                     </div>
                                 </div>
                             </div>
@@ -85,7 +85,7 @@
                         </div>
                         <span class="bid">Mesos oros timis: <span class="price">TIMI</span></span>
                         <h6 class="title-name">
-                            , Info bellow
+                           !!!!!!!!!!!!!!!! ena PROPERTY ME INFO XREIAZOMASTE AN TO THELLOUME
                         </h6>
                         <div class="rn-bid-details">
                             <div class="tab-wrapper-one">
@@ -197,8 +197,23 @@
                                                 <div class="property-wrapper">
                                                     <!-- single property -->
                                                     <div class="pd-property-inner">
-                                                        <span class="color-body type">osa koutakia theloume</span>
-                                                        <span class="color-white value">analoga to ti theloume</span>
+                                                        <span class="color-body type">Attack</span>
+                                                        <span class="color-white value">@Model.Attack</span>
+                                                    </div>
+                                                    <div class="pd-property-inner">
+                                                        <span class="color-body type">Defence</span>
+                                                        <span class="color-white value">@Model.Defence</span>
+                                                    </div>
+                                                    <div class="pd-property-inner">
+                                                        <span class="color-body type">Serial Number #</span>
+                                                        <span class="color-white value">@Model.SerialNumber</span>
+                                                    </div>
+                                                    <div class="pd-property-inner">
+                                                        <span class="color-body type">Rarity</span>
+                                                        <a href=@Url.Action("AllCardsByRarity","VIewCardsByCategories",new { rarity=Model.Rarity})>
+                                                            <span class="color-white value">@Model.Rarity</span>
+                                                        </a>   
+
                                                     </div>
                                                    
                                                 </div>

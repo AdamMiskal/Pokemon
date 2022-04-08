@@ -1,0 +1,61 @@
+﻿
+@model IEnumerable<Pokemon.Models.Card>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                <span>Pokemon</span>
+            </th>
+            <th>
+                <span>Type</span>
+            </th>
+            <th>
+                <span>Rarity</span>
+            </th>
+            <th>
+                <span>Id</span>
+            </th>
+
+            <th>
+                <span>Serial Number</span>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var card in Model)
+        {
+        <tr>
+            <td>
+
+                <a href=@Url.Action("CardDetails","CardDatabase",new { id=card.CardId})>
+
+                    <img src=@card.Image.Url />
+                </a>
+                <span>@card.Name</span>
+
+            </td>
+            <td>
+                <ul class="list-unstyled">
+                    @foreach (var type in card.PokemonTypes)
+                    {
+                        <li>
+                            @type.Kind
+                        </li>
+                    }
+
+                </ul>
+            </td>
+            <td><span>@card.Rarity</span></td>
+
+
+
+            <td><span>@card.SerialNumber</span></td>
+        </tr>
+                }
+            
+        </tbody>
+</table>
+
