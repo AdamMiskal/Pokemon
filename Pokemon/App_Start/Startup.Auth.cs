@@ -55,17 +55,19 @@ namespace Pokemon
             //  consumerSecret: "");
 
             app.UseFacebookAuthentication(
-              appId: "1111",
-               appSecret: "1111");
+             appId: "1158843881528496",
+              appSecret: "5d359e87fe313fe5df077f32a947b82b");
+
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
-                ClientId ="123123" ,
-                ClientSecret = "123123"
+                ClientId = "976965108088-q0ioq8d25u4oqnlajho72ck4j949tg58.apps.googleusercontent.com",
+                ClientSecret = "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"
             });
 
 
-            
+
+
 
 
         }
