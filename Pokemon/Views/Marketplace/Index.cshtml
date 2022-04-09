@@ -6,19 +6,19 @@
 @using Microsoft.AspNet.Identity
 
 
-@*@foreach (var item in Model)
-    {
-        if (User.Identity.GetUserId() == item.ApplicationUserId && Request.IsAuthenticated)
-        {
-            <img src=@item.Image.Url />
-        }
-
-
-
-    }*@
-
 
 <style>
+
+
+
+
+
+
+
+
+
+
+
     th {
         cursor: pointer;
     }
@@ -164,13 +164,8 @@
                                                 </ul>
                                             </td>
                                             <td><span>@card.Rarity</span></td>
-
-
-
                                             <td><span>@card.CardId</span></td>
                                             <td><span>@card.SerialNumber</span></td>
-
-                                            <td></td>
 
 
                                             @using (Html.BeginForm("Listcard", "Marketplace"))
@@ -181,24 +176,16 @@
 
                                                     <input type="hidden" name="CardId" value="@card.CardId" />
 
-                                                    <input type="submit" value="List Card" />
+                                                    <input onclick="return confirm('Are you sure you want to Sell this card?')" type="submit" value="List Card" />
 
                                                 </td>
 
                                             }
-
-
-
                                         </tr>
-
-
 
                                     }
 
                                 }
-
-
-
 
                             </tbody>
                         </table>
@@ -215,9 +202,6 @@
                     <div>
                         <input id="myInput" style="border-radius:5px; height:40px; width:300px; margin-top: 22px; border:solid; background-color: white; border-width: 1px;" class="" type="text" placeholder="Search card's Name,Type,Rarity,Owners name and Price " />
                     </div>
-
-
-
                 </div>
             </div>
 
@@ -284,12 +268,8 @@
                                     </td>
                                     <td><span>@card.Rarity</span></td>
                                     <td><span>@(card.User?.UserName)</span></td>
-
-
                                     <td><span>@card.CardId</span></td>
                                     <td><span>@card.SerialNumber</span></td>
-
-
                                     <td><span>@card.Price</span></td>
 
 
@@ -301,61 +281,36 @@
                                         if (card.ApplicationUserId == User.Identity.GetUserId())
                                         {
                                             <td>
-                                                <a style="text-decoration:none; width:150px;" href=@Url.Action("CancelList","Marketplace", new { CardId= card.CardId }) class="btn btn-danger">Cancel Sale</a>
+                                                <a onclick="return confirm('Are you sure you want to Cancel this List?')" style="text-decoration:none; width:150px;" href=@Url.Action("CancelList","Marketplace", new { CardId= card.CardId }) class="btn btn-danger">Cancel Sale</a>
                                             </td>
                                         }
                                         else
                                         {
                                             <td>
-                                                <a style="text-decoration:none; width:150px;" href=@Url.Action("BuyCard","Marketplace", new { id = card.CardId, Price= card.Price}) class="btn btn-success">Buyout</a>
+                                                
+                                                <a  style="text-decoration:none; width:150px;" href=@Url.Action("BuyCard","Marketplace", new { id = card.CardId, Price= card.Price}) 
+                                                    onclick="return confirm('Are you sure you want to Buy this Card?')" class="btn btn-success">Buyout</a>
                                             </td>
                                         }
 
                                     }
                                     else
                                     {
-                                        
-                                            <td >
-                                                <a  class="btn btn-primary" style="width:160px; text-decoration:none;" href=@Url.Action("Login","Account")   >Log In</a>
-                                            </td>
-                                        
-                                    }
 
-
-
-
-
-
-
-
-                                    @*@if (card.ApplicationUserId == User.Identity.GetUserId())
-                                    {
                                         <td>
-                                            <a style="text-decoration:none; width:150px;" href=@Url.Action("CancelList","Marketplace", new { CardId= card.CardId }) class="btn btn-danger">Cancel Sale</a>
+                                            <a class="btn btn-primary" style="width:160px; text-decoration:none;" href=@Url.Action("Login","Account")>Log In</a>
                                         </td>
+
                                     }
-                                    else
-                                    {
-                                        <td>
-                                            <a style="text-decoration:none; width:150px;" href=@Url.Action("BuyCard","Marketplace", new { id = card.CardId, Price= card.Price}) class="btn btn-success">Buyout</a>
-                                        </td>
-                                    }*@
 
                                 </tr>
                             }
 
                         }
-
-
-
-
                     </tbody>
                 </table>
             </div>
         </div>
-
-
-
     </div>
 </div>
 
@@ -363,8 +318,35 @@
 
 
 
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
+
+
+    //function myFunction() {
+    //    let text = "Are you sure you wanna buy this card?\nPress Yes to Procceed or No to Cancecl.";
+    //    if (confirm(text) == true) {
+            
+    //    } else {
+    //        window.location.reload();
+    //    }
+
+    //}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     //SearchBar
     $(document).ready(function () {
         $("#myInput").on("keyup", function () {
