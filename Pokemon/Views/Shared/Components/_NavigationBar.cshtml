@@ -16,49 +16,68 @@
                 <div class="mainmenu-wrapper" style="width:90%;">
                     <nav id="sideNav" class="mainmenu-nav d-none d-xl-block">
                         <!-- Start Mainmanu Nav -->
-                        <ul class="mainmenu">
+						<ul class="mainmenu">
 
-                            @if (Request.IsAuthenticated)
-                            {
+							@if (Request.IsAuthenticated && User.IsInRole("Admin"))
+							{
 
-                                <li>
-                                    <a href=@Url.Action("Index","Home")>Home</a>
-                                </li>
-                                <li>
-                                    <a href=@Url.Action("Index","MyCollection")>My Collection</a>
-                                </li>
-                                <li>
-                                    <a href=@Url.Action("Index","CardDatabase")>Card Database</a>
-                                </li>
-                                <li>
-                                    <a href=@Url.Action("Index","Marketplace")>Marketplace</a>
-                                </li>
-                                <li>
-                                    <a href=@Url.Action("Index", "Packs")>Packs</a>
-                                </li>
+								<li>
+									<a href=@Url.Action("Index", "Home")>Home</a>
+								</li>
+								<li>
+									<a href=@Url.Action("Index", "MyCollection")>My Collection</a>
+								</li>
+								<li>
+									<a href=@Url.Action("Index", "CardDatabase")>Card Database</a>
+								</li>
+								<li>
+									<a href=@Url.Action("Index", "Marketplace")>Marketplace</a>
+								</li>
+								<li>
+									<a href=@Url.Action("Index", "Packs")>Packs</a>
+								</li>
+								<li>
+									<a href=@Url.Action("Index", "AppUsers") style="background-color:red; color:black">CMS</a>
+								</li>
+							}
+							else if (Request.IsAuthenticated)
+							{
+								<li>
+									<a href=@Url.Action("Index", "Home")>Home</a>
+								</li>
+								<li>
+									<a href=@Url.Action("Index", "MyCollection")>My Collection</a>
+								</li>
+								<li>
+									<a href=@Url.Action("Index", "CardDatabase")>Card Database</a>
+								</li>
+								<li>
+									<a href=@Url.Action("Index", "Marketplace")>Marketplace</a>
+								</li>
+								<li>
+									<a href=@Url.Action("Index", "Packs")>Packs</a>
+								</li>
+}
+							else
+							{
+
+								<li>
+									<a href=@Url.Action("Index","Home")>Home</a>
+								</li>
+								<li>
+									<a href=@Url.Action("Index","CardDatabase")>Card Database</a>
+								</li>
+								<li>
+									<a href=@Url.Action("Index","Marketplace")>Marketplace</a>
+								</li>
+								<li>
+									<a href=@Url.Action("Index","Packs")>Packs</a>
+								</li>
+							}
 
 
-                            }
-                            else
-                            {
 
-                                <li>
-                                    <a href=@Url.Action("Index","Home")>Home</a>
-                                </li>
-                                <li>
-                                    <a href=@Url.Action("Index","CardDatabase")>Card Database</a>
-                                </li>
-                                <li>
-                                    <a href=@Url.Action("Index","Marketplace")>Marketplace</a>
-                                </li>
-                                <li>
-                                    <a href=@Url.Action("Index","Packs")>Packs</a>
-                                </li>
-                            }
-
-
-
-                        </ul>
+						</ul>
                         <!-- End Mainmanu Nav -->
                     </nav>
                 </div>
