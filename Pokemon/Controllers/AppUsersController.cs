@@ -15,8 +15,36 @@ namespace Pokemon.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: AppUsers
-        public ActionResult Index()
+        public ActionResult Index(string firstName, string lastName, int? minAge, int? maxAge, string sortOrder)
         {
+            ViewBag.sortOrder = sortOrder;
+            var appUsers = db.Users.ToList();
+
+            if (!string.IsNullOrEmpty(firstName))
+            {
+                appUsers = appUsers.Where(a => a.FirstName.ToUpper().Contains(firstName.ToUpper())).ToList();
+            }
+            if (!string.IsNullOrEmpty(lastName))
+            {
+                appUsers = appUsers.Where(a => a.LastName.ToUpper().Contains(lastName.ToUpper())).ToList();
+            }
+            if (!(minAge is null))
+            {
+                appUsers = appUsers.Where(a => (DateTime.Now.Year - a.BirthDate.Year) > minAge).ToList();
+            }
+            if (!(maxAge is null))
+            {
+                appUsers = appUsers.Where(a => (DateTime.Now.Year - a.BirthDate.Year) < maxAge).ToList();
+            }
+
+            //Ordering
+            switch (sortOrder)
+            {
+                default: appUsers = appUsers.OrderBy(d => d.FirstName).ToList(); break;
+                case "YASC": appUsers = appUsers.OrderBy(d => d.FirstName).ToList(); break;
+                case "YDSC": appUsers = appUsers.OrderByDescending(d => d.FirstName).ToList(); break;
+            }
+
             return View(db.Users.ToList());
         }
 
