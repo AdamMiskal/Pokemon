@@ -18,15 +18,10 @@ namespace Pokemon.Controllers
         // GET: MyCollection
         public ActionResult Index()
         {
-
+          
+           var keepo = db.Users.Find(User.Identity.GetUserId());
+           var cards = db.Cards.Where(x => x.ApplicationUserId == keepo.Id).Include(x=>x.Image).Include(x=>x.PokemonTypes).ToList();
             
-            //var keepo = db.Users.Join(db.Cards, u => u.Id, c => c.ApplicationUserId, (u, c) => new { u, c }).ToList();
-
-            // var kfd = db.Users.ToList().Find(u => u.UserName == "admin@gmail.com").Cards;
-            var keepo = db.Users.Find(User.Identity.GetUserId());
-            var cards = db.Cards.Where(x => x.ApplicationUserId == keepo.Id).Include(x=>x.Image).ToList();
-
-
             return View(cards);
         }
        

@@ -22,13 +22,13 @@
             ApplicationUser us1 = null;
             ApplicationUser us2 = null;
 
-            PokemonType t1 = new PokemonType() { Kind = "Grass" };
-            PokemonType t2 = new PokemonType() { Kind = "Water" };
-            PokemonType t3 = new PokemonType() { Kind = "Fire" };
-            PokemonType t4 = new PokemonType() { Kind = "Flying" };
-            PokemonType t5 = new PokemonType() { Kind = "Bug" };
-            PokemonType t6 = new PokemonType() { Kind = "Normal" };
-            PokemonType t7 = new PokemonType() { Kind = "Poison" };
+            PokemonType t1 = new PokemonType() { Kind = "Grass"    };
+            PokemonType t2 = new PokemonType() { Kind = "Water"     };
+            PokemonType t3 = new PokemonType() { Kind = "Fire"      };
+            PokemonType t4 = new PokemonType() { Kind = "Flying"    };
+            PokemonType t5 = new PokemonType() { Kind = "Bug"       };
+            PokemonType t6 = new PokemonType() { Kind = "Normal"    };
+            PokemonType t7 = new PokemonType() { Kind = "Poison"    };
             PokemonType t8 = new PokemonType() { Kind = "Electric" };
             
             Image i1 = new Image() { Url = "/Assets/Images/001.png" };
@@ -74,7 +74,7 @@
             
             t1.Cards = new List<Card>() { c1, c2, c3 };
             t2.Cards = new List<Card>() { c4, c5, c6 };
-            t3.Cards = new List<Card>() { c7, c8, c9 };
+            t3.Cards = new List<Card>() { c7, c8, c9 ,c11};
             t4.Cards = new List<Card>() { c16, c17, c18 };
             t5.Cards = new List<Card>() { c13, c14, c15 };
             t6.Cards = new List<Card>() { c16, c17, c18 };
@@ -92,7 +92,7 @@
             c8.PokemonTypes = new List<PokemonType>() { t3 };
             c9.PokemonTypes = new List<PokemonType>() { t3 };
             c10.PokemonTypes = new List<PokemonType>() { t5 };
-            c11.PokemonTypes = new List<PokemonType>() { t5 };
+            c11.PokemonTypes = new List<PokemonType>() { t5,t3 };
             c12.PokemonTypes = new List<PokemonType>() { t5 };
             c13.PokemonTypes = new List<PokemonType>() { t5 };
             c14.PokemonTypes = new List<PokemonType>() { t5 };

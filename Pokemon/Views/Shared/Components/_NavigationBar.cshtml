@@ -79,7 +79,7 @@
 
                         ApplicationDbContext db = new ApplicationDbContext();
                         var user = db.Users.Find(User.Identity.GetUserId());
-
+                        
 
                         @Html.AntiForgeryToken()
                         <div class="mainmenu-wrapper">
