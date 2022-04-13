@@ -8,6 +8,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.Validation;
 using System.Linq;
+using System;
 
 namespace Pokemon.Models
 {
@@ -15,7 +16,10 @@ namespace Pokemon.Models
     public class ApplicationUser : IdentityUser
     {
         
-
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string NickName { get; set; }
+        //public DateTime BirthDate { get; set; }
         public double Balance { get; set; }
        
         public ICollection<Card> Cards  { get; set; }

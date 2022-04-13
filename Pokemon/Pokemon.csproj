@@ -186,6 +186,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AppUsersController.cs" />
     <Compile Include="Controllers\CardDatabaseController.cs" />
+    <Compile Include="Controllers\CardManageController.cs" />
     <Compile Include="Controllers\ErrorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -230,13 +231,20 @@
     <Content Include="Assets\Images\025.png" />
     <Content Include="Assets\Images\72d15ffc.png" />
     <Content Include="Assets\Images\a6a58181.png" />
+    <Content Include="Assets\Images\Banner+PK.png" />
+    <Content Include="Assets\Images\Blastoise.png" />
     <Content Include="Assets\Images\Built on Ethereum.png" />
     <Content Include="Assets\Images\charm.png" />
+    <Content Include="Assets\Images\Charmeleon.png" />
     <Content Include="Assets\Images\EliteFour-removebg-preview.png" />
+    <Content Include="Assets\Images\EvolutionsBoosterPacks-1.png" />
     <Content Include="Assets\Images\Fire.png" />
     <Content Include="Assets\Images\Grass.png" />
     <Content Include="Assets\Images\High_resolution_wallpaper_background_ID_77700080381.jpg" />
     <Content Include="Assets\Images\logo-pokemon-79x45.png" />
+    <Content Include="Assets\Images\Magikarp.png" />
+    <Content Include="Assets\Images\Mew.png" />
+    <Content Include="Assets\Images\packs_auto_x2.jpg" />
     <Content Include="Assets\Images\sq.png" />
     <Content Include="Assets\test1.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -809,6 +817,15 @@
     <Content Include="Views\Payment\SuccessView.cshtml" />
     <Content Include="Views\Payment\FailedViewPayPal.cshtml" />
     <Content Include="Views\VIewCardsByCategories\AllCardsByRarity.cshtml" />
+    <Content Include="Views\Cards\Create.cshtml" />
+    <Content Include="Views\Cards\Delete.cshtml" />
+    <Content Include="Views\Cards\Details.cshtml" />
+    <Content Include="Views\Cards\Edit.cshtml" />
+    <Content Include="Views\Cards\Index.cshtml" />
+    <Content Include="Views\CardManage\Index.cshtml" />
+    <Content Include="Views\CardManage\Details.cshtml" />
+    <Content Include="Views\CardManage\Delete.cshtml" />
+    <Content Include="Views\CardManage\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
