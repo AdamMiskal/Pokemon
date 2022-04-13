@@ -7,10 +7,10 @@
 	<nav id="sideNav" class="mainmenu-nav d-none d-xl-block">
 		<ul class="mainmenu">
 			<li>
-				<a href=@Url.Action("Index","Home")>User Database</a>
+				<a href=@Url.Action("Index","AppUsers")>User Database</a>
 			</li>
 			<li>
-				<a href=@Url.Action("Index","MyCollection")>Card Database</a>
+				<a href=@Url.Action("Index","CardManage")>Card Database</a>
 			</li>
 			<li>
 				<a href=@Url.Action("Index","CardDatabase")>Site statistics</a>
@@ -22,13 +22,29 @@
 	<p>
 		@Html.ActionLink("Create New", "Create")
 	</p>
-	<table class="table">
+	<table class="table table-dark">
 		<tr>
 			<th>
-				@Html.DisplayNameFor(model => model.Single().FirstName)
+				@Html.ActionLink("FirtName", "Index", "AppUsers", new { sortOrder = string.IsNullOrEmpty(ViewBag.sortOrder) ? "YDSC" : ViewBag.sortOrder == "YDSC" ? "YASC" : "YDSC" }, null)
+				@*@Html.DisplayNameFor(model => model.Single().FirstName)*@
 			</th>
 			<th>
 				@Html.DisplayNameFor(model => model.Single().LastName)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Single().Email)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Single().NickName)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Single().BirthDate)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Single().Balance)
+			</th>
+			<th>
+				Actions
 			</th>
 		</tr>
 		@foreach (var item in Model)
@@ -40,6 +56,23 @@
 		<td>
 			@Html.DisplayFor(modelItem => item.LastName)
 		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.Email)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.NickName)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.BirthDate)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.Balance)
+		</td>
+		<td>
+			<button type="button" class="btn btn-success">@Html.ActionLink("Edit", "Edit", new { id = item.Id })</button>
+			<button type="button" class="btn btn-info">@Html.ActionLink("Details", "Details", new { id = item.Id })</button>
+			<button type="button" class="btn btn-danger">@Html.ActionLink("Delete", "Delete", new { id = item.Id })</button>
+</td>
 	</tr>
 		}
 	</table>

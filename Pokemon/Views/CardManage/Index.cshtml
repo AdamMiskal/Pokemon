@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Pokemon.Models.Card>
+@{
+	ViewBag.Title = "Index";
+}
+
+<div class="mainmenu-wrapper" style="width:90%;">
+	<nav id="sideNav" class="mainmenu-nav d-none d-xl-block">
+		<ul class="mainmenu">
+			<li>
+				<a href=@Url.Action("Index","AppUsers")>User Database</a>
+			</li>
+			<li>
+				<a href=@Url.Action("Index","CardManage")>Card Database</a>
+			</li>
+			<li>
+				<a href=@Url.Action("Index","CardDatabase")>Site statistics</a>
+			</li>
+		</ul>
+	</nav>
+</div>
+<p>
+	@Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-dark">
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.Single().CardId)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Single().Name)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Single().SerialNumber)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Single().Attack)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Single().Defence)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Single().Rarity)
+		</th>
+		<th>
+			Actions
+		</th>
+		@foreach (var item in Model)
+		{
+<tr>
+		<td>
+			@Html.DisplayFor(modelItem => item.CardId)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.Name)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.SerialNumber)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.Attack)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.Defence)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.Rarity)
+		</td>
+		<td>
+			<button type="button" class="btn btn-success">@Html.ActionLink("Edit", "Edit", new { id = item.CardId })</button>
+			<button type="button" class="btn btn-info">@Html.ActionLink("Details", "Details", new { id = item.CardId })</button>
+			<button type="button" class="btn btn-danger">@Html.ActionLink("Delete", "Delete", new { id = item.CardId })</button>
+</td>
+	</tr>
+		}
+	</tr>
+</table>
