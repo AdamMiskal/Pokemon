@@ -187,6 +187,7 @@
     <Compile Include="Controllers\AppUsersController.cs" />
     <Compile Include="Controllers\CardDatabaseController.cs" />
     <Compile Include="Controllers\CardManageController.cs" />
+    <Compile Include="Controllers\EditProfileController.cs" />
     <Compile Include="Controllers\ErrorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -811,7 +812,6 @@
     <Content Include="Views\AppUsers\Edit.cshtml" />
     <Content Include="Views\AppUsers\Index.cshtml" />
     <Content Include="Views\Packs\BuyPack.cshtml" />
-    <Content Include="Views\Manage\EditProfile.cshtml" />
     <Content Include="Views\Errors\Index.cshtml" />
     <Content Include="Views\Payment\PaymentWithPaypal.cshtml" />
     <Content Include="Views\Payment\SuccessView.cshtml" />
@@ -826,6 +826,7 @@
     <Content Include="Views\CardManage\Details.cshtml" />
     <Content Include="Views\CardManage\Delete.cshtml" />
     <Content Include="Views\CardManage\Edit.cshtml" />
+    <Content Include="Views\EditProfile\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
