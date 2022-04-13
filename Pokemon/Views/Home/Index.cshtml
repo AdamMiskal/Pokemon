@@ -3,13 +3,41 @@
     ViewBag.Title = "Index";
 }
 
+
 <style>
-    #list-item-3 .container .row .col-12 .grid-metro4 .grid-metro-item .product-style-one .bid-react-area{
+
+    #vid {
+        position: relative;
+        background-color: black;
+        height: 75vh;
+        min-height: 25rem;
+        width: 100%;
+        overflow: hidden;
+    }
+
+        #vid video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 0;
+            -ms-transform: translateX(-50%) translateY(-50%);
+            -moz-transform: translateX(-50%) translateY(-50%);
+            -webkit-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+
+
+
+
+    #list-item-3 .container .row .col-12 .grid-metro4 .grid-metro-item .product-style-one .bid-react-area {
         display: flex;
         flex-direction: column;
-        justify-content:space-evenly;
-       
-
+        justify-content: space-evenly;
     }
 
         #list-item-3 .container .row .col-12 .grid-metro4 .grid-metro-item .product-style-one .bid-react-area .last-bid {
@@ -17,27 +45,43 @@
             justify-content: space-between;
         }
 
-    #list-item-3 .container .row .col-12 .grid-metro4 .grid-metro-item .product-style-one .bid-react-area .react-area{
-        display:flex;
-        justify-content:right;
-        background-color:transparent;
-        color:grey;
-        margin:0px;
-        padding:0px;
+        #list-item-3 .container .row .col-12 .grid-metro4 .grid-metro-item .product-style-one .bid-react-area .react-area {
+            display: flex;
+            justify-content: right;
+            background-color: transparent;
+            color: grey;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #list-item-3 .container .row .col-12 .grid-metro4 .grid-metro-item .product-style-one .bid-react-area .last-bid {
+            border: dashed 1px;
+            margin: 2px;
+            border-radius: 4px;
+            padding: 3px;
+        }
+
+    #vid {
+        position: relative;
     }
 
-    #list-item-3 .container .row .col-12 .grid-metro4 .grid-metro-item .product-style-one .bid-react-area .last-bid{
-        border:dashed 1px;
-        margin:2px;
-        border-radius:4px;
-        padding:3px;
+        #vid video {
+            position: relative;
+            z-index: 0;
+        }
+
+    .overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 1;
     }
 </style>
 
 
 <body class="template-color-1 with-particles">
     <div id="particles-js"></div>
-     @*Preloader*@ 
+    @*Preloader*@
     <div class="preloader">
         <div class='loader'>
             <div class='circle'></div>
@@ -48,7 +92,7 @@
         </div>
     </div>
 
-    
+
 
 
     <!-- banner area start -->
@@ -58,7 +102,7 @@
             <div class="slider-style-7 border-radious-none bg_image--23 pt--150 pb--190 pt_sm--70 pb_sm--70 bg_image" data-black-overlay="1" style="background-image: url(https://mythbank.com/wp-content/uploads/2019/10/pokemongames-banner.jpg)">
                 <div class="rn-banner-wrapper g-5 row">
                     <div class="col-xl-4 col-lg-12 col-12 order-3 order-xl-1 order-sm-1">
-                        <a href="product-details.html">
+                        <a href="">
                             <h2 class="title pl--30">
                                 Pokemon <br> Digital Card Game <span>NFT's</span>
                             </h2>
@@ -70,7 +114,7 @@
             <div class="slider-style-7 border-radious-none bg_image--22 pt--150 pb--190 pt_sm--70 pb_sm--70 bg_image" data-black-overlay="2" style="background-image: url(https://www.entostoys.gr/wp-content/uploads/pokemon-banner.jpg)">
                 <div class="rn-banner-wrapper g-5 row">
                     <div class="col-xl-4 col-lg-12 col-12 order-3 order-xl-1 order-sm-1">
-                        <a href="product-details.html">
+                        <a href="">
                             <h2 class="title pl--30">
                                 Pokemon <br> Digital Card Game <span>NFT's</span>
                             </h2>
@@ -84,7 +128,7 @@
             <div class="slider-style-7 border-radious-none bg_image--21 pt--150 pb--190 pt_sm--70 pb_sm--70 bg_image" data-black-overlay="3" style="background-image: url(https://images.squarespace-cdn.com/content/v1/580bb19de3df28697605b57c/b3aa0f5c-da16-4b66-aa48-179c1699dc5f/unnamed.jpg?format=1000w)">
                 <div class="rn-banner-wrapper g-5 row">
                     <div class="col-xl-4 col-lg-12 col-12 order-3 order-xl-1 order-sm-1">
-                        <a href="product-details.html">
+                        <a href="">
                             <h2 class="title pl--30">
                                 Pokemon <br> Digital Card Game <span>NFT's</span>
                             </h2>
@@ -100,188 +144,133 @@
     </div>
     <!-- banner area end -->
 
+    <br />
+    <br />
 
-    <div id="list-item-3" class="rn-product-area rn-section-gapBottom masonary-wrapper-activation">
-        <div class="container">
-            <div class="row gx-5 align-items-center">
-                <div class="col-lg-4">
-                    <div class="section-title">
-                        <h3 class="title mb--0">Hottest Cards</h3>
-                    </div>
-                </div>
-                <div class="col-lg-8">
-                    <div class="button-group isotop-filter filters-button-group d-flex justify-content-start justify-content-lg-end mt_md--30 mt_sm--30">
-                        <button data-filter="*" class="is-checked"><span class="filter-text">All</span></button>
-                        <button data-filter=".cat--1"><span class="filter-text">New</span></button>
-                        <button data-filter=".cat--2"><span class="filter-text">Rare</span></button>
-                        <button data-filter=".cat--3"><span class="filter-text">Top Sellers</span></button>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-12 mt_mobile--15">
-                            <div class="view-more-btn text-start text-sm-end" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-                                <a class="btn-transparent" href="@Url.Action("Index","CardDatabase")">VIEW ALL<i data-feather="arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
+    @if (Request.IsAuthenticated)
+    {
+
+    }
+    else
+    {
+        <div style="display:flex; justify-content:center">
+            <div>
+                <img style="display:inline-block; margin-left:auto" src="https://c.tenor.com/P-J95-PzmjAAAAAC/snorlax-waving.gif" alt="Alternate Text" />
             </div>
-            
-
-            <div class="row g-5">
-                <div class="col-12">
-                    <div class="grid-metro4 mesonry-list">
-                        <div class="resizer"></div>
-
-                        <!-- ------------------------Display Cards---------------- -->
-
-
-
-                        @foreach (var card in Model)
-                        {
-
-                        <div class="grid-metro-item cat--1 cat--3">
-                            <div class="product-style-one no-overlay">
-                                <div class="card-thumbnail">
-                                    <a href=@Url.Action("CardDetails","CardDatabase",new { id=card.CardId})><img src=@card.Image.Url alt="NFT_portfolio"></a>    @*IMAGE POKEMON*@
-                                </div>
-                                <a href=@Url.Action("CardDetails","CardDatabase",new { id=card.CardId})><span class="product-name">@card.Name</span></a>
-                                <span class="latest-bid">Common/rare</span>
-                                <div class="bid-react-area">
-                                    <div class="last-bid"><i>Last Sale Price</i><i>0.250eth</i> </div>
-                                    <div class="last-bid"><i>Average Sale Price</i><i> 0.150eth</i> </div>
-                                    <div class="react-area">
-                                        <span class="number">S/N @card.SerialNumber</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        }
-                    </div>
-                </div>
+            <div style="margin-top:50px; margin-left:50px;display:inline-block;">
+                <h2>
+                    Gotta Catch Em All!<br />
+                </h2>
+                <p style="display: inline-block; color: white;">Join our community by signing up <br /> and start filling up you Pokedex TODAY!</p>
+                <br />
+                <button display:inline-block; class="btn btn-primary">
+                    @Html.ActionLink("Join Us", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+                </button>
             </div>
         </div>
+    }
 
-    </div>
-    
 
-    
+    <br />
+    <br />
+    <br />
+    <br />
 
-    <!-- collection area Start -->
-    <div class="rn-collection-area rn-section-gapBottom">
-        <div class="container">
-            <div class="row mb--30 align-items-center">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                    <h3 class="title mb--0" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-                        Top
-                        Packs
-                    </h3>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-12 mt_mobile--15">
-                    <div class="view-more-btn text-start text-sm-end" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-                        <a class="btn-transparent" href="@Url.Action("Index","Packs")">VIEW ALL<i data-feather="arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
+    <div style="background-color:black; display:flex; justify-content:center">
+        <div style="display:inline-block;">
+            <img src="~/Assets/Images/packs_auto_x2.jpg" style=" height:auto; width:1000px;" alt="Alternate Text" />
 
-            <div class="row g-5">
-                <!-- start single collention -->
+        </div>
+        <div style="margin:50px; margin-top:200px; display:inline-block;">
+            <h3>
+                Check Out Our New Packs <br />
+                and collect All the pokemon of the Kanto Region
+            </h3>
+            <br />
+            <a href=" @Url.Action("Index", "Packs")" class="btn btn-primary">Learn more</a>
 
-           
-                <div data-sal="slide-up" data-sal-delay="150" data-sal-duration="800" class="col-lg-6 col-xxl-3 col-xl-4 col-md-6 col-sm-6 col-12">
-                    <a href="product-details.html" class="rn-collection-inner-one">
-                        <div class="collection-wrapper">
-                            <div class="collection-big-thumbnail">
-                                <img src="assets/images/collection/collection-lg-01.jpg" alt="Nft_Profile">
-                            </div>
-                            <div class="collenction-small-thumbnail">
-                                <img src="assets/images/collection/collection-sm-01.jpg" alt="Nft_Profile">
-                                <img src="assets/images/collection/collection-sm-02.jpg" alt="Nft_Profile">
-                                <img src="assets/images/collection/collection-sm-03.jpg" alt="Nft_Profile">
-                            </div>
-                            <div class="collection-profile">
-                                <img src="assets/images/client/client-15.png" alt="Nft_Profile">
-                            </div>
-                            <div class="collection-deg">
-                                <h6 class="title">Cubic Trad</h6>
-                                <span class="items">27 Items</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <!-- End single collention -->
-                <!-- start single collention -->
-                @*<div data-sal="slide-up" data-sal-delay="200" data-sal-duration="800" class="col-lg-6 col-xxl-3 col-xl-4 col-md-6 col-sm-6 col-12">
-                    <a href="product-details.html" class="rn-collection-inner-one">
-                        <div class="collection-wrapper">
-                            <div class="collection-big-thumbnail">
-                                <img src="assets/images/collection/collection-lg-02.jpg" alt="Nft_Profile">
-                            </div>
-                            <div class="collenction-small-thumbnail">
-                                <img src="assets/images/collection/collection-sm-04.jpg" alt="Nft_Profile">
-                                <img src="assets/images/collection/collection-sm-05.jpg" alt="Nft_Profile">
-                                <img src="assets/images/collection/collection-sm-06.jpg" alt="Nft_Profile">
-                            </div>
-                            <div class="collection-profile">
-                                <img src="assets/images/client/client-12.png" alt="Nft_Profile">
-                            </div>
-                            <div class="collection-deg">
-                                <h6 class="title">Diamond Dog</h6>
-                                <span class="items">20 Items</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>*@
-                <!-- End single collention -->
-                <!-- start single collention -->
-                @*<div data-sal="slide-up" data-sal-delay="250" data-sal-duration="800" class="col-lg-6 col-xxl-3 col-xl-4 col-md-6 col-sm-6 col-12">
-                    <a href="product-details.html" class="rn-collection-inner-one">
-                        <div class="collection-wrapper">
-                            <div class="collection-big-thumbnail">
-                                <img src="assets/images/collection/collection-lg-03.jpg" alt="Nft_Profile">
-                            </div>
-                            <div class="collenction-small-thumbnail">
-                                <img src="assets/images/collection/collection-sm-07.jpg" alt="Nft_Profile">
-                                <img src="assets/images/collection/collection-sm-08.jpg" alt="Nft_Profile">
-                                <img src="assets/images/collection/collection-sm-09.jpg" alt="Nft_Profile">
-                            </div>
-                            <div class="collection-profile">
-                                <img src="assets/images/client/client-13.png" alt="Nft_Profile">
-                            </div>
-                            <div class="collection-deg">
-                                <h6 class="title">Morgan11</h6>
-                                <span class="items">15 Items</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>*@
-                <!-- End single collention -->
-                <!-- start single collention -->
-                @*<div data-sal="slide-up" data-sal-delay="350" data-sal-duration="800" class="col-lg-6 col-xxl-3 col-xl-4 col-md-6 col-sm-6 col-12">
-                    <a href="product-details." class="rn-collection-inner-one">
-                        <div class="collection-wrapper">
-                            <div class="collection-big-thumbnail">
-                                <img src="assets/images/collection/collection-lg-05.jpg" alt="Nft_Profile">
-                            </div>
-                            <div class="collenction-small-thumbnail">
-                                <img src="assets/images/collection/collection-sm-10.jpg" alt="Nft_Profile">
-                                <img src="assets/images/collection/collection-sm-11.jpg" alt="Nft_Profile">
-                                <img src="assets/images/collection/collection-sm-12.jpg" alt="Nft_Profile">
-                            </div>
-                            <div class="collection-profile">
-                                <img src="assets/images/client/client-14.png" alt="Nft_Profile">
-                            </div>
-                            <div class="collection-deg">
-                                <h6 class="title">Orthogon#720</h6>
-                                <span class="items">10 Items</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>*@
-                <!-- End single collention -->
-            </div>
+
+
+
         </div>
     </div>
-    <!-- collection area End -->
+
+    <br />
+    <br />
+
+    @*<div class="" style=" height: 350px; background-image: url(https://images.squarespace-cdn.com/content/v1/5f8dbc5a5c81e328d018ec93/1610282710226-WI2D69IOHVLZKSTXILBH/Banner+PK.png?format=2500w); "  >
+            <div>
+                <div class="box-table">
+                    <h1>Looking for a specific pokemon? Check out our Marketplace</h1>
+                </div>
+            </div>
+        </div>*@
+
+
+    <div id="vid">
+
+        <video autoplay="autoplay" muted="muted" loop="loop">
+            <source src="https://assets.pokemon.com//assets/cms2/img/misc/virtual-backgrounds/sword-shield/dynamax-battle.mp4" type=video/mp4 />
+
+
+
+        </video>
+        <div class="overlay">
+            @*<div class="box-table">
+                <p style="color:white">Are you missing a Pokemon?</p>
+                <p style="color:white">Worry NOT! Visit our MARKETPLACE</p>
+                <a class="btn btn-primary" href=@Url.Action("Index", "Marketplace")>Marketplace</a>
+            </div>*@
+
+        </div>
+
+
+
+    </div>
+
+
+    <div style="display: flex; justify-content: center; background-color:black;">
+        <div style="display:inline-block;">
+            <img style="height:500px;width:auto" src="https://i.kym-cdn.com/photos/images/original/001/048/900/fc6.jpg" alt="Alternate Text" />
+        </div>
+        <div style=" margin: 50px; margin-top: 200px; display: inline-block;">
+            <p style="color:white">Are you missing a card? <br />Visit our marketplace</p>
+            <a href="@Url.Action("Index", "Marketplace")" class="btn btn-primary">Check the MARKETPLACE</a>
+        </div>
+
+
+
+    </div>
+
+    <br />
+    <br />
+    <br />
+
+    <div>
+        <div>
+            <img style="width:100%" src="https://camo.githubusercontent.com/90f24316b24433bf0a2778d95ca93ad264093645a71d2eb9f569cdbc34fbfc6d/68747470733a2f2f6372797374616c2d63646e322e6372797374616c636f6d6d657263652e636f6d2f70686f746f732f363333303536352f73706c61736842616e6e65725f706f6b656d6f6e2e6a7067" alt="Alternate Text" />
+        </div>
+        <div style="justify-content: center; background-color: red; display: flex ">
+            <a href=@Url.Action("Index", "CardDatabase") style="margin-top:40px; color:white; height:90px; font-size:30px; font-weight:bold;">Check Out All the Available Pokemon</a>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+    
 
     <script>
         particlesJS('particles-js',
