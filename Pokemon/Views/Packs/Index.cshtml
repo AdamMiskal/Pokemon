@@ -1,33 +1,56 @@
 ﻿@model Pokemon.Models.ApplicationUser
 @using Microsoft.AspNet.Identity
 
-<div>
-    
+<div class="rn-banner-area">
+	<div class="slider-activation-banner-4 game-banner-short-slick-wrapper slick-arrow-style-one rn-slick-dot-style">
 
+		<div class="slider-style-7 border-radious-none bg_image--23 pt--150 pb--190 pt_sm--70 pb_sm--70 bg_image" data-black-overlay="1" style="background-image: url(https://static.wixstatic.com/media/0ece1a_c208a64671414e909b2f68ae421687d7~mv2.jpeg/v1/crop/x_0,y_125,w_2500,h_1019/fill/w_640,h_260,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Pokemon_Trading-Card-Game_Page-Banner_2500px.jpeg)">
+			<div class="rn-banner-wrapper g-5 row">
+				<div class="col-xl-4 col-lg-12 col-12 order-3 order-xl-1 order-sm-1">
+					<a href="product-details.html">
+						<h2 class="title pl--100">
+							Buy your Pack, <br> Discover Amazing new Pokemon, <br /> <span>Build your Collection!</span>
+						</h2>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		
+
+	</div>
 </div>
 
 <div style="text-align:center" class="row">
 
-    <div class="col">
+	<div class="col">
 
-        <img style="height:300px" src="~/Assets/Images/001.png" />"
-        <br />
-        <a href=@Url.Action("BuyPack", "Packs", new { UserId = User.Identity.GetUserId(), PackValue = 3 })>Buy Leaf Pack</a>
-    </div>
+		<img style="height:300px" src="~/Assets/Images/grassPack.png" />"
+		<br />
+		<a href=@Url.Action("BuyPack", "Packs", new { UserId = User.Identity.GetUserId(), PackValue = 3 })><h4>Leaf Pack</h4></a>
+		<p>Feature 1</p>
+		<p>Feature 2</p>
+		<p>Feature 3</p>
+	</div>
 
-    <div class="col">
+	<div class="col">
 
-        <img style="height:300px" src="~/Assets/Images/004.png" />
-        <br />
-        <a href=@Url.Action("BuyPack","Packs",new {UserId=User.Identity.GetUserId() ,PackValue=5 })>Buy Fire Pack</a>
-    </div>
+		<img style="height:300px" src="~/Assets/Images/firePack.png" />
+		<br />
+		<a href=@Url.Action("BuyPack","Packs",new {UserId=User.Identity.GetUserId() ,PackValue=5 })><h4>Fire Pack</h4></a>
+		<p>Feature 1</p>
+		<p>Feature 2</p>
+		<p>Feature 3</p>
+	</div>
 
-    <div class="col">
-        <img style="height:300px" src="~/Assets/Images/007.png" />
-        <br />
-        <a href=@Url.Action("BuyPack","Packs",new {UserId=User.Identity.GetUserId() ,PackValue=7 })>Buy Water Pack</a>
-        
-    </div>
+	<div class="col">
+		<img style="height:300px" src="~/Assets/Images/waterPack.png" />
+		<br />
+		<a href=@Url.Action("BuyPack","Packs",new {UserId=User.Identity.GetUserId() ,PackValue=7 })><h4>Water Pack</h4></a>
+		<p>Feature 1</p>
+		<p>Feature 2</p>
+		<p>Feature 3</p>
+	</div>
 
 
 
