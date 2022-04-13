@@ -19,7 +19,7 @@ namespace Pokemon.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string NickName { get; set; }
-        public DateTime BirthDate { get; set; }
+        //public DateTime BirthDate { get; set; }
         public double Balance { get; set; }
        
         public ICollection<Card> Cards  { get; set; }

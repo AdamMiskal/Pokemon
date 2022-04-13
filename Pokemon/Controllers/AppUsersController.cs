@@ -28,14 +28,14 @@ namespace Pokemon.Controllers
             {
                 appUsers = appUsers.Where(a => a.LastName.ToUpper().Contains(lastName.ToUpper())).ToList();
             }
-            if (!(minAge is null))
-            {
-                appUsers = appUsers.Where(a => (DateTime.Now.Year - a.BirthDate.Year) > minAge).ToList();
-            }
-            if (!(maxAge is null))
-            {
-                appUsers = appUsers.Where(a => (DateTime.Now.Year - a.BirthDate.Year) < maxAge).ToList();
-            }
+            //if (!(minAge is null))
+            //{
+            //    appUsers = appUsers.Where(a => (DateTime.Now.Year - a.BirthDate.Year) > minAge).ToList();
+            //}
+            //if (!(maxAge is null))
+            //{
+            //    appUsers = appUsers.Where(a => (DateTime.Now.Year - a.BirthDate.Year) < maxAge).ToList();
+            //}
 
             //Ordering
             switch (sortOrder)
