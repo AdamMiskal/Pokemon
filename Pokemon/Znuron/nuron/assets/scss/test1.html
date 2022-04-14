@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <style>
+
+        div {
+            display:none;
+        }
+
+    </style>
+</head>
+<body>
+
+
+    <div>
+        keepo
+    </div>
+
+    <div>keepo</div>
+
+    <div>keepo</div>
+
+
+    <div>keepo</div>
+
+
+    <div>keepo</div>
+
+
+    <div>keepo</div>
+
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+
+    <div>keepo</div>
+    <div>keepo</div>
+
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+    <div>keepo</div>
+
+
+
+
+
+    <button id="load">testload</button>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+
+
+        $(function () {
+            $("div").slice(0, 5).show(); // select the first ten
+            $("#load").click(function (e) { // click event for load more
+                e.preventDefault();
+                $("div:hidden").slice(0, 10).show(); // select next 10 hidden divs and show them
+                if ($("div:hidden").length == 0) { // check if any hidden divs still exist
+                    alert("No more divs"); // alert if there are none left
+                }
+            });
+        });
+
+    </script>
+
+
+
+</body>
+</html>

@@ -597,6 +597,7 @@
     <Content Include="Znuron\nuron\assets\js\vendor\waypoint.js" />
     <Content Include="Znuron\nuron\assets\js\vendor\web3.min.js" />
     <Content Include="Znuron\nuron\assets\js\vendor\wow.js" />
+    <Content Include="Znuron\nuron\assets\scss\test1.html" />
     <Content Include="Znuron\nuron\author.html" />
     <Content Include="Znuron\nuron\blog-col-three.html" />
     <Content Include="Znuron\nuron\blog-col-two.html" />
