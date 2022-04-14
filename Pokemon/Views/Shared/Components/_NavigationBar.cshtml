@@ -16,68 +16,68 @@
                 <div class="mainmenu-wrapper" style="width:90%;">
                     <nav id="sideNav" class="mainmenu-nav d-none d-xl-block">
                         <!-- Start Mainmanu Nav -->
-						<ul class="mainmenu">
+                        <ul class="mainmenu">
 
-							@if (Request.IsAuthenticated && User.IsInRole("Admin"))
-							{
+                            @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                            {
 
-								<li>
-									<a href=@Url.Action("Index", "Home")>Home</a>
-								</li>
-								<li>
-									<a href=@Url.Action("Index", "MyCollection")>My Collection</a>
-								</li>
-								<li>
-									<a href=@Url.Action("Index", "CardDatabase")>Card Database</a>
-								</li>
-								<li>
-									<a href=@Url.Action("Index", "Marketplace")>Marketplace</a>
-								</li>
-								<li>
-									<a href=@Url.Action("Index", "Packs")>Packs</a>
-								</li>
-								<li>
-									<a href=@Url.Action("Index", "AppUsers") style="background-color:red; color:black">CMS</a>
-								</li>
-							}
-							else if (Request.IsAuthenticated)
-							{
-								<li>
-									<a href=@Url.Action("Index", "Home")>Home</a>
-								</li>
-								<li>
-									<a href=@Url.Action("Index", "MyCollection")>My Collection</a>
-								</li>
-								<li>
-									<a href=@Url.Action("Index", "CardDatabase")>Card Database</a>
-								</li>
-								<li>
-									<a href=@Url.Action("Index", "Marketplace")>Marketplace</a>
-								</li>
-								<li>
-									<a href=@Url.Action("Index", "Packs")>Packs</a>
-								</li>
-}
-							else
-							{
+                                <li>
+                                    <a href=@Url.Action("Index", "Home")>Home</a>
+                                </li>
+                                <li>
+                                    <a href=@Url.Action("Index", "MyCollection")>My Collection</a>
+                                </li>
+                                <li>
+                                    <a href=@Url.Action("Index", "CardDatabase")>Card Database</a>
+                                </li>
+                                <li>
+                                    <a href=@Url.Action("Index", "Marketplace")>Marketplace</a>
+                                </li>
+                                <li>
+                                    <a href=@Url.Action("Index", "Packs")>Packs</a>
+                                </li>
+                                <li>
+                                    <a href=@Url.Action("Index", "AppUsers") style="background-color:red; color:black">CMS</a>
+                                </li>
+                            }
+                            else if (Request.IsAuthenticated)
+                            {
+                                <li>
+                                    <a href=@Url.Action("Index", "Home")>Home</a>
+                                </li>
+                                <li>
+                                    <a href=@Url.Action("Index", "MyCollection")>My Collection</a>
+                                </li>
+                                <li>
+                                    <a href=@Url.Action("Index", "CardDatabase")>Card Database</a>
+                                </li>
+                                <li>
+                                    <a href=@Url.Action("Index", "Marketplace")>Marketplace</a>
+                                </li>
+                                <li>
+                                    <a href=@Url.Action("Index", "Packs")>Packs</a>
+                                </li>
+                            }
+                            else
+                            {
 
-								<li>
-									<a href=@Url.Action("Index","Home")>Home</a>
-								</li>
-								<li>
-									<a href=@Url.Action("Index","CardDatabase")>Card Database</a>
-								</li>
-								<li>
-									<a href=@Url.Action("Index","Marketplace")>Marketplace</a>
-								</li>
-								<li>
-									<a href=@Url.Action("Index","Packs")>Packs</a>
-								</li>
-							}
+                                <li>
+                                    <a href=@Url.Action("Index","Home")>Home</a>
+                                </li>
+                                <li>
+                                    <a href=@Url.Action("Index","CardDatabase")>Card Database</a>
+                                </li>
+                                <li>
+                                    <a href=@Url.Action("Index","Marketplace")>Marketplace</a>
+                                </li>
+                                <li>
+                                    <a href=@Url.Action("Index","Packs")>Packs</a>
+                                </li>
+                            }
 
 
 
-						</ul>
+                        </ul>
                         <!-- End Mainmanu Nav -->
                     </nav>
                 </div>
@@ -98,7 +98,7 @@
 
                         ApplicationDbContext db = new ApplicationDbContext();
                         var user = db.Users.Find(User.Identity.GetUserId());
-                        
+
 
                         @Html.AntiForgeryToken()
                         <div class="mainmenu-wrapper">
@@ -111,7 +111,7 @@
                                         <ul class="submenu">
                                             <li class="text-center d-flex flex-row ">
                                                 <img src="https://www.seekpng.com/png/small/353-3532499_badgeleopard-the-energy-types-of-the-pokemon-tcg.png" alt="Alternate Text" height="60" width="60" class="border border-light rounded-circle ml--10 mr--10" />
-                                                <a class="p-0 mr--100 " href=@Url.Action("Index", "Manage")>Welcome @User.Identity.GetUserName()</a>
+                                                <a class="p-0 mr--100 " href=@Url.Action("Index", "EditProfile", new { id =User.Identity.GetUserId()})>Welcome @User.Identity.GetUserName()</a>
                                             </li>
 
                                             @* EDW EISAI------------------------------------------  *@

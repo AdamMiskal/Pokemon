@@ -1,7 +1,6 @@
 ﻿using Pokemon.Models;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -9,31 +8,28 @@ using System.Web.Mvc;
 
 namespace Pokemon.Controllers
 {
-    public class CardDatabaseController : Controller
+    public class EditProfileController : Controller
     {
-        ApplicationDbContext db = new ApplicationDbContext() ;
-        // GET: CardDatabase
-        public ActionResult Index()
+        ApplicationDbContext db = new ApplicationDbContext();
+        // GET: EditProfile
+        public ActionResult Index(string id)
         {
-
-           
-            return View(db.Cards.Where(x => x.SerialNumber == 1).Include(x => x.Image).Include(x=>x.PokemonTypes).ToList());
+            var user = db.Users.Find(id);
+            return View(user);
         }
 
-
-        public ActionResult CardDetails(int? id )
+        public ActionResult Edit(string id)
         {
-            if (id==null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Card card = db.Cards.Find(id);
-            if (card == null) 
+            ApplicationUser applicationUser = db.Users.Find(id);
+            if (applicationUser == null)
             {
                 return HttpNotFound();
             }
-
-            return View(card);
+            return View(applicationUser);
         }
 
         protected override void Dispose(bool disposing)
@@ -44,6 +40,5 @@ namespace Pokemon.Controllers
             }
             base.Dispose(disposing);
         }
-
     }
 }
