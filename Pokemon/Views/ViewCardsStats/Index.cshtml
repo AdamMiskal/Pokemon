@@ -1,0 +1,65 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+
+
+
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script>
+        var settings = {
+            "url": "https://localhost:44324/api/CardStatistics?name=Bulbasaur",
+            "method": "GET",
+            "timeout": 0,
+        };
+
+        $.ajax(settings).done(function (response) {
+
+            window.onload = function () {
+
+                var chart = new CanvasJS.Chart("chartContainer", {
+                    theme: "dark2",
+                    exportFileName: "Doughnut Chart",
+                    exportEnabled: true,
+                    animationEnabled: true,
+                    title: {
+                        text: "Monthly Expense"
+                    },
+                    legend: {
+                        cursor: "pointer",
+                        itemclick: explodePie
+                    },
+                    data: [{
+                        type: "doughnut",
+                        innerRadius: 90,
+                        showInLegend: true,
+                        toolTipContent: "<b>{name}</b>: ${y} (#percent%)",
+                        indexLabel: "{name} - #percent%",
+                        dataPoints: [
+
+                            response[0],
+                            response[1],
+                            response[2]
+                        ]
+                    }]
+                });
+                chart.render();
+
+                function explodePie(e) {
+                    if (typeof (e.dataSeries.dataPoints[e.dataPointIndex].exploded) === "undefined" || !e.dataSeries.dataPoints[e.dataPointIndex].exploded) {
+                        e.dataSeries.dataPoints[e.dataPointIndex].exploded = true;
+                    } else {
+                        e.dataSeries.dataPoints[e.dataPointIndex].exploded = false;
+                    }
+                    e.chart.render();
+                }
+
+            }
+           </script>
+</head>
+<body>
+    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+</html>
+
+
