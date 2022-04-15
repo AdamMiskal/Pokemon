@@ -29,6 +29,49 @@
 
     <!-- Style css -->
     <link rel="stylesheet" href="assets/css/style.css">
+
+
+
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script>
+        var settings = {
+            "url": "https://localhost:44324/api/CardStatistics?name=@Model.Name",
+            "method": "GET",
+            "timeout": 0,
+        };
+
+        $.ajax(settings).done(function (response) {
+
+            window.onload = function () {
+
+                var chart = new CanvasJS.Chart("chartContainer", {
+                    theme: "dark2",
+                    animationEnabled: true,
+                    title: {
+                        text: "Email Categories",
+                        horizontalAlign: "left"
+                    },
+                    data: [{
+                        type: "doughnut",
+                        startAngle: 60,
+                        //innerRadius: 60,
+                        indexLabelFontSize: 17,
+                        indexLabel: "{label} - #percent%",
+                        toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+                        dataPoints: [
+                            response[0],
+                            response[1],
+                            response[2]
+                        ]
+                    }]
+                });
+                chart.render();
+
+            }
+
+        });
+    </script>
+
 </head>
 
 <body class="template-color-1">
@@ -85,7 +128,7 @@
                         </div>
                         <span class="bid">Mesos oros timis: <span class="price">TIMI</span></span>
                         <h6 class="title-name">
-                           !!!!!!!!!!!!!!!! ena PROPERTY ME INFO XREIAZOMASTE AN TO THELLOUME
+                            !!!!!!!!!!!!!!!! ena PROPERTY ME INFO XREIAZOMASTE AN TO THELLOUME
                         </h6>
                         <div class="rn-bid-details">
                             <div class="tab-wrapper-one">
@@ -187,7 +230,7 @@
                                         <div class="rn-pd-bd-wrapper">
                                             <div class="top-seller-inner-one">
                                                 <!-- <p class="disc">Lorem ipsum dolor, sit amet consectetur adipisicing
-                                        elit. Doloribus debitis nemo deserunt.</p> -->
+                                                elit. Doloribus debitis nemo deserunt.</p> -->
                                             </div>
                                             <!-- single -->
                                             <div class="rn-pd-sm-property-wrapper">
@@ -212,10 +255,10 @@
                                                         <span class="color-body type">Rarity</span>
                                                         <a href=@Url.Action("AllCardsByRarity","VIewCardsByCategories",new { rarity=Model.Rarity})>
                                                             <span class="color-white value">@Model.Rarity</span>
-                                                        </a>   
+                                                        </a>
 
                                                     </div>
-                                                   
+
                                                 </div>
                                             </div>
                                             <!-- single -->
@@ -375,6 +418,11 @@
             <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
         </svg>
     </div>
+
+
+    <div id="chartContainer" style="height: 370px; width: 50%;"></div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
     <!-- End Top To Bottom Area  -->
     <!-- JS ============================================ -->
     <script src="assets/js/vendor/jquery.js"></script>
@@ -404,6 +452,8 @@
     <script src="assets/js/vendor/web3.min.js"></script>
     <script src="assets/js/vendor/maralis.js"></script>
     <script src="assets/js/vendor/nft.js"></script>
+
+
 </body>
 
 </html>

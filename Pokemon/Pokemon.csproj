@@ -184,11 +184,13 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\API\CardStatisticsController.cs" />
     <Compile Include="Controllers\AppUsersController.cs" />
     <Compile Include="Controllers\CardDatabaseController.cs" />
     <Compile Include="Controllers\CardManageController.cs" />
     <Compile Include="Controllers\EditProfileController.cs" />
     <Compile Include="Controllers\ErrorsController.cs" />
+    <Compile Include="Controllers\HelperControllers\ViewCardsStatsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -202,6 +204,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\HelperModels\CardStatsApiModel.cs" />
     <Compile Include="Models\PayPalConfiguration.cs" />
     <Compile Include="Models\HelperModels\BuyCardModel.cs" />
     <Compile Include="Models\HelperModels\BuyPackModel.cs" />
@@ -978,9 +981,11 @@
     <Content Include="Views\CardManage\Delete.cshtml" />
     <Content Include="Views\CardManage\Edit.cshtml" />
     <Content Include="Views\EditProfile\Index.cshtml" />
+    <Content Include="Views\ViewCardsStats\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Controllers\NewFolder1\" />
     <Folder Include="Views\PaypalPayment\" />
     <Folder Include="Views\PayPal\" />
   </ItemGroup>
