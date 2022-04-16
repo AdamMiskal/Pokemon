@@ -9,6 +9,7 @@ namespace Pokemon.Models
     {
         Common,
         Rare,
+        Epic,
         Legendary
     }
 }

@@ -11,6 +11,7 @@ namespace Pokemon.Models
     {
         public int CardId { get; set; }
         public string Name { get; set; }
+        public string Description { get; set; }
         public int SerialNumber { get; set; }
         public int Attack { get; set; }
         public int Defence { get; set; }
