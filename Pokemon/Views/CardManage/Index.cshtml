@@ -21,6 +21,20 @@
 <p>
 	@Html.ActionLink("Create New", "Create")
 </p>
+<form action="/CardManage/Index" method="get">
+	<input id="searchname" type="text" name="name" value="" placeholder="Search by Name" />
+	<input id="searchSerialNumber" type="text" name="serialNumber" value="" placeholder="Search by Serial Number" />
+	<input id="searchAttack" type="text" name="attack" value="" placeholder="Search by Attack" />
+	<input id="searchDefence" type="text" name="defence" value="" placeholder="Search by Defence" />
+	<select name="rarity">
+		<option value="Common">Common</option>
+		<option value="Rare">Rare</option>
+		<option value="Epic">Epic</option>
+		<option value="Legendary">Legendary</option>
+	</select><br />
+	<input type="submit" value="Search" />
+	<input id="reset" type="reset" value="Clear" />
+</form>
 <table class="table table-dark">
 	<tr>
 		<th>

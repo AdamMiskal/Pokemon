@@ -15,7 +15,7 @@ namespace Pokemon.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: AppUsers
-        public ActionResult Index(string firstName, string lastName, int? minAge, int? maxAge, string sortOrder)
+        public ActionResult Index(string firstName, string lastName, string email, int? balance, string sortOrder)
         {
             ViewBag.sortOrder = sortOrder;
             var appUsers = db.Users.ToList();
@@ -28,24 +28,25 @@ namespace Pokemon.Controllers
             {
                 appUsers = appUsers.Where(a => a.LastName.ToUpper().Contains(lastName.ToUpper())).ToList();
             }
-            //if (!(minAge is null))
-            //{
-            //    appUsers = appUsers.Where(a => (DateTime.Now.Year - a.BirthDate.Year) > minAge).ToList();
-            //}
-            //if (!(maxAge is null))
-            //{
-            //    appUsers = appUsers.Where(a => (DateTime.Now.Year - a.BirthDate.Year) < maxAge).ToList();
-            //}
-
-            //Ordering
-            switch (sortOrder)
+            if (!string.IsNullOrEmpty(email))
+			{
+                appUsers = appUsers.Where(a => a.Email.ToUpper().Contains(email.ToUpper())).ToList();
+            }
+            if (!(balance is null))
             {
-                default: appUsers = appUsers.OrderBy(d => d.FirstName).ToList(); break;
-                case "YASC": appUsers = appUsers.OrderBy(d => d.FirstName).ToList(); break;
-                case "YDSC": appUsers = appUsers.OrderByDescending(d => d.FirstName).ToList(); break;
+                appUsers = appUsers.Where(a => a.Balance.Equals(balance)).ToList();
             }
 
-            return View(db.Users.ToList());
+
+            //Ordering
+            //switch (sortOrder)
+            //{
+            //    default: appUsers = appUsers.OrderBy(d => d.FirstName).ToList(); break;
+            //    case "YASC": appUsers = appUsers.OrderBy(d => d.FirstName).ToList(); break;
+            //    case "YDSC": appUsers = appUsers.OrderByDescending(d => d.FirstName).ToList(); break;
+            //}
+
+            return View(appUsers.ToList());
         }
 
         // GET: AppUsers/Details/5
