@@ -4,8 +4,6 @@
 	ViewBag.Title = "Details";
 }
 
-<h1>Card Details Works</h1>
-
 <div>
 	<h4>Card</h4>
 	<hr />
@@ -25,7 +23,13 @@
 		<dd>
 			@Html.DisplayFor(model => model.Name)
 		</dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.Description)
+		</dt>
 
+		<dd>
+			@Html.DisplayFor(model => model.Description)
+		</dd>
 		<dt>
 			@Html.DisplayNameFor(model => model.SerialNumber)
 		</dt>
@@ -60,3 +64,11 @@
 
 	</dl>
 </div>
+<p>
+	<button type="button" class="btn btn-success">
+		@Html.ActionLink("Edit", "Edit", new { id = Model.CardId })
+		</button>
+		<button type="button" class="btn btn-secondary">
+			@Html.ActionLink("Back to List", "Index")
+			</button>
+</p>

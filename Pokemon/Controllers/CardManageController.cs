@@ -56,7 +56,27 @@ namespace Pokemon.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult Create()
+        {
+            return View();
+        }
 
+        // POST: AppUsers/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "CardId,Name,Description,SerialNumber,Attack,Defence,Rarity")] Card cards)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Cards.Add(cards);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(cards);
+        }
         public ActionResult Edit(int? id)
         {
             if (id == null)
