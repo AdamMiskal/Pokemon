@@ -4,7 +4,7 @@
 @using System.Data.Entity;
 
 
-<h1>Index Edit Proifile</h1>
+<h1>EDIT Profile</h1>
 
 <div class="rn-breadcrumb-inner ptb--30">
     <div class="container">
@@ -57,20 +57,24 @@
                                         <h6 class="title">Change Your Profile Picture</h6>
                                         <img id="rbtinput1" src="~/Assets/Images/001.png" alt="Profile-NFT">
                                     </div>
-                                    <a class="btn btn-primary" style="margin-top:130px;border-start-end-radius:10px;height:40px" href="@Url.Action("Edit","EditProfile", new {id=User.Identity.GetUserId() })"><strong>Edit Profile Picture</strong></a>
-                                    <!--<div style="margin-top:150px; margin-left:60px" class="button-area">
-                                        <div class="brows-file-wrapper">-->
-                                    <!-- actual upload which is hidden -->
-                                    <!--<input name="fatima" id="fatima" type="file">-->
-                                    <!-- our custom upload button -->
-                                    <!--<label for="fatima" title="No File Choosen">
-                                            <fors class="text-center color-white">Upload Profile Photo</fors>
-                                        </label>
 
+                                    <form action=@Url.Action("Edit","EditProfile") method="post" style="display:flex; flex-direction:column">
 
-                                    </div>-->
-                                    <!-- <a href="#" class="btn-primary-alta btn" onclick="customAlert.alert('Confirm to Delete Your Profile Picture?')">Delete</a> -->
-                                    <!--</div>-->
+                                        <div class="button-area" style="margin-top:20px">
+                                            <div class="input">
+                                                <input title="" name="fatima" id="fatima" type="file" value="" style="width: 400px;align-content:center;padding-left:100px" />
+                                            </div>
+                                        </div>
+                                        <!-- <a href="#" class="btn-primary-alta btn" onclick="customAlert.alert('Confirm to Delete Your Profile Picture?')">Delete</a> -->
+
+                                        <div class="button-area" style="margin-top:20px">
+                                            <div class="input">
+                                                <!-- actual upload which is hidden -->
+                                                <input class="btn btn-primary" name="fatima" id="fatima" type="submit" value="Save Changes" style="width: 400px">
+                                            </div>
+                                            <!-- <a href="#" class="btn-primary-alta btn" onclick="customAlert.alert('Confirm to Delete Your Profile Picture?')">Delete</a> -->
+                                        </div>
+                                    </form>
                                 </div>
 
 
@@ -153,8 +157,7 @@
 
                             <div class="button-area save-btn-edit">
                                 @*<a href="#" class="btn btn-primary-alta mr--15" onclick="customAlert.alert('Cancel Edit Profile?')">Cancel</a>*@
-                                <a href="@Url.Action("Edit","EditProfile", new {id=User.Identity.GetUserId() })" class="btn btn-primary">Edit Personal Information</a>
-                                @*<a href="#" class="btn btn-primary" onclick="customAlert.alert('Successfully Saved Your Profile?')">Save</a>*@
+                                <a href="#" class="btn btn-primary" onclick="customAlert.alert('Successfully Saved Your Profile?')">Save</a>
                             </div>
 
                         </div>
@@ -189,10 +192,7 @@
                                 <label for="rePass" class="form-label">Confirm Password</label>
                                 <input name="Password" id="rePass" type="password" value="" disabled>
                             </div>
-                            <div style="display: flex; justify-content: right;margin-top:30px">
-                                <a style="justify-content:right" href="@Url.Action("Edit","EditProfile", new {id=User.Identity.GetUserId() })" class="btn btn-primary">Edit Password</a>
-                            </div>
-                            @*<a href="#" class="btn btn-primary save-btn-edit" onclick="customAlert.alert('Successfully Changed Password?')">Save</a>*@
+                            <a href="#" class="btn btn-primary save-btn-edit" onclick="customAlert.alert('Successfully Changed Password?')">Save</a>
                         </div>
                         <!-- change password area ENd -->
                     </div>

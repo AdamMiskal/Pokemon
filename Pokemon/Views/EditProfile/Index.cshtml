@@ -29,7 +29,7 @@
         <div class="row plr--70 padding-control-edit-wrapper pl_md--0 pr_md--0 pl_sm--0 pr_sm--0">
             <div class="col-12 d-flex justify-content-between mb--30 align-items-center">
                 <h4 class="title-left">Edit Your Profile</h4>
-                <a href="@Url.Action("Index","MyCollection")" class="btn btn-primary ml--10"><i class="feather-eye mr--5"></i> Preview</a>
+                @*<a href="@Url.Action("Index","MyCollection")" class="btn btn-primary ml--10"><i class="feather-eye mr--5"></i> Preview</a>*@
             </div>
         </div>
         <div class="row plr--70 padding-control-edit-wrapper pl_md--0 pr_md--0 pl_sm--0 pr_sm--0">
@@ -47,27 +47,30 @@
             <div class="col-lg-9 col-md-9 col-sm-12 mt_sm--30">
                 <div class="tab-content tab-content-edit-wrapepr" id="nav-tabContent">
                     <!-- sigle tab content -->
-                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <div class="tab-pane fade show active" id="nav-home" aria-labelledby="nav-home-tab">
                         <!-- start personal information -->
                         <div class="nuron-information">
 
-                            <div class="profile-change row g-5">
-                                <div class="profile-left col-lg-4">
+                            <div class="profile-change col col-12  row g-5">
+                                <div style="border-right: none; display: flex; justify-content: space-evenly" class="profile-left">
                                     <div class="profile-image mb--30">
                                         <h6 class="title">Change Your Profile Picture</h6>
                                         <img id="rbtinput1" src="~/Assets/Images/001.png" alt="Profile-NFT">
                                     </div>
-                                    <div class="button-area">
-                                        <div class="brows-file-wrapper">
-                                            <!-- actual upload which is hidden -->
-                                            <input name="fatima" id="fatima" type="file">
-                                            <!-- our custom upload button -->
-                                            <label for="fatima" title="No File Choosen">
-                                                Profile Photo
-                                            </label>
-                                        </div>
-                                        <!-- <a href="#" class="btn-primary-alta btn" onclick="customAlert.alert('Confirm to Delete Your Profile Picture?')">Delete</a> -->
-                                    </div>
+                                    <a class="btn btn-primary" style="margin-top:130px;border-start-end-radius:10px;height:40px" href="@Url.Action("Edit","EditProfile", new {id=User.Identity.GetUserId() })"><strong>Edit Profile Picture</strong></a>
+                                    <!--<div style="margin-top:150px; margin-left:60px" class="button-area">
+                                        <div class="brows-file-wrapper">-->
+                                    <!-- actual upload which is hidden -->
+                                    <!--<input name="fatima" id="fatima" type="file">-->
+                                    <!-- our custom upload button -->
+                                    <!--<label for="fatima" title="No File Choosen">
+                                            <fors class="text-center color-white">Upload Profile Photo</fors>
+                                        </label>
+
+
+                                    </div>-->
+                                    <!-- <a href="#" class="btn-primary-alta btn" onclick="customAlert.alert('Confirm to Delete Your Profile Picture?')">Delete</a> -->
+                                    <!--</div>-->
                                 </div>
 
 
@@ -85,15 +88,16 @@
                                 <div class="input-two-wrapper mb--15">
                                     <div class="first-name half-wid">
                                         <label for="contact-name" class="form-label">First Name</label>
+                                        <input name="contact-name" id="contact-name" type="text" value="Mr." disabled>
                                     </div>
                                     <div class="last-name half-wid">
                                         <label for="contact-name-last" class="form-label">Last Name</label>
-                                        <input name="contact-name" id="contact-name-last" type="text" value="Sunayra">
+                                        <input name="contact-name" id="contact-name-last" type="text" value="Sunayra" disabled>
                                     </div>
                                 </div>
                                 <div class="email-area">
                                     <label for="Email" class="form-label">Edit Your Email</label>
-                                    <input name="email" id="Email" type="email" value="">
+                                    <input name="email" id="Email" type="email" value="@Model.Email" disabled>
                                 </div>
                             </div>
 
@@ -101,31 +105,38 @@
                             <!-- edit bio area Start-->
                             <div class="edit-bio-area mt--30">
                                 <label for="Discription" class="form-label">Edit Your Bio</label>
-                                <textarea id="Discription">Hello, I am Alamin, A Front-end Developer...</textarea>
+                                <textarea id="Discription" disabled>Hello, I am Alamin, A Front-end Developer...</textarea>
                             </div>
                             <!-- edit bio area End -->
                             <!--  -->
-                            <div class="input-two-wrapepr-prifile">
-                                <!-- start Role area -->
-                                <div class="role-area mt--15">
-                                    <label for="Role" class="form-label mb--10">Your Role</label>
-                                    <input name="Role" id="Role" type="text" value="Front-end Developer">
-                                </div>
-                                <!-- End Role area -->
+                            <div style="display:flex; justify-content:space-evenly" class="input-two-wrapper mt--15">
                                 <!-- select gender -->
-                                <select class="profile-edit-select">
-                                    <option selected>Select Your Gender</option>
-                                    <option value="1">Male</option>
-                                    <option value="2">Female</option>
-                                    <option value="3">Third Gender</option>
-                                </select>
+                                <div style="margin-right: 26px" class="half-wid currency">
+                                    <select class="profile-edit-select" disabled>
+                                        <option selected>Select Your Gender</option>
+                                        <option value="1">Male</option>
+                                        <option value="2">Female</option>
+                                        <option value="3">Third Gender</option>
+                                    </select>
+                                </div>
                                 <!-- end gender -->
+                                <!-- select gender -->
+                                <div style="margin-right: 2px; margin-left: 3px" class="half-wid currency">
+                                    <select class="profile-edit-select" disabled>
+                                        <option selected>Location</option>
+                                        <option value="1">United State</option>
+                                        <option value="2">Katar</option>
+                                        <option value="3">Canada</option>
+                                    </select>
+                                </div>
+                                <!-- end gender -->
+
                             </div>
 
                             <div class="input-two-wrapper mt--15">
                                 <div class="half-wid currency">
                                     <!-- select gender -->
-                                    <select class="profile-edit-select">
+                                    <select class="profile-edit-select" disabled>
                                         <option selected>Currency</option>
                                         <option value="1">($)USD</option>
                                         <option value="2">wETH</option>
@@ -133,30 +144,17 @@
                                     </select>
                                     <!-- end gender -->
                                 </div>
-                                <div class="half-wid phone-number">
-                                    <label for="PhoneNumber" class="form-label">Phone Number</label>
-                                    <input name="contact-name" id="PhoneNumber" type="text" value="+880100000000">
+                                <div style="margin-top:5px" class="half-wid phone-number">
+
+                                    <label for="PhoneNumber" class="form-label"></label>
+                                    <input name="contact-name" id="PhoneNumber" type="text" value="Country Calling Code + Phone Number" disabled>
                                 </div>
                             </div>
-                            <div class="input-two-wrapper mt--15">
-                                <div class="half-wid currency">
-                                    <!-- select gender -->
-                                    <select class="profile-edit-select">
-                                        <option selected>Location</option>
-                                        <option value="1">United State</option>
-                                        <option value="2">Katar</option>
-                                        <option value="3">Canada</option>
-                                    </select>
-                                    <!-- end gender -->
-                                </div>
-                                <div class="half-wid phone-number">
-                                    <label for="PhoneNumber" class="form-label">Address</label>
-                                    <input name="contact-name" id="PhoneNumber" type="text" value="USA Cidni">
-                                </div>
-                            </div>
+
                             <div class="button-area save-btn-edit">
-                                <a href="#" class="btn btn-primary-alta mr--15" onclick="customAlert.alert('Cancel Edit Profile?')">Cancel</a>
-                                <a href="#" class="btn btn-primary" onclick="customAlert.alert('Successfully Saved Your Profile?')">Save</a>
+                                @*<a href="#" class="btn btn-primary-alta mr--15" onclick="customAlert.alert('Cancel Edit Profile?')">Cancel</a>*@
+                                <a href="@Url.Action("Edit","EditProfile", new {id=User.Identity.GetUserId() })" class="btn btn-primary">Edit Personal Information</a>
+                                @*<a href="#" class="btn btn-primary" onclick="customAlert.alert('Successfully Saved Your Profile?')">Save</a>*@
                             </div>
 
                         </div>
@@ -180,18 +178,21 @@
                             <div class="input-two-wrapper mt--15">
                                 <div class="old-password half-wid">
                                     <label for="oldPass" class="form-label">Enter Old Password</label>
-                                    <input name="pass" id="oldPass" type="password">
+                                    <input name="pass" id="oldPass" type="password" disabled>
                                 </div>
                                 <div class="new-password half-wid">
                                     <label for="NewPass" class="form-label">Create New Password</label>
-                                    <input name="password" id="NewPass" type="password">
+                                    <input name="password" id="NewPass" type="password" disabled>
                                 </div>
                             </div>
                             <div class="email-area mt--15">
                                 <label for="rePass" class="form-label">Confirm Password</label>
-                                <input name="Password" id="rePass" type="password" value="">
+                                <input name="Password" id="rePass" type="password" value="" disabled>
                             </div>
-                            <a href="#" class="btn btn-primary save-btn-edit" onclick="customAlert.alert('Successfully Changed Password?')">Save</a>
+                            <div style="display: flex; justify-content: right;margin-top:30px">
+                                <a style="justify-content:right" href="@Url.Action("Edit","EditProfile", new {id=User.Identity.GetUserId() })" class="btn btn-primary">Edit Password</a>
+                            </div>
+                            @*<a href="#" class="btn btn-primary save-btn-edit" onclick="customAlert.alert('Successfully Changed Password?')">Save</a>*@
                         </div>
                         <!-- change password area ENd -->
                     </div>
