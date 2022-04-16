@@ -35,7 +35,9 @@
     </div>
 </div>
 
-<button id="load">keepo</button>
+
+<input style="width:200px; height:200px ; background-color:wheat;" id="adam" type="number" name="" value="" />
+
 
 
 
@@ -87,28 +89,28 @@
                                             {
                                                 case "Grass":
                                                     <li style=" border-radius:3px; background-color:lawngreen; font-size:15px; color:white; height:25px; width:70px; text-align:center; margin-left:5px;">@type1.Kind</li>
-; break;
+                                                    ; break;
                                                 case "Water":
                                                     <li style=" border-radius: 3px; background-color: blue; font-size: 15px; color: white; height: 25px; width: 70px; text-align: center; margin-left: 5px;">@type1.Kind</li>
-; break;
+                                                    ; break;
                                                 case "Fire":
                                                     <li style=" border-radius: 3px; background-color: red; font-size: 15px; color: white; height: 25px; width: 70px; text-align: center; margin-left: 5px;">@type1.Kind</li>
- ; break;
+                                                    ; break;
                                                 case "Flying":
                                                     <li style=" border-radius: 3px; background-color: grey; font-size: 15px; color: white; height: 25px; width: 70px; text-align: center; margin-left: 5px;">@type1.Kind</li>
- ; break;
+                                                    ; break;
                                                 case "Bug":
                                                     <li style=" border-radius: 3px; background-color:forestgreen; font-size: 15px; color: white; height: 25px; width: 70px; text-align: center; margin-left: 5px;">@type1.Kind</li>
- ; break;
+                                                    ; break;
                                                 case "Normal":
                                                     <li style=" border-radius: 3px; background-color: white; font-size: 15px; color: black; height: 25px; width: 70px; text-align: center; margin-left: 5px;">@type1.Kind</li>
- ; break;
+                                                    ; break;
                                                 case "Poison":
                                                     <li style=" border-radius: 3px; background-color: purple; font-size: 15px; color: white; height: 25px; width: 70px; text-align: center; margin-left: 5px;">@type1.Kind</li>
- ; break;
+                                                    ; break;
                                                 case "Electric":
                                                     <li style=" border-radius: 3px; background-color: yellow; font-size: 15px; color: black; height: 25px; width: 70px; text-align: center; margin-left: 5px;">@type1.Kind</li>
-; break;
+                                                    ; break;
                                                 default: break;
                                             }
                                         }
@@ -134,13 +136,17 @@
                 <!-- end single product -->
             </div>
 
+            @{ 
+                var num = 1;
+            }
+
             <div class="tab-pane row g-5 d-flex fade show active" id="nav-collection" role="tabpanel" aria-labelledby="nav-profile-tab">
                 <!-- start single product -->
                 @foreach (var card in Model)
                 {
+                    
 
-                
-                    <div class="col-5 col-lg-4 col-md-6 col-sm-6 col-12 keepo" style="display:none;">
+                    <div class="col-5 col-lg-4 col-md-6 col-sm-6 col-12 ">
                         <div class="product-style-one no-overlay with-placeBid">
 
                             <div class="card-thumbnail">
@@ -206,7 +212,7 @@
                                 }
                                 else
                                 {
-                                    <button type="button" class="btn btn-success" style="padding: 5px; width:100px;" data-bs-toggle="modal" data-bs-target=#@card.Name>
+                                    <button type="button" class="btn btn-success" style="padding: 5px; width:100px;" data-bs-toggle="modal" data-bs-target=#@card.Name@card.SerialNumber>
                                         Sell
                                     </button>
                                 }
@@ -216,9 +222,9 @@
                         </div>
                     </div>
 
+                   
 
-
-                    <div class="rn-popup-modal report-modal-wrapper modal fade" id=@card.Name tabindex="-1" aria-hidden="true">
+                    <div class="rn-popup-modal report-modal-wrapper modal fade" id="@card.Name@card.SerialNumber" tabindex="-1" aria-hidden="true">
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i data-feather="x"></i></button>
                         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                             <div class="modal-content report-content-wrapper" style="width:400px; height:400px;">
@@ -235,16 +241,83 @@
                                         <img style="border:solid 1px white; border-radius:100px; height:170px; width:170px; margin:10px; " src=@card.Image.Url alt="Alternate Text" />
                                         <div style="align-items: center; width: 100%; display: flex; flex-direction: column; justify-content: space-around;">
 
+                                           
+                                           @*@using (Html.BeginForm("Listcard", "Marketplace"))
+                                            {*@
+                                               
 
-                                            @using (Html.BeginForm("Listcard", "Marketplace"))
-                                            {
+                                                <h5 class="modal-title" style="">
+                                                    @card.Name  #@card.SerialNumber
+                                                </h5>
+
+                                                 
+                                             
+                                                    <input name="Price" id=@num style="" type="number" placeholder="Enter The Price" value="1" min="1" />
+
+                                                    <button id=@num@card.Name type="submit" class="btn btn-primary-alta w-auto" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target=#@card.Name@card.SerialNumber@card.Rarity></button>
+
+
+                                                
+                                               
+                                                @*<input id="listingprice" name="Price" class="" style="" type="number" placeholder="Enter The Price" value="1" min="1" />*@
+
+                                               
+
+                                                <input type="hidden" name="CardId" value="@card.CardId" />
+
+                                                <input onclick="return confirm('Are you sure you want to Sell this card?')" type="submit" value="List Card" />
+
+                                                <div>
+                                                    <button type="button" class="btn btn-primary mr--10 w-auto"></button>
+                                                    <button type="button" class="btn btn-primary-alta w-auto" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target=#@card.Name@card.SerialNumber@card.Rarity></button>
+                                                </div>
+
+
+                                                
+
+
+
+
+                                            @*}*@
+
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="rn-popup-modal report-modal-wrapper modal fade" id="@card.Name@card.SerialNumber@card.Rarity" tabindex="-1" aria-hidden="true">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i data-feather="x"></i></button>
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                            <div class="modal-content report-content-wrapper" style="width:400px; height:400px;">
+                                <div class="modal-header report-modal-header" style="align-items:center; padding-left:5%; padding-right:5%">
+
+                                    <h5 class="modal-title" style="text-align:center; font-size:20px;">
+                                        Are you sure you want to Sell this Pokemon?
+                                    </h5>
+
+                                </div>
+                                <div class="modal-body">
+
+                                    <div class="report-form-box" style="display:flex; justify-content:space-between; align-items:center;">
+                                        <img style="border:solid 1px white; border-radius:100px; height:170px; width:170px; margin:10px; "  alt="Alternate Text" />
+                                        <div style="align-items: center; width: 100%; display: flex; flex-direction: column; justify-content: space-around;">
+
+
+                                           
 
 
                                                 <h5 class="modal-title" style="">
                                                     @card.Name  #@card.SerialNumber
                                                 </h5>
 
-                                                <input id="listingprice" name="price" style="" type="number" placeholder="Enter The Price" value="1" min="1" />
+                                                <h4 >dsd</h4>
+                                                
 
                                                 <input type="hidden" name="CardId" value="@card.CardId" />
 
@@ -252,12 +325,9 @@
 
 
 
-                                            }
+                                            
 
-                                            @*<div>
-                                    <button type="button" class="btn btn-primary mr--10 w-auto">Report</button>
-                                    <button type="button" class="btn btn-primary-alta w-auto" data-bs-dismiss="modal">Cancel</button>
-                                </div>*@<div>
+                                            <div>
                                                 <button type="button" class="btn btn-primary mr--10 w-auto"></button>
                                                 <button type="button" class="btn btn-primary-alta w-auto" data-bs-dismiss="modal"></button>
                                             </div>
@@ -268,65 +338,67 @@
                         </div>
                     </div>
 
+                    num ++;
+                }
 
-                 }
+                
 
                 <!-- end single product -->
             </div>
-
-            <!--<div class="tab-pane row g-5 d-flex fade" id="nav-liked" role="tabpanel" aria-labelledby="nav-contact-tab">
-                <!-- start single product -->
-            <!--<div class="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
-                <div class="product-style-one no-overlay with-placeBid">
-
-                    <div class="card-thumbnail">
-                        <a href="#">-->
-            @*card details*@
-            <!--<img src="~/Assets/Images/001.png" alt="NFT_portfolio">
-                </a>
-            </div>
-
-            <div style="display: flex; align-items: center; padding-top: 20px; justify-content: space-between;">
-                <h6>NameStroam</h6>-->
-            @*pokemon name*@
-            <!--<h6>Serial</h6>-->@*serial*@
-            <!--</div>
-
-            <div style="display: flex; align-items: center; justify-content: space-between;">
-                <div class="last-bid" style="font-size: 15px;">Price</div>-->
-            @*Price*@
-            <!--<div class="last-bid" style="font-size: 15px;">Rarity</div>-->@*rarity*@
-
-            @*<button type="button" class="btn btn-primary" style="" data-bs-toggle="modal" data-bs-target="#reportModal">
-                                Sell
-                            </button>
-                        </div>
-
-                    </div>
-                </div>-->*@
-            <!-- end single product -->
-            <!--</div>-->
-
         </div>
     </div>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+@{ 
+    int a = 0;
+    foreach (var item in Model)
+    {
+        a++;
+    }
 
-  <script>
+}
 
 
+
+<!--<div class="tab-pane row g-5 d-flex fade" id="nav-liked" role="tabpanel" aria-labelledby="nav-contact-tab">
+    <!-- start single product -->
+<!-- end single product -->
+<!--</div>-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+
+    
+    var y=@a;
+   
+    console.log(y);
+
+
+
+    
         $(function () {
-            $(".keepo").slice(0, 4).show(); // select the first ten
-            $("#load").click(function (e) { // click event for load more
+
+
+
+            $("#7Weedle").click(function (e) { // click event for load more
+
+
                 e.preventDefault();
-                $(".keepo:hidden").slice(0, 3).show(); // select next 10 hidden divs and show them
-                if ($(".keepo:hidden").length == 0) { // check if any hidden divs still exist
-                    alert("No more divs"); // alert if there are none left
-                }
+                console.log("gfgf");
+
+                
+                console.log($("#7").val());
+                //$(`#${i}`).val
+                $('h4').text($("#7").val()); // select next 10 hidden divs and show them
+
+
             });
         });
+    
+   
 
-    </script>
 
-<!-- Modal -->
+
+
+</script>

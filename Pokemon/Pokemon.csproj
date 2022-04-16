@@ -409,6 +409,7 @@
     <Content Include="Scripts\jquery-latest.min.js" />
     <Content Include="Scripts\jquery.lazyload.js" />
     <Content Include="Scripts\jquery.lazyload.min.js" />
+    <Content Include="Scripts\Myscripts\CardsSalesStats.js" />
     <Content Include="Znuron\documentation\assets\animation\animate.css" />
     <Content Include="Znuron\documentation\assets\bootstrap\css\bootstrap-select.min.css" />
     <Content Include="Znuron\documentation\assets\bootstrap\css\bootstrap.min.css" />

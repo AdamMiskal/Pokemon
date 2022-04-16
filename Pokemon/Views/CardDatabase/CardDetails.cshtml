@@ -33,44 +33,51 @@
 
 
     <script src="~/Scripts/jquery-3.4.1.js"></script>
-    <script>
-        var settings = {
-            "url": "https://localhost:44324/api/CardStatistics?name=@Model.Name",
-            "method": "GET",
-            "timeout": 0,
+    @*<script src="~/Scripts/Myscripts/CardsSalesStats.js"></script>*@
+    
+
+<script>
+         var settings = {
+        "url": "https://localhost:44324/api/CardStatistics?name=@Model.Name",
+    "method": "GET",
+    "timeout": 0,
         };
 
-        $.ajax(settings).done(function (response) {
+    $.ajax(settings).done(function (response) {
 
-            window.onload = function () {
+        window.onload = function () {
 
-                var chart = new CanvasJS.Chart("chartContainer", {
-                    theme: "dark2",
-                    animationEnabled: true,
-                    title: {
-                        text: "Email Categories",
-                        horizontalAlign: "left"
-                    },
-                    data: [{
-                        type: "doughnut",
-                        startAngle: 60,
-                        //innerRadius: 60,
-                        indexLabelFontSize: 17,
-                        indexLabel: "{label} - #percent%",
-                        toolTipContent: "<b>{label}:</b> {y} (#percent%)",
-                        dataPoints: [
-                            response[0],
-                            response[1],
-                            response[2]
-                        ]
-                    }]
-                });
-                chart.render();
+            var chart = new CanvasJS.Chart("chartContainer", {
+                theme: "dark2",
+                animationEnabled: true,
+                title: {
+                    text: "Email Categories",
+                    horizontalAlign: "left"
+                },
+                data: [{
+                    type: "doughnut",
+                    startAngle: 60,
+                    //innerRadius: 60,
+                    indexLabelFontSize: 17,
+                    indexLabel: "{label} - #percent%",
+                    toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+                    dataPoints: [
+                        response[0],
+                        response[1],
+                        response[2]
+                    ]
+                }]
+            });
+            chart.render();
 
-            }
+        }
 
-        });
-    </script>
+    });
+</script>
+
+
+
+
 
 </head>
 
@@ -382,36 +389,7 @@
     <div id="chartContainer" style="height: 370px; width: 50%;"></div>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
-    <!-- End Top To Bottom Area  -->
-    <!-- JS ============================================ -->
-    <script src="assets/js/vendor/jquery.js"></script>
-    <script src="assets/js/vendor/jquery.nice-select.min.js"></script>
-    <script src="assets/js/vendor/jquery-ui.js"></script>
-    <script src="assets/js/vendor/modernizer.min.js"></script>
-    <script src="assets/js/vendor/feather.min.js"></script>
-    <script src="assets/js/vendor/slick.min.js"></script>
-    <script src="assets/js/vendor/bootstrap.min.js"></script>
-    <script src="assets/js/vendor/sal.min.js"></script>
-    <script src="assets/js/vendor/waypoint.js"></script>
-    <script src="assets/js/vendor/wow.js"></script>
-    <script src="assets/js/vendor/particles.js"></script>
-    <script src="assets/js/vendor/jquery.style.swicher.js"></script>
-    <script src="assets/js/vendor/js.cookie.js"></script>
-    <script src="assets/js/vendor/count-down.js"></script>
-    <script src="assets/js/vendor/counter-up.js"></script>
-    <script src="assets/js/vendor/isotop.js"></script>
-    <script src="assets/js/vendor/imageloaded.js"></script>
-    <script src="assets/js/vendor/backtoTop.js"></script>
-    <script src="assets/js/vendor/scrolltrigger.js"></script>
-    <script src="assets/js/vendor/jquery.custom-file-input.js"></script>
-    <script src="assets/js/vendor/savePopup.js"></script>
-    <!-- main JS -->
-    <script src="assets/js/main.js"></script>
-    <!-- Meta Mask  -->
-    <script src="assets/js/vendor/web3.min.js"></script>
-    <script src="assets/js/vendor/maralis.js"></script>
-    <script src="assets/js/vendor/nft.js"></script>
-
+   
 
 </body>
 
