@@ -1128,6 +1128,7 @@
     <Content Include="Views\EditProfile\Index.cshtml" />
     <Content Include="Views\ViewCardsStats\Index.cshtml" />
     <Content Include="Views\CardManage\Create.cshtml" />
+    <Content Include="Views\EditProfile\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

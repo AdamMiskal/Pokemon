@@ -1,6 +1,7 @@
 ﻿using Pokemon.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -18,6 +19,8 @@ namespace Pokemon.Controllers
             return View(user);
         }
 
+        // GET: User/Edit
+
         public ActionResult Edit(string id)
         {
             if (id == null)
@@ -29,6 +32,20 @@ namespace Pokemon.Controllers
             {
                 return HttpNotFound();
             }
+            return View(applicationUser);
+        }
+
+        // POST: User/Edit/
+        [HttpPost]
+        public ActionResult Edit(ApplicationUser applicationUser)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(applicationUser).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
             return View(applicationUser);
         }
 
