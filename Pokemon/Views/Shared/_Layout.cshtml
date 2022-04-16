@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="height:100%; margin:0;" >
 
 <head>
     <meta charset="utf-8">
@@ -24,7 +24,7 @@
 </head>
 
 
-<body class="template-color-1">
+<body class="" style="margin:0;" >
 
     <!-- Start Header Area -->
 
@@ -33,11 +33,19 @@
 
     <!-- End Header Area -->
     <!-- Start Body-->
-    @RenderBody()
+    
+        @RenderBody()
+    
+  
+
+    
+       
+   
     <!-- End Body-->
     <!-- Start - Footer -->
+   
+        @Html.Partial("~/Views/Shared/Components/_Footer.cshtml")
 
-    @Html.Partial("~/Views/Shared/Components/_Footer.cshtml")
     <!-- End footer -->
 
 

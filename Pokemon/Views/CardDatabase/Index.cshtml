@@ -70,7 +70,7 @@
             <br />
 
             <div @*id="myDIV"*@ class="tab-content rn-bid-content" style="">
-                <div style=" margin-left:7%;" class="tab-pane row g-4 col-xl-10 d-flex fade show active">
+                <div style=" margin-left:7%; align-items:center" class="tab-pane row g-4 col-xl-10 d-flex fade show active">
 
 
 
@@ -81,7 +81,15 @@
                             <div style="" class="title product-style-one no-overlay ">
                                 <div style="" class="card-thumbnail">
                                     <a href=@Url.Action("CardDetails","CardDatabase",new { id=card.CardId})>
-                                        <img src="@card.Image.Url" alt="NFT_portfolio">
+                                        @if (card.ImageID == null)
+                                        {
+                                            <i>?</i>
+                                        }
+                                        else
+                                        {
+                                            <img src=@card.Image.Url alt="NFT_portfolio">
+                                        }
+
                                     </a>
                                 </div>
                                 <div style="display:flex; align-items: center; padding-top: 20px; height:12px; margin-bottom:0px; ">
@@ -98,21 +106,13 @@
                                         {
                                             switch (type1.Kind)
                                             {
-                                                case "Fairy":
-                                                    <li style="text-shadow: 1px 1px black; border-radius: 3px; background-color: hotpink; font-size: 15px; color: black; height: 25px; width: 70px; text-align: center; margin-left: 5px;">@type1.Kind</li>
-                                                    ; break;
-                                                case "Steel":
-                                                    <li style="text-shadow: 1px 1px black; border-radius: 3px; background-color: lightgray; font-size: 15px; color: black; height: 25px; width: 70px; text-align: center; margin-left: 5px;">@type1.Kind</li>
-                                                    ; break;
+                                           
                                                 case "Ghost":
                                                     <li style="text-shadow: 1px 1px black; border-radius: 3px; background-color: rebeccapurple; font-size: 15px; color: black; height: 25px; width: 70px; text-align: center; margin-left: 5px;">@type1.Kind</li>
                                                     ; break;
                                                 case "Fighting":
                                                     <li style="text-shadow: 1px 1px black; border-radius: 3px; background-color: sandybrown; font-size: 15px; color: black; height: 25px; width: 70px; text-align: center; margin-left: 5px;">@type1.Kind</li>
-                                                    ; break;
-                                                case "Dark":
-                                                    <li style="text-shadow: 1px 1px black; border-radius: 3px; background-color: #282626; font-size: 15px; color: black; height: 25px; width: 70px; text-align: center; margin-left: 5px;">@type1.Kind</li>
-                                                    ; break;
+                                                    ; break;                                               
                                                 case "Dragon":
                                                     <li style="text-shadow: 1px 1px black; border-radius: 3px; background-color: mediumpurple; font-size: 15px; color: black; height: 25px; width: 70px; text-align: center; margin-left: 5px;">@type1.Kind</li>
                                                     ; break;
@@ -168,14 +168,19 @@
 
 
             </div>
-        </div>
 
-        <div style="margin-top:50px; display:flex; justify-content:center">
-            <div>
-                <a class="btn btn-success" href="#" id="loadMore">Load More</a>
 
+            <div style="margin-top:50px; display:flex; justify-content:center">
+                <div>
+                    <a class="btn btn-success" href="#" id="loadMore">Load More</a>
+
+                </div>
             </div>
+
+
         </div>
+
+  
 
     </div>
 

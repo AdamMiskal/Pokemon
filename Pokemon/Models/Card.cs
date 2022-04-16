@@ -19,7 +19,7 @@ namespace Pokemon.Models
 
 
         //PROPERTY GIA TO MARKETPLACE---------------------------------------
-        public Boolean Market { get; set; }
+        public Boolean? Market { get; set; }
         public int? Price { get; set; }
 
 
