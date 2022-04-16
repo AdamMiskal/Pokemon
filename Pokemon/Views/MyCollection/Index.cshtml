@@ -36,11 +36,6 @@
 </div>
 
 
-<input style="width:200px; height:200px ; background-color:wheat;" id="adam" type="number" name="" value="" />
-
-
-
-
 
 <div class="rn-authore-profile-area">
     <div class="container">
@@ -138,6 +133,8 @@
 
             @{ 
                 var num = 1;
+
+                var lee = "a";
             }
 
             <div class="tab-pane row g-5 d-flex fade show active" id="nav-collection" role="tabpanel" aria-labelledby="nav-profile-tab">
@@ -163,6 +160,14 @@
 
                             <div>
                                 <ul class="list-group list-group-horizontal" style="list-style-type:none;">
+                                    @*@foreach (var type1 in card.PokemonTypes)
+                                    {
+                                        <li style=" border-radius:3px; background-color:lawngreen; font-size:15px; color:white; height:25px; width:70px; text-align:center; margin-left:5px;" @type1.Kind>@card.Kind</li>
+
+                                    }*@
+
+                                    
+                                    
                                     @foreach (var type1 in card.PokemonTypes)
                                     {
                                         switch (type1.Kind)
@@ -207,7 +212,7 @@
                                 @if (card.Market == true)
                                 {
                                     <button type="button" class="btn btn-danger" style="padding:5px;" data-bs-toggle="modal" data-bs-target=#@card.Name>
-                                        Cansel Sale
+                                        Cancel Sale
                                     </button>
                                 }
                                 else
@@ -252,31 +257,24 @@
 
                                                  
                                              
-                                                    <input name="Price" id=@num style="" type="number" placeholder="Enter The Price" value="1" min="1" />
+                                                    <input name="Price" id=@num style="" type="number" placeholder="Enter The Price" value="1" min="1" pricepopup=@card.Name@card.SerialNumber@card.Rarity />
 
-                                                    <button id=@num@card.Name type="submit" class="btn btn-primary-alta w-auto" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target=#@card.Name@card.SerialNumber@card.Rarity></button>
+                                                    <button id=@num type="submit" onclick="Keepofunction('@card.Name@card.SerialNumber@card.Rarity');" class="btn btn-primary-alta w-auto" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target=#@card.Name@card.SerialNumber@card.Rarity></button>
 
 
-                                                
                                                
                                                 @*<input id="listingprice" name="Price" class="" style="" type="number" placeholder="Enter The Price" value="1" min="1" />*@
 
                                                
 
-                                                <input type="hidden" name="CardId" value="@card.CardId" />
+                                                @*<input type="hidden" name="CardId" value="@card.CardId" />
 
                                                 <input onclick="return confirm('Are you sure you want to Sell this card?')" type="submit" value="List Card" />
 
                                                 <div>
                                                     <button type="button" class="btn btn-primary mr--10 w-auto"></button>
                                                     <button type="button" class="btn btn-primary-alta w-auto" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target=#@card.Name@card.SerialNumber@card.Rarity></button>
-                                                </div>
-
-
-                                                
-
-
-
+                                                </div>*@
 
                                             @*}*@
 
@@ -305,32 +303,44 @@
                                 <div class="modal-body">
 
                                     <div class="report-form-box" style="display:flex; justify-content:space-between; align-items:center;">
-                                        <img style="border:solid 1px white; border-radius:100px; height:170px; width:170px; margin:10px; "  alt="Alternate Text" />
+                                       
                                         <div style="align-items: center; width: 100%; display: flex; flex-direction: column; justify-content: space-around;">
 
 
-                                           
 
 
-                                                <h5 class="modal-title" style="">
-                                                    @card.Name  #@card.SerialNumber
-                                                </h5>
 
-                                                <h4 >dsd</h4>
+                                            <h5 class="modal-title" style="">
+                                                @card.Name  #@card.SerialNumber
+                                            </h5>
+
+                                            <h4 priceheader=@card.Name@card.SerialNumber@card.Rarity>dsd</h4>
+
+
+
+
+                                            @using (Html.BeginForm("Listcard", "Marketplace"))
+                                            {
                                                 
 
-                                                <input type="hidden" name="CardId" value="@card.CardId" />
+                                                    <input type="hidden" name="Price" givevalue=@card.Name@card.SerialNumber@card.Rarity value="1" min="1" />
 
-                                                <input onclick="return confirm('Are you sure you want to Sell this card?')" type="submit" value="List Card" />
+                                                    <input type="hidden" name="CardId" value="@card.CardId" />
+
+                                                    <input type="submit" value="List Card" />
+
+                                                
+
+                                            }
 
 
 
-                                            
 
-                                            <div>
-                                                <button type="button" class="btn btn-primary mr--10 w-auto"></button>
+
+
+                                          
                                                 <button type="button" class="btn btn-primary-alta w-auto" data-bs-dismiss="modal"></button>
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -368,35 +378,14 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <script>
+  
 
-    
-    var y=@a;
-   
-    console.log(y);
-
-
-
-    
-        $(function () {
-
-
-
-            $("#7Weedle").click(function (e) { // click event for load more
-
-
-                e.preventDefault();
-                console.log("gfgf");
-
-                
-                console.log($("#7").val());
-                //$(`#${i}`).val
-                $('h4').text($("#7").val()); // select next 10 hidden divs and show them
-
-
-            });
-        });
-    
-   
+    var Keepofunction = function(id){
+        debugger
+        var value = $(`input[pricepopup|='${id}']`).val();
+        $(`h4[priceheader|='${id}']`).html(value);
+        $(`input[givevalue |= '${id}']`).val(value);
+    }
 
 
 

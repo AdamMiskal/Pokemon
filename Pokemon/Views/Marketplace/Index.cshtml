@@ -243,14 +243,20 @@
                         @foreach (var card in Model)
                         {
 
-                            if (card.Market == true)
-                            {
+                            //if (card.Market == true)
+                            //{
                                 <tr class="color-light">
                                     <td>
                                         <div class="product-wrapper d-flex align-items-center">
                                             <a href=@Url.Action("CardDetails","CardDatabase",new { id=card.CardId}) class="thumbnail">
-
-                                                <img src=@card.Image.Url />
+                                                @if (card.ImageID == null)
+                                                {
+                                                    <i>?</i>
+                                                }
+                                                else
+                                                {
+                                                    <img src=@card.Image.Url alt="NFT_portfolio">
+                                                }
                                             </a>
                                             <span>@card.Name</span>
                                         </div>
@@ -304,7 +310,7 @@
                                     }
 
                                 </tr>
-                            }
+                            @*}*@
 
                         }
                     </tbody>

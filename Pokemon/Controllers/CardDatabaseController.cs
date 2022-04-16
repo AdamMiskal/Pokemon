@@ -15,9 +15,10 @@ namespace Pokemon.Controllers
         // GET: CardDatabase
         public ActionResult Index()
         {
+            // .Include(x => x.PokemonTypes)
 
-           
-            return View(db.Cards.Where(x => x.SerialNumber == 1).Include(x => x.Image).Include(x=>x.PokemonTypes).ToList());
+
+            return View(db.Cards.Where(x => x.SerialNumber == 1).Include(x => x.Image).Include(x => x.PokemonTypes).ToList());
         }
 
 
