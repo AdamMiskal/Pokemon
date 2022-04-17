@@ -40,6 +40,21 @@ namespace Pokemon.Controllers
            return View(newPack);
         }
 
+        public ActionResult FirePack()
+		{
+            return View();
+		}
+
+        public ActionResult LeafPack()
+        {
+            return View();
+        }
+
+        public ActionResult WaterPack()
+        {
+            return View();
+        }
+
 
         protected override void Dispose(bool disposing)
         {

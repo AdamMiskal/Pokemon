@@ -6,24 +6,63 @@
 
 	</div>
 </div>
+<div>
+	<h2 style="text-align:center">Congratulations!</h2>
+	<h4 style="text-align:center">You won the below cards</h4>
+</div>
+
+<div class="box-table table-responsive">
+	<table id="myTable1" class="table upcoming-projects">
+		<thead style="color:whitesmoke">
+			<tr>
+				<th>Pokemon</th>
+				<th>Rarity</th>
+				<th>Serial Number</th>
+				<th>Attack</th>
+				<th>Defence</th>
+			</tr>
+		</thead>
+		<tbody id="myTable" class="ranking">
+			@foreach (var pokemon in Model)
+			{
+				<tr class="color-light">
+					<td>
+						<div class="product-wrapper d-flex align-items-center">
+							<a href=@Url.Action("CardDetails","CardDatabase",new { id=pokemon.CardId}) class="thumbnail">
+								@if (pokemon.ImageID == null)
+								{
+									<i>?</i>
+								}
+								else
+								{
+									<img src=@pokemon.Image.Url alt="NFT_portfolio">
+								}
+							</a>
+							<span>@pokemon.Name</span>
+						</div>
+					</td>
+					<td>
+						<span>@pokemon.Rarity</span>
+					</td>
+					<td>
+						<span>@pokemon.SerialNumber</span>
+					</td>
+					<td>
+						<span>@pokemon.Attack</span>
+					</td>
+					<td>
+						<span>@pokemon.Defence</span>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
+<a href=@Url.Action("Index", "MyCollection")>
+	Back to My Collection
+</a>
 
 
-	@foreach (var pokemon in Model)
-	{
-		<div class="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
-			<div class="product-style-one no-overlay with-placeBid">
-
-				<div class="card-body">
-						<img src="@pokemon.Image.Url" alt="NFT_portfolio">
-				</div>
-
-				<div style="display: flex; align-items: center; padding-top: 20px; height:12px; margin-bottom:0px; justify-content: space-between;">
-					<h6 style="margin-bottom:5px;">@pokemon.Name</h6>@*pokemon name*@
-
-					<h6 style="margin-bottom:5px;">#@pokemon.SerialNumber</h6>@*serial*@
-				</div>
 
 
-			</div>
-		</div>
-	}
+
