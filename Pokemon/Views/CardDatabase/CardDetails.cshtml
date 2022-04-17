@@ -133,6 +133,71 @@
                         <div class="pd-title-area">
                             <h4 class="title">@Model.Name</h4>
                         </div>
+
+                        
+
+
+                        <div>
+                            <ul class="list-group list-group-horizontal" style="list-style-type:none;">
+                                @foreach (var type1 in Model.PokemonTypes)
+                                {
+                                    switch (type1.Kind)
+                                    {
+
+                                        case "Ghost":
+                                            <li style="text-shadow: 1px 1px black; border-radius: 3px; background-color: rebeccapurple; font-size: 15px; color: black; height: 25px; width: 70px; text-align: center; margin-left: 5px;">@type1.Kind</li>
+                                            ; break;
+                                        case "Fighting":
+                                            <li style="text-shadow: 1px 1px black; border-radius: 3px; background-color: sandybrown; font-size: 15px; color: black; height: 25px; width: 70px; text-align: center; margin-left: 5px;">@type1.Kind</li>
+                                            ; break;
+                                        case "Dragon":
+                                            <li style="text-shadow: 1px 1px black; border-radius: 3px; background-color: mediumpurple; font-size: 15px; color: black; height: 25px; width: 70px; text-align: center; margin-left: 5px;">@type1.Kind</li>
+                                            ; break;
+                                        case "Rock":
+                                            <li style="text-shadow: 1px 1px black; border-radius: 3px; background-color: papayawhip; font-size: 15px; color: black; height: 25px; width: 70px; text-align: center; margin-left: 5px;">@type1.Kind</li>
+                                            ; break;
+                                        case "Ice":
+                                            <li style="text-shadow: 1px 1px black; border-radius: 3px; background-color: lightblue; font-size: 15px; color: black; height: 25px; width: 70px; text-align: center; margin-left: 5px;">@type1.Kind</li>
+                                            ; break;
+                                        case "Ground":
+                                            <li style="text-shadow: 1px 1px black; border-radius: 3px; background-color: saddlebrown; font-size: 15px; color: black; height: 25px; width: 70px; text-align: center; margin-left: 5px;">@type1.Kind</li>
+                                            ; break;
+                                        case "Psychic":
+                                            <li style="text-shadow: 1px 1px black; border-radius: 3px; background-color: deeppink; font-size: 15px; color: black; height: 25px; width: 70px; text-align: center; margin-left: 5px;">@type1.Kind</li>
+                                            ; break;
+                                        case "Normal":
+                                            <li style="text-shadow: 1px 1px white; border-radius: 3px; background-color: darkgray; font-size: 15px; color: black; height: 25px; width: 70px; text-align: center; margin-left: 5px;">@type1.Kind</li>
+                                            ; break;
+                                        case "Grass":
+                                            <li style="text-shadow: 1px 1px black; border-radius: 3px; background-color: lawngreen; font-size: 15px; color: white; height: 25px; width: 70px; text-align: center; margin-left: 5px;">@type1.Kind</li>
+                                            ; break;
+                                        case "Water":
+                                            <li style="text-shadow: 1px 1px black; border-radius: 3px; background-color: deepskyblue; font-size: 15px; color: white; height: 25px; width: 70px; text-align: center; margin-left: 5px;">@type1.Kind</li>
+                                            ; break;
+                                        case "Fire":
+                                            <li style="text-shadow: 1px 1px black; border-radius: 3px; background-color: darkred; font-size: 15px; color: white; height: 25px; width: 70px; text-align: center; margin-left: 5px;">@type1.Kind</li>
+                                            ; break;
+                                        case "Flying":
+                                            <li style="text-shadow: 1px 1px black; border-radius: 3px; background-color: dodgerblue; font-size: 15px; color: white; height: 25px; width: 70px; text-align: center; margin-left: 5px;">@type1.Kind</li>
+                                            ; break;
+                                        case "Bug":
+                                            <li style=" text-shadow: 1px 1px black; border-radius: 3px; background-color: lightgreen; font-size: 15px; color: white; height: 25px; width: 70px; text-align: center; margin-left: 5px;">@type1.Kind</li>
+                                            ; break;
+
+                                        case "Poison":
+                                            <li style="text-shadow: 1px 1px black; border-radius: 3px; background-color: purple; font-size: 15px; color: white; height: 25px; width: 70px; text-align: center; margin-left: 5px;">@type1.Kind</li>
+                                            ; break;
+                                        case "Electric":
+                                            <li style="border-radius: 3px; background-color: yellow; font-size: 15px; color: black; height: 25px; width: 70px; text-align: center; margin-left: 5px;">@type1.Kind</li>
+                                            ; break;
+                                        default: break;
+                                    }
+                                }
+                            </ul>
+                        </div>
+
+
+
                         <span class="bid">Mesos oros timis: <span class="price">TIMI</span></span>
                         <h6 class="title-name">
                             @Model.Description
@@ -237,7 +302,7 @@
                                         <div class="rn-pd-bd-wrapper">
                                             <div class="top-seller-inner-one">
                                                 <!-- <p class="disc">Lorem ipsum dolor, sit amet consectetur adipisicing
-                                                elit. Doloribus debitis nemo deserunt.</p> -->
+                            elit. Doloribus debitis nemo deserunt.</p> -->
                                             </div>
                                             <!-- single -->
                                             <div class="rn-pd-sm-property-wrapper">
@@ -269,7 +334,7 @@
                                                 </div>
                                             </div>
 
-                                        <!--Adam - Xrwmata sta type-->
+                                            <!--Adam - Xrwmata sta type-->
                                             <!-- single -->
                                             <!-- single -->
                                             <!-- single -->

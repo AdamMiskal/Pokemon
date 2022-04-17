@@ -22,17 +22,22 @@ namespace Pokemon.Controllers
         }
 
 
-        public ActionResult CardDetails(int? id )
+        public ActionResult CardDetails(int? id)
         {
-            if (id==null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Card card = db.Cards.Find(id);
-            if (card == null) 
+
+            //Card card = db.Cards.Find(id);
+            Card card = db.Cards.Where(x => x.CardId == id).Include(x => x.Image).Include(x => x.PokemonTypes).SingleOrDefault();
+
+            if (card == null)
             {
                 return HttpNotFound();
             }
+
+            
 
             return View(card);
         }

@@ -193,10 +193,10 @@
     <script>
 
         $(function () {
-            $(".keepo").slice(0, 4).show(); // select the first ten
+            $(".keepo").slice(0, 8).show(); // select the first ten
             $("#loadMore").click(function (e) { // click event for load more
                 e.preventDefault();
-                $(".keepo:hidden").slice(0, 4).show(); // select next 10 hidden divs and show them
+                $(".keepo:hidden").slice(0, 8).show(); // select next 10 hidden divs and show them
                 if ($(".keepo:hidden").length == 0) { // check if any hidden divs still exist
                     $("#loadMore").fadeOut();
                 }
