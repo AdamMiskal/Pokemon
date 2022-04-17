@@ -207,44 +207,45 @@
 
             <br />
 
+            <div class="container">
 
-            <div class="box-table table-responsive">
-                <table id="myTable1" class="table upcoming-projects">
-                    <thead>
-                        <tr>
+              
 
-                            <th onclick="sortTable(0)">
-                                <span>Pokemon</span>
-                            </th>
-                            <th onclick="sortTable(1)">
-                                <span>Type</span>
-                            </th>
-                            <th onclick="sortTable(2)">
-                                <span>Rarity</span>
-                            </th>
-                            <th onclick="sortTable(3)">
-                                <span>Owner's Name</span>
-                            </th>
-                            <th onclick="sortTable(4)">
-                                <span>Id</span>
-                            </th>
-                            <th onclick="sortTable(5)">
-                                <span>Serialnumber</span>
-                            </th>
-                            <th onclick="sortTable(6)">
-                                <span>Price</span>
-                            </th>
-                        </tr>
-                    </thead>
+                <div class="box-table table-responsive">
+                    <table id="myTable1" class="table upcoming-projects">
+                        <thead>
+                            <tr>
 
-                    <tbody id="myTable" class="ranking">
+                                <th onclick="sortTable(0)">
+                                    <span>Pokemon</span>
+                                </th>
+                                <th onclick="sortTable(1)">
+                                    <span>Type</span>
+                                </th>
+                                <th onclick="sortTable(2)">
+                                    <span>Rarity</span>
+                                </th>
+                                <th onclick="sortTable(3)">
+                                    <span>Owner's Name</span>
+                                </th>
+                                
+                                <th onclick="sortTable(5)">
+                                    <span>Serialnumber</span>
+                                </th>
+                                <th onclick="sortTable(6)">
+                                    <span>Price</span>
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="myTable" class="ranking">
 
 
-                        @foreach (var card in Model)
-                        {
+                            @foreach (var card in Model)
+                            {
 
-                            //if (card.Market == true)
-                            //{
+                                //if (card.Market == true)
+                                //{
                                 <tr class="color-light">
                                     <td>
                                         <div class="product-wrapper d-flex align-items-center">
@@ -274,7 +275,7 @@
                                     </td>
                                     <td><span>@card.Rarity</span></td>
                                     <td><span>@(card.User?.UserName)</span></td>
-                                    <td><span>@card.CardId</span></td>
+                                    
                                     <td><span>@card.SerialNumber</span></td>
                                     <td><span>@card.Price</span></td>
 
@@ -293,9 +294,9 @@
                                         else
                                         {
                                             <td>
-                                                
-                                                <a  style="text-decoration:none; width:150px;" href=@Url.Action("BuyCard","Marketplace", new { id = card.CardId, Price= card.Price}) 
-                                                    onclick="return confirm('Are you sure you want to Buy this Card?')" class="btn btn-success">Buyout</a>
+
+                                                <a style="text-decoration:none; width:150px;" href=@Url.Action("BuyCard","Marketplace", new { id = card.CardId, Price= card.Price})
+                                                   onclick="return confirm('Are you sure you want to Buy this Card?')" class="btn btn-success">Buyout</a>
                                             </td>
                                         }
 
@@ -310,11 +311,13 @@
                                     }
 
                                 </tr>
-                            @*}*@
 
-                        }
-                    </tbody>
-                </table>
+
+                            }
+                        </tbody>
+                    </table>
+
+                </div>
             </div>
         </div>
     </div>
@@ -323,26 +326,13 @@
 
 
 
-
-
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
 
 
-    //function myFunction() {
-    //    let text = "Are you sure you wanna buy this card?\nPress Yes to Procceed or No to Cancecl.";
-    //    if (confirm(text) == true) {
-            
-    //    } else {
-    //        window.location.reload();
-    //    }
-
-    //}
-
-
-
-
-
+    
+   
 
 
 
