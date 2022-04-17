@@ -16,8 +16,7 @@ namespace Pokemon.Models
         public int Attack { get; set; }
         public int Defence { get; set; }
         public Rarity Rarity { get; set; }
-
-
+        public int? pkdxNum { get; set; }
         //PROPERTY GIA TO MARKETPLACE---------------------------------------
         public Boolean? Market { get; set; }
         public int? Price { get; set; }

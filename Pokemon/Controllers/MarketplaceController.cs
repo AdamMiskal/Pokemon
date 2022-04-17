@@ -17,8 +17,8 @@ namespace Pokemon.Controllers
 
         public ActionResult Index()
         {
-            //var market = db.Cards.Where(x => x.Market == true).Include(x=>x.PokemonTypes).Include(x=>x.User).ToList();
-            var market = db.Cards.Include(x => x.PokemonTypes).Include(x => x.User).ToList();
+            var market = db.Cards.Where(x => x.Market == true).Include(x=>x.PokemonTypes).Include(x=>x.User).ToList();
+           // var market = db.Cards.Include(x => x.PokemonTypes).Include(x => x.User).ToList();
             return View(market);
         }
 
