@@ -1,4 +1,5 @@
-﻿using Pokemon.Models;
+﻿using Microsoft.Ajax.Utilities;
+using Pokemon.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -16,9 +17,11 @@ namespace Pokemon.Controllers
         public ActionResult Index()
         {
             // .Include(x => x.PokemonTypes)
+            var cards = db.Cards.Where(x => x.SerialNumber == 1).Include(x => x.Image).Include(x => x.PokemonTypes).DistinctBy(x=>x.Name).OrderBy(x=>x.pkdxNum).ToList();
 
+             
 
-            return View(db.Cards.Where(x => x.SerialNumber == 1).Include(x => x.Image).Include(x => x.PokemonTypes).ToList());
+            return View(cards);
         }
 
 
