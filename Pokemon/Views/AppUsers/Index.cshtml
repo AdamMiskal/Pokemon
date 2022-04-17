@@ -18,7 +18,15 @@
 		</ul>
 	</nav>
 </div>
-	<h2>Index</h2>
+<form action="/AppUsers/Index" method="get">
+	<input id="searchFirstName" type="text" name="firstName" value="" placeholder="Search by First Name" />
+	<input id="searchLastName" type="text" name="lastName" value="" placeholder="Search by Last Name" />
+	<input id="searchEmail" type="text" name="email" value="" placeholder="Search by E-mail" />
+	<input id="searchBalance" type="text" name="balance" value="" placeholder="Search by Balance" />
+	<br />
+	<input type="submit" value="Search" />
+	<input id="reset" type="reset" value="Clear" />
+</form>
 	<p>
 		@Html.ActionLink("Create New", "Create")
 	</p>

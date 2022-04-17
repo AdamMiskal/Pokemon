@@ -16,7 +16,28 @@ namespace Pokemon.Controllers
         public ActionResult Index(int? cardId, string name, int? serialNumber, int? attack, int? defence, Rarity? rarity)
         {
             var cards = db.Cards.ToList();
-            return View(db.Cards.ToList());
+            if (!string.IsNullOrEmpty(name))
+            {
+                cards = cards.Where(a => a.Name.ToUpper().Contains(name.ToUpper())).ToList();
+            }
+            if (!(serialNumber is null))
+            {
+                cards = cards.Where(a => a.SerialNumber.Equals(serialNumber)).ToList();
+            }
+            if (!(attack is null))
+            {
+                cards = cards.Where(a => a.Attack.Equals(attack)).ToList();
+            }
+            if (!(defence is null))
+            {
+                cards = cards.Where(a => a.Defence.Equals(defence)).ToList();
+            }
+            if (!(rarity is null))
+            {
+                cards = cards.Where(a => a.Rarity.Equals(rarity)).ToList();
+            }
+            return View(cards.ToList());
+            //return View(db.Cards.ToList());
 
         }
 

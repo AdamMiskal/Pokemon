@@ -27,26 +27,26 @@ namespace Pokemon.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ApplicationUser applicationUser = db.Users.Find(id);
-            if (applicationUser == null)
+            ApplicationUser appUser = db.Users.Find(id);
+            if (appUser == null)
             {
                 return HttpNotFound();
             }
-            return View(applicationUser);
+            return View(appUser);
         }
 
         // POST: User/Edit/
         [HttpPost]
-        public ActionResult Edit(ApplicationUser applicationUser)
+        public ActionResult Edit(ApplicationUser appUser)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(applicationUser).State = EntityState.Modified;
+                db.Entry(appUser).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(applicationUser);
+            return View(appUser);
         }
 
         protected override void Dispose(bool disposing)

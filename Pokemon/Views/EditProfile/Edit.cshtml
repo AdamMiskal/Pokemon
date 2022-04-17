@@ -3,8 +3,16 @@
 @using Pokemon.Models;
 @using System.Data.Entity;
 
+<style>
+    input, select, h1, h2, h3, h4, h5, h6 {
+        border: none;
+        background: none;
+        margin: 0px;
+        padding: 0px;
+        cursor: none;
+    }
+</style>
 
-<h1>EDIT Profile</h1>
 
 <div class="rn-breadcrumb-inner ptb--30">
     <div class="container">
@@ -60,17 +68,41 @@
 
                                     <form action=@Url.Action("Edit","EditProfile") method="post" style="display:flex; flex-direction:column">
 
+
+                                        <div class="button-area">
+                                            <div class="brows-file-wrapper">
+                                                <!-- actual upload which is hidden -->
+                                                <input name="fatima" id="fatima" type="file">
+                                                <!-- our custom upload button -->
+                                                <label for="fatima" title="No File Choosen" style="margin-top:130px;border-start-end-radius:10px;height:40px">
+                                                    <fors class="text-center color-white">Upload Picture</fors>
+                                                </label>
+                                            </div>
+                                            <!-- <a href="#" class="btn-primary-alta btn" onclick="customAlert.alert('Confirm to Delete Your Profile Picture?')">Delete</a> -->
+                                        </div>
+
                                         <div class="button-area" style="margin-top:20px">
                                             <div class="input">
                                                 <input title="" name="fatima" id="fatima" type="file" value="" style="width: 400px;align-content:center;padding-left:100px" />
                                             </div>
                                         </div>
                                         <!-- <a href="#" class="btn-primary-alta btn" onclick="customAlert.alert('Confirm to Delete Your Profile Picture?')">Delete</a> -->
+                                        <!--<div class="button-area" style="margin-top:20px">
+                                        <div class="input">-->
+                                        @*<input title="" name="fatima" id="fatima" type="file" value="UploadPicture" style="width: 400px;align-content:center;padding-left:100px" placeholder="UploadPicture"/>*@
+                                        <!--</div>
+                                        </div>-->
+                                        <!-- <a href="#" class="btn-primary-alta btn" onclick="customAlert.alert('Confirm to Delete Your Profile Picture?')">Delete</a> -->
 
-                                        <div class="button-area" style="margin-top:20px">
+                                        <div class="button-area" style="margin-top:10px; ">
                                             <div class="input">
                                                 <!-- actual upload which is hidden -->
-                                                <input class="btn btn-primary" name="fatima" id="fatima" type="submit" value="Save Changes" style="width: 400px">
+                                                <div class="form-group">
+                                                    <div class="col-md-offset-2 col-md-10">
+                                                        <input style="width: 160px; border-radius: 40px;background-color:dodgerblue" type="submit" value="Save" class="btn btn-primary save-btn-edit"
+                                                               onclick="customAlert.alert('Confirm to Delete Your Profile Picture?')" />
+                                                    </div>
+                                                </div>
                                             </div>
                                             <!-- <a href="#" class="btn-primary-alta btn" onclick="customAlert.alert('Confirm to Delete Your Profile Picture?')">Delete</a> -->
                                         </div>
@@ -88,77 +120,38 @@
                         <!-- start personal information -->
                         <div class="nuron-information">
 
-                            <div class="profile-form-wrapper">
-                                <div class="input-two-wrapper mb--15">
-                                    <div class="first-name half-wid">
-                                        <label for="contact-name" class="form-label">First Name</label>
-                                        <input name="contact-name" id="contact-name" type="text" value="Mr." disabled>
+                            <form action=@Url.Action("Edit","EditProfile") method="post">
+                                <div class="profile-form-wrapper">
+                                    <div class="input-two-wrapper mb--15">
+                                        <div class="first-name half-wid">
+                                            <label for="contact-name" class="form-label">First Name</label>
+                                            <input name="contact-name" id="contact-name" type="text" value="Mr.">
+                                        </div>
+                                        <div class="last-name half-wid">
+                                            <label for="contact-name-last" class="form-label">Last Name</label>
+                                            <input name="contact-name" id="contact-name-last" type="text" value="Peterson">
+                                        </div>
                                     </div>
-                                    <div class="last-name half-wid">
-                                        <label for="contact-name-last" class="form-label">Last Name</label>
-                                        <input name="contact-name" id="contact-name-last" type="text" value="Sunayra" disabled>
+                                    <div class="email-area">
+                                        <label for="Email" class="form-label">Edit Your Email</label>
+                                        <input name="email" id="Email" type="email" value="@Model.Email">
+                                    </div>
+                                    <div class="email-area">
+                                        <label for="Email" class="form-label">Choose a Nickame</label>
+                                        <input name="nickname" id="Email" type="text" value="Nickname">
                                     </div>
                                 </div>
-                                <div class="email-area">
-                                    <label for="Email" class="form-label">Edit Your Email</label>
-                                    <input name="email" id="Email" type="email" value="@Model.Email" disabled>
+
+
+
+                                <div class="button-area save-btn-edit">
+                                    @*<a href="#" class="btn btn-primary-alta mr--15" onclick="customAlert.alert('Cancel Edit Profile?')">Cancel</a>*@
+                                    <input type="submit" value="Save Changes" class="btn btn-primary-alta mr--15" onclick="customAlert.alert('Your Changes have been successfully saved')" style="background-color:dodgerblue" />
                                 </div>
-                            </div>
+
+                            </form>
 
 
-                            <!-- edit bio area Start-->
-                            <div class="edit-bio-area mt--30">
-                                <label for="Discription" class="form-label">Edit Your Bio</label>
-                                <textarea id="Discription" disabled>Hello, I am Alamin, A Front-end Developer...</textarea>
-                            </div>
-                            <!-- edit bio area End -->
-                            <!--  -->
-                            <div style="display:flex; justify-content:space-evenly" class="input-two-wrapper mt--15">
-                                <!-- select gender -->
-                                <div style="margin-right: 26px" class="half-wid currency">
-                                    <select class="profile-edit-select" disabled>
-                                        <option selected>Select Your Gender</option>
-                                        <option value="1">Male</option>
-                                        <option value="2">Female</option>
-                                        <option value="3">Third Gender</option>
-                                    </select>
-                                </div>
-                                <!-- end gender -->
-                                <!-- select gender -->
-                                <div style="margin-right: 2px; margin-left: 3px" class="half-wid currency">
-                                    <select class="profile-edit-select" disabled>
-                                        <option selected>Location</option>
-                                        <option value="1">United State</option>
-                                        <option value="2">Katar</option>
-                                        <option value="3">Canada</option>
-                                    </select>
-                                </div>
-                                <!-- end gender -->
-
-                            </div>
-
-                            <div class="input-two-wrapper mt--15">
-                                <div class="half-wid currency">
-                                    <!-- select gender -->
-                                    <select class="profile-edit-select" disabled>
-                                        <option selected>Currency</option>
-                                        <option value="1">($)USD</option>
-                                        <option value="2">wETH</option>
-                                        <option value="3">BIT Coin</option>
-                                    </select>
-                                    <!-- end gender -->
-                                </div>
-                                <div style="margin-top:5px" class="half-wid phone-number">
-
-                                    <label for="PhoneNumber" class="form-label"></label>
-                                    <input name="contact-name" id="PhoneNumber" type="text" value="Country Calling Code + Phone Number" disabled>
-                                </div>
-                            </div>
-
-                            <div class="button-area save-btn-edit">
-                                @*<a href="#" class="btn btn-primary-alta mr--15" onclick="customAlert.alert('Cancel Edit Profile?')">Cancel</a>*@
-                                <a href="#" class="btn btn-primary" onclick="customAlert.alert('Successfully Saved Your Profile?')">Save</a>
-                            </div>
 
                         </div>
                         <!-- End personal information -->
@@ -178,21 +171,25 @@
                                 <hr />
 
                             </div>
-                            <div class="input-two-wrapper mt--15">
-                                <div class="old-password half-wid">
-                                    <label for="oldPass" class="form-label">Enter Old Password</label>
-                                    <input name="pass" id="oldPass" type="password" disabled>
+                            <form action=@Url.Action("Edit","EditProfile") method="post">
+                                <div class="input-two-wrapper mt--15">
+                                    <div class="old-password half-wid">
+                                        <label for="oldPass" class="form-label">Enter Old Password</label>
+                                        <input name="pass" id="oldPass" type="password">
+                                    </div>
+                                    <div class="new-password half-wid">
+                                        <label for="NewPass" class="form-label">Create New Password</label>
+                                        <input name="password" id="NewPass" type="password">
+                                    </div>
                                 </div>
-                                <div class="new-password half-wid">
-                                    <label for="NewPass" class="form-label">Create New Password</label>
-                                    <input name="password" id="NewPass" type="password" disabled>
+                                <div class="email-area mt--15">
+                                    <label for="rePass" class="form-label">Confirm Password</label>
+                                    <input name="Password" id="rePass" type="password" value="">
                                 </div>
-                            </div>
-                            <div class="email-area mt--15">
-                                <label for="rePass" class="form-label">Confirm Password</label>
-                                <input name="Password" id="rePass" type="password" value="" disabled>
-                            </div>
-                            <a href="#" class="btn btn-primary save-btn-edit" onclick="customAlert.alert('Successfully Changed Password?')">Save</a>
+                                <input type="submit" value="Save Changes" class="btn btn-primary save-btn-edit" onclick="customAlert.alert('Successfully Changed Password?')" style="background-color:dodgerblue" />
+                                @*<a href="#" class="btn btn-primary save-btn-edit" onclick="customAlert.alert('Successfully Changed Password?')">Save</a>*@
+                            </form>
+
                         </div>
                         <!-- change password area ENd -->
                     </div>

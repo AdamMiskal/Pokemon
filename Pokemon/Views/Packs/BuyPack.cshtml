@@ -1,7 +1,29 @@
 ﻿@model IEnumerable<Pokemon.Models.Card>
+<div class="rn-banner-area">
+	<div>
 
-@foreach (var pokemon  in Model)
-{
-    <h1>@pokemon.Name</h1>
-    <h1>@pokemon.Rarity</h1>
-}
+		<img src="~/Assets/test1.jpg" style=" width: 100%; background-size: cover !important; position: relative;">
+
+	</div>
+</div>
+
+
+	@foreach (var pokemon in Model)
+	{
+		<div class="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
+			<div class="product-style-one no-overlay with-placeBid">
+
+				<div class="card-body">
+						<img src="@pokemon.Image.Url" alt="NFT_portfolio">
+				</div>
+
+				<div style="display: flex; align-items: center; padding-top: 20px; height:12px; margin-bottom:0px; justify-content: space-between;">
+					<h6 style="margin-bottom:5px;">@pokemon.Name</h6>@*pokemon name*@
+
+					<h6 style="margin-bottom:5px;">#@pokemon.SerialNumber</h6>@*serial*@
+				</div>
+
+
+			</div>
+		</div>
+	}
