@@ -4,7 +4,17 @@
     ViewBag.Title = "Index";
 }
 @using Microsoft.AspNet.Identity
-
+@using Pokemon.Models
+@using Pokemon.Models;
+@using System;
+@using System.Collections.Generic;
+@using System.Linq;
+@using System.Web;
+@using System.Web.Mvc;
+@using System.Data.Entity;
+@using Pokemon.Models.HelperModels;
+@using Microsoft.AspNet.Identity;
+@using Pokemon.Repository;
 
 
 <style>
@@ -136,12 +146,23 @@
 
                             <tbody id="myTable" class="ranking">
 
+                                @{
+                                    ApplicationDbContext db = new ApplicationDbContext();
 
-                                @foreach (var card in Model)
+                                    var keepo = db.Users.Find(User.Identity.GetUserId());
+
+                                    var idkeepo = keepo.Id;
+
+                                    var lista = db.Cards.Where(x => x.ApplicationUserId == idkeepo).Include(x => x.Image).Include(x => x.PokemonTypes).ToList();
+                                }
+
+                                @foreach (var card in lista)
                                 {
 
-                                    if (card.Market == false && User.Identity.GetUserId() == card.ApplicationUserId)
+
+                                    if (card.Market == false)
                                     {
+
                                         <tr class="color-light">
                                             <td>
                                                 <div class="product-wrapper d-flex align-items-center">
@@ -183,7 +204,12 @@
                                             }
                                         </tr>
 
+
+
                                     }
+
+
+                                }
 
                                 }
 
@@ -209,7 +235,7 @@
 
             <div class="container">
 
-              
+
 
                 <div class="box-table table-responsive">
                     <table id="myTable1" class="table upcoming-projects">
@@ -228,7 +254,7 @@
                                 <th onclick="sortTable(3)">
                                     <span>Owner's Name</span>
                                 </th>
-                                
+
                                 <th onclick="sortTable(5)">
                                     <span>Serialnumber</span>
                                 </th>
@@ -275,7 +301,7 @@
                                     </td>
                                     <td><span>@card.Rarity</span></td>
                                     <td><span>@(card.User?.UserName)</span></td>
-                                    
+
                                     <td><span>@card.SerialNumber</span></td>
                                     <td><span>@card.Price</span></td>
 
@@ -331,8 +357,8 @@
 <script>
 
 
-    
-   
+
+
 
 
 

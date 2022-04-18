@@ -54,6 +54,7 @@ namespace Pokemon.Controllers
             }
             card.ApplicationUserId = User.Identity.GetUserId();
             card.Market = false;
+            card.Price=0;
             db.SaveChanges();
             return RedirectToAction("Index", "Mycollection");
         }
