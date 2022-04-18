@@ -139,6 +139,12 @@ namespace Pokemon.Controllers
         public ActionResult DeleteConfirmed(string id)
         {
             ApplicationUser applicationUser = db.Users.Find(id);
+            var cards = db.Cards.Where(c => c.ApplicationUserId == id);
+            foreach (var card in cards)
+            {
+                
+                card.ApplicationUserId= null;
+            }
             db.Users.Remove(applicationUser);
             db.SaveChanges();
             return RedirectToAction("Index");
