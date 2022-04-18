@@ -74,18 +74,18 @@
                                                 <!-- actual upload which is hidden -->
                                                 <input name="fatima" id="fatima" type="file">
                                                 <!-- our custom upload button -->
-                                                <label for="fatima" title="No File Choosen" style="margin-top:130px;border-start-end-radius:10px;height:40px">
+                                                <label for="fatima" title="No File Choosen" style="margin-top:110px;border-radius:5px;height:40px">
                                                     <fors class="text-center color-white">Upload Picture</fors>
                                                 </label>
                                             </div>
                                             <!-- <a href="#" class="btn-primary-alta btn" onclick="customAlert.alert('Confirm to Delete Your Profile Picture?')">Delete</a> -->
                                         </div>
 
-                                        <div class="button-area" style="margin-top:20px">
-                                            <div class="input">
-                                                <input title="" name="fatima" id="fatima" type="file" value="" style="width: 400px;align-content:center;padding-left:100px" />
-                                            </div>
-                                        </div>
+                                        @*<div class="button-area" style="margin-top:20px">
+                                                <div class="input">
+                                                    <input title="" name="fatima" id="fatima" type="file" value="" style="width: 400px;align-content:center;padding-left:100px" />
+                                                </div>
+                                            </div>*@
                                         <!-- <a href="#" class="btn-primary-alta btn" onclick="customAlert.alert('Confirm to Delete Your Profile Picture?')">Delete</a> -->
                                         <!--<div class="button-area" style="margin-top:20px">
                                         <div class="input">-->
@@ -94,12 +94,12 @@
                                         </div>-->
                                         <!-- <a href="#" class="btn-primary-alta btn" onclick="customAlert.alert('Confirm to Delete Your Profile Picture?')">Delete</a> -->
 
-                                        <div class="button-area" style="margin-top:10px; ">
-                                            <div class="input">
+                                        <div class="button-area" style="margin-top:10px; width: 160px; ">
+                                            <div>
                                                 <!-- actual upload which is hidden -->
-                                                <div class="form-group">
+                                                <div class="form-group" style="margin-top:10px;margin-left:30px ">
                                                     <div class="col-md-offset-2 col-md-10">
-                                                        <input style="width: 160px; border-radius: 40px;background-color:dodgerblue" type="submit" value="Save" class="btn btn-primary save-btn-edit"
+                                                        <input style="width: 160px; border-radius: 70px;background-color:dodgerblue;padding: 0px 52px;margin-left:-30px" type="submit" value="Save" class="btn btn-primary save-btn-edit"
                                                                onclick="customAlert.alert('Confirm to Delete Your Profile Picture?')" />
                                                     </div>
                                                 </div>
@@ -119,17 +119,16 @@
                     <div class="tab-pane fade" id="nav-homes" role="tabpanel" aria-labelledby="nav-home-tab">
                         <!-- start personal information -->
                         <div class="nuron-information">
-
                             <form action=@Url.Action("Edit","EditProfile") method="post">
                                 <div class="profile-form-wrapper">
                                     <div class="input-two-wrapper mb--15">
                                         <div class="first-name half-wid">
                                             <label for="contact-name" class="form-label">First Name</label>
-                                            <input name="contact-name" id="contact-name" type="text" value="Mr.">
+                                            <input name="firstname" id="contact-name" type="text" value="Mr.">
                                         </div>
                                         <div class="last-name half-wid">
                                             <label for="contact-name-last" class="form-label">Last Name</label>
-                                            <input name="contact-name" id="contact-name-last" type="text" value="Peterson">
+                                            <input name="lastname" id="contact-name-last" type="text" value="Peterson">
                                         </div>
                                     </div>
                                     <div class="email-area">
@@ -141,9 +140,6 @@
                                         <input name="nickname" id="Email" type="text" value="Nickname">
                                     </div>
                                 </div>
-
-
-
                                 <div class="button-area save-btn-edit">
                                     @*<a href="#" class="btn btn-primary-alta mr--15" onclick="customAlert.alert('Cancel Edit Profile?')">Cancel</a>*@
                                     <input type="submit" value="Save Changes" class="btn btn-primary-alta mr--15" onclick="customAlert.alert('Your Changes have been successfully saved')" style="background-color:dodgerblue" />

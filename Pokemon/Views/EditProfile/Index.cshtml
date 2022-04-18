@@ -4,8 +4,6 @@
 @using System.Data.Entity;
 
 
-<h1>Index Edit Proifile</h1>
-
 <div class="rn-breadcrumb-inner ptb--30">
     <div class="container">
         <div class="row align-items-center">
@@ -99,57 +97,16 @@
                                     <label for="Email" class="form-label">Edit Your Email</label>
                                     <input name="email" id="Email" type="email" value="@Model.Email" disabled>
                                 </div>
+                                <br />
+                                <div class="email-area">
+                                    <label for="Email" class="form-label">Choose a Nickame</label>
+                                    <input name="nickname" id="Email" type="text" value="Nickname">
+                                </div>
                             </div>
 
 
                             <!-- edit bio area Start-->
-                            <div class="edit-bio-area mt--30">
-                                <label for="Discription" class="form-label">Edit Your Bio</label>
-                                <textarea id="Discription" disabled>Hello, I am Alamin, A Front-end Developer...</textarea>
-                            </div>
-                            <!-- edit bio area End -->
-                            <!--  -->
-                            <div style="display:flex; justify-content:space-evenly" class="input-two-wrapper mt--15">
-                                <!-- select gender -->
-                                <div style="margin-right: 26px" class="half-wid currency">
-                                    <select class="profile-edit-select" disabled>
-                                        <option selected>Select Your Gender</option>
-                                        <option value="1">Male</option>
-                                        <option value="2">Female</option>
-                                        <option value="3">Third Gender</option>
-                                    </select>
-                                </div>
-                                <!-- end gender -->
-                                <!-- select gender -->
-                                <div style="margin-right: 2px; margin-left: 3px" class="half-wid currency">
-                                    <select class="profile-edit-select" disabled>
-                                        <option selected>Location</option>
-                                        <option value="1">United State</option>
-                                        <option value="2">Katar</option>
-                                        <option value="3">Canada</option>
-                                    </select>
-                                </div>
-                                <!-- end gender -->
 
-                            </div>
-
-                            <div class="input-two-wrapper mt--15">
-                                <div class="half-wid currency">
-                                    <!-- select gender -->
-                                    <select class="profile-edit-select" disabled>
-                                        <option selected>Currency</option>
-                                        <option value="1">($)USD</option>
-                                        <option value="2">wETH</option>
-                                        <option value="3">BIT Coin</option>
-                                    </select>
-                                    <!-- end gender -->
-                                </div>
-                                <div style="margin-top:5px" class="half-wid phone-number">
-
-                                    <label for="PhoneNumber" class="form-label"></label>
-                                    <input name="contact-name" id="PhoneNumber" type="text" value="Country Calling Code + Phone Number" disabled>
-                                </div>
-                            </div>
 
                             <div class="button-area save-btn-edit">
                                 @*<a href="#" class="btn btn-primary-alta mr--15" onclick="customAlert.alert('Cancel Edit Profile?')">Cancel</a>*@
