@@ -37,16 +37,18 @@ namespace Pokemon.Controllers
 
         // POST: User/Edit/
         [HttpPost]
-        public ActionResult Edit(ApplicationUser appUser)
+        public ActionResult Edit(int? UserId, string Firstname, string Lastname, string Email, string Nickname)
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(appUser).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
 
-            return View(appUser);
+            ApplicationUser appUser = db.Users.Find(UserId);
+            //appUser.Url = Url;
+            appUser.FirstName = Firstname;
+            appUser.LastName = Lastname;
+            appUser.Email = Email;
+            appUser.NickName = Nickname;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
         }
 
         protected override void Dispose(bool disposing)
