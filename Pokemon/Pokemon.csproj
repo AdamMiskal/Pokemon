@@ -1129,6 +1129,9 @@
     <Content Include="Views\ViewCardsStats\Index.cshtml" />
     <Content Include="Views\CardManage\Create.cshtml" />
     <Content Include="Views\EditProfile\Edit.cshtml" />
+    <Content Include="Views\Packs\FirePack.cshtml" />
+    <Content Include="Views\Packs\LeafPack.cshtml" />
+    <Content Include="Views\Packs\WaterPack.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
