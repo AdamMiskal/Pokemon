@@ -110,8 +110,7 @@
                     </div>
                 </div>
             }
-
-            <!-- The Modal -->
+            @if(Request.IsAuthenticated) {
             <div id="myModal" class="modal">
 
                 <!-- Modal content -->
@@ -220,6 +219,9 @@
                 </div>
 
             </div>
+            }
+            <!-- The Modal -->
+
 
 
             <div>
