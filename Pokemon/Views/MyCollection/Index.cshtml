@@ -2,7 +2,9 @@
 @using Microsoft.AspNet.Identity
 
 
-
+@{ 
+    var lee = 1;
+}
 <div class="rn-banner-area">
     <div>
 
@@ -117,8 +119,8 @@
                                     <div class="last-bid" style="font-size: 15px;">@card.Price$</div> @*Price*@
                                     <div class="last-bid" style="font-size: 15px;">@card.Rarity</div>@*rarity*@
 
-                                    <button type="button" class="btn btn-danger" style="padding:5px;" data-bs-toggle="modal" data-bs-target="#reportModal">
-                                        Cansel Sale
+                                    <button type="button" class="btn btn-danger" style="padding:5px;" data-bs-toggle="modal" data-bs-target=#@card.Name@lee>
+                                        Cancel Sale
                                     </button>
                                 </div>
 
@@ -126,7 +128,55 @@
                         </div>
                     }
 
+
+
+                    <div class="rn-popup-modal report-modal-wrapper modal fade" id="@card.Name@lee" tabindex="-1" aria-hidden="true">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i data-feather="x"></i></button>
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                            <div class="modal-content report-content-wrapper" style="width:400px; height:400px;">
+                                <div class="modal-header report-modal-header" style="align-items:center; padding-left:5%; padding-right:5%">
+
+                                    <h5 class="modal-title" style="text-align:center; font-size:20px;">
+                                        Do Want you Cancel This Sale ?
+                                    </h5>
+
+                                </div>
+                                <div class="modal-body">
+
+                                    <div class="report-form-box" style="display:flex; justify-content:space-between; align-items:center;">
+                                        <img style="border:solid 1px white; border-radius:100px; height:170px; width:170px; margin:10px; " src=@card.Image.Url alt="Alternate Text" />
+                                        <div style="align-items: center; width: 100%; display: flex; flex-direction: column; justify-content: space-around;">
+
+
+                                            <h5 class="modal-title" style="">
+                                                @card.Name  #@card.SerialNumber
+                                            </h5>
+
+
+
+
+                                            <input type="hidden" name="CardId" value="@card.CardId" />
+
+
+                                            <div>
+                                                <button type="button" data-bs-dismiss="modal" class="btn btn-primary mr--10 w-auto">No </button>
+                                                <a class="btn btn-danger" href=@Url.Action("CancelList","MyCollection", new { CardId=card.CardId })>Yes</a>
+                                            </div>
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    lee++;
+
                 }
+
 
                 <!-- end single product -->
             </div>
@@ -134,7 +184,7 @@
             @{
                 var num = 1;
 
-                var lee = "a";
+                
             }
 
             <div class="tab-pane row g-5 d-flex fade show active" id="nav-collection" role="tabpanel" aria-labelledby="nav-profile-tab">
@@ -160,7 +210,7 @@
 
                             <div>
                                 <ul class="list-group list-group-horizontal" style="list-style-type:none;">
-                                   
+
 
 
 
@@ -243,7 +293,7 @@
                                         <div style="align-items: center; width: 100%; display: flex; flex-direction: column; justify-content: space-around;">
 
 
-                                           
+
 
 
                                             <h5 class="modal-title" style="">
@@ -258,19 +308,19 @@
 
 
 
-                                           
+
                                             <input type="hidden" name="CardId" value="@card.CardId" />
 
-                                                
 
-                                            
 
-                                           
 
-                                            
 
-                                           
-                                            
+
+
+
+
+
+
 
 
                                         </div>
@@ -304,7 +354,7 @@
 
 
 
-                                            
+
                                             <h4>Price:</h4>
 
                                             <h4 priceheader=@card.Name@card.SerialNumber@card.Rarity>dsd</h4>
