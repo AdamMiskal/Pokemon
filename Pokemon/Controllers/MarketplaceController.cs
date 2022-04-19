@@ -17,7 +17,8 @@ namespace Pokemon.Controllers
 
         public ActionResult Index()
         {
-            var market = db.Cards.Where(x => x.Market == true).Include(x=>x.PokemonTypes).Include(x=>x.User).ToList();
+            
+            var market = db.Cards.Where(x => x.Market == true ).Include(x=>x.PokemonTypes).Include(x=>x.User).ToList();
            // var market = db.Cards.Include(x => x.PokemonTypes).Include(x => x.User).ToList();
             return View(market);
         }
@@ -56,7 +57,7 @@ namespace Pokemon.Controllers
             card.Market = false;
             card.Price=0;
             db.SaveChanges();
-            return RedirectToAction("Index", "Mycollection");
+            return RedirectToAction("Index", "Marketplace");
         }
 
 
@@ -66,7 +67,7 @@ namespace Pokemon.Controllers
             card.Price = Price;
             card.Market = true;
             db.SaveChanges();
-            return RedirectToAction("Index", "Mycollection");
+            return RedirectToAction("Index", "Marketplace");
         }
 
 
@@ -82,7 +83,7 @@ namespace Pokemon.Controllers
             }
             card.Market = false;
             db.SaveChanges();
-            return RedirectToAction("Index", "Mycollection");
+            return RedirectToAction("Index", "Marketplace");
         }
         protected override void Dispose(bool disposing)
         {
