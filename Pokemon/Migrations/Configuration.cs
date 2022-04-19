@@ -1409,7 +1409,112 @@
             }
 
 
+            //Database sales
+            Sales s1 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 700) };
+            Sales s2 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 600) };
+            Sales s3 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 500) };
+            Sales s4 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 400) };
+            Sales s5 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 300) };
+            Sales s6 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 200) };
+            Sales s7 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 830) };
+            Sales s8 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 820) };
+            Sales s9 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 810) };
+            Sales s10 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 500) };
 
+            Sales s11 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 801) };
+            Sales s12 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 802) };
+            Sales s13 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 803) };
+            Sales s14 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 704) };
+            Sales s15 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 805) };
+            Sales s16 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 806) };
+            Sales s17 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 807) };
+            Sales s18 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 808) };
+            Sales s19 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 809) };
+            Sales s20 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 810) };
+
+            Sales s21 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 820) };
+            Sales s22 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 830) };
+            Sales s23 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 840) };
+            Sales s24 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 850) };
+            Sales s25 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 860) };
+            Sales s26 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 870) };
+            Sales s27 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 880) };
+            Sales s28 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 890) };
+            Sales s29 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 899) };
+            Sales s30 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 800) };
+
+            Sales s31 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 821) };
+            Sales s32 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 832) };
+            Sales s33 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 843) };
+            Sales s34 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 854) };
+            Sales s35 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 865) };
+            Sales s36 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 876) };
+            Sales s37 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 887) };
+            Sales s38 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 898) };
+            Sales s39 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 890) };
+            Sales s40 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 811) };
+
+            Sales s41 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 822) };
+            Sales s42 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 833) };
+            Sales s43 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 844) };
+            Sales s44 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 855) };
+            Sales s45 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 866) };
+            Sales s46 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 877) };
+            Sales s47 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 888) };
+            Sales s48 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 899) };
+            Sales s49 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 898) };
+            Sales s50 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 897) };
+
+            Sales s51 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 122) };
+            Sales s52 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 233) };
+            Sales s53 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 344) };
+            Sales s54 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 455) };
+            Sales s55 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 566) };
+            Sales s56 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 677) };
+            Sales s57 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 788) };
+            Sales s58 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 899) };
+            Sales s59 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 198) };
+            Sales s60 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 197) };
+                   
+            Sales s61 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 322) };
+            Sales s62 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 333) };
+            Sales s63 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 344) };
+            Sales s64 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 355) };
+            Sales s65 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 366) };
+            Sales s66 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 377) };
+            Sales s67 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 388) };
+            Sales s68 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 399) };
+            Sales s69 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 398) };
+            Sales s70 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 397) };
+
+            Sales s71 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 800) };
+            Sales s72 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 800) };
+            Sales s73 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 800) };
+            Sales s74 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 800) };
+            Sales s75 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 800) };
+            Sales s76 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 800) };
+            Sales s77 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 800) };
+            Sales s78 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 800) };
+            Sales s79 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 800) };
+            Sales s80 = new Sales() { PokemonName = "Mew", Price = new Random().Next(1, 800) };
+
+
+            var sales = new List<Sales>()
+            {
+                s1,s2,s3,s5,s6,s7,s8,s9,s10,
+                s11,s12,s13,s14,s15,s16,s17,s18,s19,s20,
+                s21,s22,s23,s24,s25,s26,s27,s28,s29,s30,
+                s31,s32,s33,s34,s35,s36,s37,s38,s39,s40,
+                s41,s42,s43,s44,s45,s46,s47,s48,s49,s50,
+                s51,s52,s53,s54,s55,s56,s57,s58,s59,s60,
+                s61,s62,s63,s64,s65,s66,s67,s68,s69,s70,
+                s71,s72,s73,s74,s75,s76,s77,s78,s79,s80 
+            };
+
+
+
+
+            context.Sales.AddRange(sales);
             context.Cards.AddRange(cards);
             context.PokemonType.AddRange(pokemonTypes);
             context.Images.AddRange(images);

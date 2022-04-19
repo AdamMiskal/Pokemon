@@ -186,6 +186,7 @@
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\API\CardStatisticsController.cs" />
+    <Compile Include="Controllers\API\TotalSalesController.cs" />
     <Compile Include="Controllers\AppUsersController.cs" />
     <Compile Include="Controllers\CardDatabaseController.cs" />
     <Compile Include="Controllers\CardManageController.cs" />
