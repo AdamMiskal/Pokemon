@@ -183,6 +183,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\API\CardStatisticsController.cs" />
     <Compile Include="Controllers\AppUsersController.cs" />
@@ -1132,6 +1133,7 @@
     <Content Include="Views\Packs\FirePack.cshtml" />
     <Content Include="Views\Packs\LeafPack.cshtml" />
     <Content Include="Views\Packs\WaterPack.cshtml" />
+    <Content Include="Views\AboutUs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
