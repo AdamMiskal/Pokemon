@@ -18,73 +18,90 @@
 		</ul>
 	</nav>
 </div>
-<p>
-	@Html.ActionLink("Create New", "Create")
-</p>
+
 <form action="/CardManage/Index" method="get">
-	<input id="searchname" type="text" name="name" value="" placeholder="Search by Name" />
-	<input id="searchSerialNumber" type="text" name="serialNumber" value="" placeholder="Search by Serial Number" />
-	<input id="searchAttack" type="text" name="attack" value="" placeholder="Search by Attack" />
-	<input id="searchDefence" type="text" name="defence" value="" placeholder="Search by Defence" />
-	<select name="rarity">
-		<option value="Common">Common</option>
-		<option value="Rare">Rare</option>
-		<option value="Epic">Epic</option>
-		<option value="Legendary">Legendary</option>
-	</select><br />
-	<input type="submit" value="Search" />
-	<input id="reset" type="reset" value="Clear" />
+	<div class="row">
+		<div class="col">
+			<input id="searchname" type="text" name="name" value="" placeholder="Search by Name" />
+		</div>
+		<div class="col">
+			<input id="searchSerialNumber" type="text" name="serialNumber" value="" placeholder="Search by Serial Number" />
+		</div>
+		<div class="col">
+			<input id="searchAttack" type="text" name="attack" value="" placeholder="Search by Attack" />
+		</div>
+		<div class="col">
+			<input id="searchDefence" type="text" name="defence" value="" placeholder="Search by Defence" />
+		</div>
+		<div class="col">
+			<select name="rarity">
+				<option value="Common">Common</option>
+				<option value="Rare">Rare</option>
+				<option value="Epic">Epic</option>
+				<option value="Legendary">Legendary</option>
+			</select><br />
+		</div>
+		<div class="col">
+			<button  class="btn btn-primary" type="submit" >Search</button>
+		</div>
+		<div class="col">
+			<button id="reset" class="btn btn-danger" type="reset" value="Clear">Clear</button>
+		</div>
+	</div>
 </form>
-<table class="table table-dark">
-	<tr>
-		<th>
-			@Html.DisplayNameFor(model => model.Single().CardId)
-		</th>
-		<th>
-			@Html.DisplayNameFor(model => model.Single().Name)
-		</th>
-		<th>
-			@Html.DisplayNameFor(model => model.Single().SerialNumber)
-		</th>
-		<th>
-			@Html.DisplayNameFor(model => model.Single().Attack)
-		</th>
-		<th>
-			@Html.DisplayNameFor(model => model.Single().Defence)
-		</th>
-		<th>
-			@Html.DisplayNameFor(model => model.Single().Rarity)
-		</th>
-		<th>
-			Actions
-		</th>
-		@foreach (var item in Model)
-		{
-<tr>
-		<td>
-			@Html.DisplayFor(modelItem => item.CardId)
-		</td>
-		<td>
-			@Html.DisplayFor(modelItem => item.Name)
-		</td>
-		<td>
-			@Html.DisplayFor(modelItem => item.SerialNumber)
-		</td>
-		<td>
-			@Html.DisplayFor(modelItem => item.Attack)
-		</td>
-		<td>
-			@Html.DisplayFor(modelItem => item.Defence)
-		</td>
-		<td>
-			@Html.DisplayFor(modelItem => item.Rarity)
-		</td>
-		<td>
-			<button type="button" class="btn btn-success">@Html.ActionLink("Edit", "Edit", new { id = item.CardId })</button>
-			<button type="button" class="btn btn-info">@Html.ActionLink("Details", "Details", new { id = item.CardId })</button>
-			<button type="button" class="btn btn-danger">@Html.ActionLink("Delete", "Delete", new { id = item.CardId })</button>
-</td>
-	</tr>
+<button type="button" class="btn btn-warning">
+	@Html.ActionLink("Create New", "Create")
+</button>
+	<table class="table table-dark">
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.Single().CardId)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Single().Name)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Single().SerialNumber)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Single().Attack)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Single().Defence)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Single().Rarity)
+			</th>
+			<th>
+				Actions
+			</th>
+			@foreach (var item in Model)
+			{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.CardId)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Name)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.SerialNumber)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Attack)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Defence)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Rarity)
+				</td>
+				<td>
+					<button type="button" class="btn btn-success">@Html.ActionLink("Edit", "Edit", new { id = item.CardId })</button>
+					<button type="button" class="btn btn-info">@Html.ActionLink("Details", "Details", new { id = item.CardId })</button>
+					<button type="button" class="btn btn-danger">@Html.ActionLink("Delete", "Delete", new { id = item.CardId })</button>
+				</td>
+			</tr>
 		}
-	</tr>
-</table>
+			</tr>
+		</table>
