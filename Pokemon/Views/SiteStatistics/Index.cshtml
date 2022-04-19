@@ -1,0 +1,58 @@
+﻿
+@{
+	ViewBag.Title = "Index";
+}
+
+<div class="mainmenu-wrapper" style="width:90%;">
+	<nav id="sideNav" class="mainmenu-nav d-none d-xl-block">
+		<ul class="mainmenu">
+			<li>
+				<a href=@Url.Action("Index","AppUsers")>User Database</a>
+			</li>
+			<li>
+				<a href=@Url.Action("Index","CardManage")>Card Database</a>
+			</li>
+			<li>
+				<a href=@Url.Action("Index","SiteStatistics")>Site statistics</a>
+			</li>
+		</ul>
+	</nav>
+</div>
+<div>
+
+	<img src="~/Assets/test1.jpg" style=" width: 100%; background-size: cover !important; position: relative;">
+
+</div>
+<h2 style="text-align:center"> Site Statistics</h2>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th><h4>Description</h4></th>
+				<th><h4>Result</h4></th>
+			</tr>
+		</thead>
+		<tbody id="table">
+		</tbody>
+	</table>
+	<script src="~/Scripts/jquery-3.4.1.js"></script>
+	<script>
+		var settings = {
+			"url": "https://localhost:44324//api/TotalSales",
+			"method": "GET",
+			"timeout": 0,
+		};
+		$.ajax(settings).done(function (response) {
+			for (var result of response) {
+				let template = `
+									   <tr>
+											   <td>${result.name}</td>
+											   <td>${result.result}</td>
+									   </tr>
+											`
+				let ele = $(template)
+				$("#table").append(ele)
+			}
+		})
+	</script>
+</body>

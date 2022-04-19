@@ -200,6 +200,7 @@
     <Compile Include="Controllers\MyCollectionController.cs" />
     <Compile Include="Controllers\PacksController.cs" />
     <Compile Include="Controllers\PayPalPaymentController.cs" />
+    <Compile Include="Controllers\SiteStatisticsController.cs" />
     <Compile Include="Controllers\VIewCardsByCategoriesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1135,6 +1136,7 @@
     <Content Include="Views\Packs\LeafPack.cshtml" />
     <Content Include="Views\Packs\WaterPack.cshtml" />
     <Content Include="Views\AboutUs\Index.cshtml" />
+    <Content Include="Views\SiteStatistics\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

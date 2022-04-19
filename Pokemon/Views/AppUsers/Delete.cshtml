@@ -3,7 +3,21 @@
 @{
     ViewBag.Title = "Delete";
 }
-
+<div class="mainmenu-wrapper" style="width:90%;">
+	<nav id="sideNav" class="mainmenu-nav d-none d-xl-block">
+		<ul class="mainmenu">
+			<li>
+				<a href=@Url.Action("Index","AppUsers")>User Database</a>
+			</li>
+			<li>
+				<a href=@Url.Action("Index","CardManage")>Card Database</a>
+			</li>
+			<li>
+				<a href=@Url.Action("Index","SiteStatistics")>Site statistics</a>
+			</li>
+		</ul>
+	</nav>
+</div>
 <h2>Delete</h2>
 
 <h3>Are you sure you want to delete this?</h3>
