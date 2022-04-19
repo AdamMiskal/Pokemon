@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6 col-md-6 col-12">
-                <h5 class="title text-center text-md-start">Edit Profile</h5>
+
             </div>
             <div class="col-lg-6 col-md-6 col-12">
                 <ul class="breadcrumb-list">
@@ -26,7 +26,7 @@
 
         <div class="row plr--70 padding-control-edit-wrapper pl_md--0 pr_md--0 pl_sm--0 pr_sm--0">
             <div class="col-12 d-flex justify-content-between mb--30 align-items-center">
-                <h4 class="title-left">Edit Your Profile</h4>
+                <h4 class="title-left">Profile Information</h4>
             </div>
         </div>
         <div class="row plr--70 padding-control-edit-wrapper pl_md--0 pr_md--0 pl_sm--0 pr_sm--0">
@@ -34,8 +34,9 @@
                 <!-- Start tabs area -->
                 <nav class="left-nav rbt-sticky-top-adjust-five">
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true"><i class="feather-edit"></i>Edit Profile Image</button>
+                        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true"><i class="feather-edit"></i>Profile Image</button>
                         <button class="nav-link" id="nav-home-tabs" data-bs-toggle="tab" data-bs-target="#nav-homes" type="button" role="tab" aria-controls="nav-homes" aria-selected="false"><i class="feather-user"></i>Personal Information</button>
+                        <a href="@Url.Action("Edit","EditProfile", new {id=User.Identity.GetUserId() })" style="width:100%;border-radius:4px;margin:5px 5px;border:inherit;padding-left:0px;padding-right:110px;font-size:inherit" class="btn nav-link" id="nav-profile-tab" type="button" role="tab" aria-controls="nav-profile"><i class="feather-unlock"></i> Manage Password</a>
                     </div>
                 </nav>
                 <!-- End tabs area -->
@@ -50,7 +51,7 @@
                             <div class="profile-change col col-12  row g-5">
                                 <div style="border-right: none; display: flex; justify-content: space-evenly" class="profile-left">
                                     <div class="profile-image mb--30">
-                                        <h6 class="title">Change Your Profile Picture</h6>
+                                        <h6 class="title">Profile Picture</h6>
                                         <img id="rbtinput1" src="~/Assets/Images/001.png" alt="Profile-NFT">
                                     </div>
                                     <a class="btn btn-primary" style="margin-top:130px;border-start-end-radius:10px;height:40px" href="@Url.Action("Edit","EditProfile", new {id=User.Identity.GetUserId() })"><strong>Edit Profile Picture</strong></a>
