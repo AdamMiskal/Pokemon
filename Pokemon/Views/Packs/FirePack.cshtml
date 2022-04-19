@@ -14,7 +14,7 @@
 			display: none; /* Hidden by default */
 			position: fixed; /* Stay in place */
 			z-index: 1; /* Sit on top */
-			padding-top: 400px; /* Location of the box */
+			padding-top: 300px; /* Location of the box */
 			left: 0;
 			top: 0;
 			width: 100%; /* Full width */
@@ -69,10 +69,11 @@
 	</style>
 </head>
 <body>
-	<h2>LeafPack</h2>
-	<img style="height:300px" src="~/Assets/Images/firePack.png" />
+	<h2 style="text-align:center">Fire Pack</h2>
+	<h3 style="text-align:center">Open and win 5 Random Cads</h3>
+	<img style="height:300px; padding-left:850px" src="~/Assets/Images/firePack.png" /><br /><hr />
 	<!-- Trigger/Open The Modal -->
-	<button id="myBtn">Open Modal</button>
+	<button type="button" class="btn btn-danger btn-lg" id="myBtn" style="width:100%">Buy Fire Pack</button>
 
 	<!-- The Modal -->
 	<div id="myModal" class="modal">
@@ -95,7 +96,7 @@
 		</div>
 
 	</div>
-	<a href=@Url.Action("BuyPack", "Packs", new { UserId = User.Identity.GetUserId(), PackValue = 3 })><h4>Leaf Pack</h4></a>
+
 	<script>
 		// Get the modal
 		var modal = document.getElementById("myModal");

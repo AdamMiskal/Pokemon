@@ -24,7 +24,21 @@ namespace Pokemon.Controllers
             
             return View(cards);
         }
-       
+
+        public ActionResult CancelList(int? CardId)
+        {
+            var card = db.Cards.Find(CardId);
+            if (card.Price == null)
+            {
+            }
+            else
+            {
+                card.Price = null;
+            }
+            card.Market = false;
+            db.SaveChanges();
+            return RedirectToAction("Index", "MyCollection");
+        }
 
         protected override void Dispose(bool disposing)
         {

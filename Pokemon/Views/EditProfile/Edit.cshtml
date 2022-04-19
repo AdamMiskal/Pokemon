@@ -47,7 +47,8 @@
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                         <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true"><i class="feather-edit"></i>Edit Profile Image</button>
                         <button class="nav-link" id="nav-home-tabs" data-bs-toggle="tab" data-bs-target="#nav-homes" type="button" role="tab" aria-controls="nav-homes" aria-selected="false"><i class="feather-user"></i>Personal Information</button>
-                        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false"> <i class="feather-unlock"></i>Change Password</button>
+                        <a href="@Url.Action("ChangePassword","Manage")" style="width:100%;border-radius:4px;margin:5px 5px;border:inherit;padding-left:0px;padding-right:110px;font-size:inherit" class="btn nav-link" id="nav-profile-tab" type="button" role="tab" aria-controls="nav-profile"><i class="feather-unlock"></i> Change Password</a>
+                        @*<button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false"> <i class="feather-unlock"></i>Change Password</button>*@
                     </div>
                 </nav>
                 <!-- End tabs area -->
@@ -110,37 +111,25 @@
 
                             @using (Html.BeginForm("Edit", "EditProfile", method: FormMethod.Post))
                             {
-                                <div class="profile-form-wrapper">
 
-                                    <div class="form-group">
-                                        <div class="first-name half-wid">
-                                            <label for="contact-name" class="form-label">First Name</label>
-                                            <input name="firstname" id="contact-name" type="text" value="@Model.FirstName">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="last-name half-wid">
-                                            <label for="contact-name-last" class="form-label">Last Name</label>
-                                            <input name="lastname" id="contact-name-last" type="text" value="@Model.LastName">
-                                        </div>
-                                    </div>
+                                <input type="hidden" name="UserId" value="@Model.Id" />
+                                <h7><strong>Firstname</strong></h7>
+                                <input name="Firstname" type="text" value="@Model.FirstName">
+                                <br />
+                                <br />
+                                <h7><strong>Lastname</strong></h7>
+                                <input name="Lastname" type="text" value="@Model.LastName">
+                                <br />
+                                <br />
+                                <h7><strong>Email</strong></h7>
+                                <input name="Email" type="email" value="@Model.Email">
+                                <br />
+                                <br />
+                                <h7><strong>Nickname</strong></h7>
+                                <input name="Nickname" type="text" value="@Model.NickName">
+                                <br />
+                                <input type="submit" value="Save Changes" class="btn btn-primary-alta mr--15" style="background-color:dodgerblue" />
 
-                                    <div class="form-group">
-                                        <div class="email-area">
-                                            <label for="Email" class="form-label">Edit Your Email</label>
-                                            <input name="email" id="Email" type="email" value="@Model.Email">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="email-area">
-                                            <label for="Email" class="form-label">Choose a Nickame</label>
-                                            <input name="nickname" id="Email" type="text" value="@Model.NickName">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="button-area save-btn-edit">
-                                    <input type="submit" value="Save Changes" class="btn btn-primary-alta mr--15" onclick="customAlert.alert('Your Changes have been successfully saved')" style="background-color:dodgerblue" />
-                                </div>
                             }
 
 

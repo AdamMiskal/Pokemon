@@ -26,29 +26,26 @@
             <img style="height:300px" src="~/Assets/Images/grassPack.png" />
             <br />
             <a href=@Url.Action("LeafPack", "Packs", new { UserId = User.Identity.GetUserId(), PackValue = 3 })><h4>Leaf Pack</h4></a>
-            <p>Feature 1</p>
-            <p>Feature 2</p>
-            <p>Feature 3</p>
+            <h4>Win 3 Random Cards</h4>
+            <h5>Cost: X Credits</h5>
         </div>
 
-        <div class="col">
+		<div class="col">
 
-            <img style="height:300px" src="~/Assets/Images/firePack.png" />
-            <br />
-            <a href=@Url.Action("FirePack","Packs",new {UserId=User.Identity.GetUserId() ,PackValue=5 })><h4>Fire Pack</h4></a>
-            <p>Feature 1</p>
-            <p>Feature 2</p>
-            <p>Feature 3</p>
-        </div>
+			<img style="height:300px" src="~/Assets/Images/firePack.png" />
+			<br />
+			<a href=@Url.Action("FirePack","Packs",new {UserId=User.Identity.GetUserId() ,PackValue=5 })><h4>Fire Pack</h4></a>
+			<h4>Win 5 Random Cards</h4>
+			<h5>Cost: X Credits</h5>
+		</div>
 
-        <div class="col">
-            <img style="height:300px" src="~/Assets/Images/waterPack.png" />
-            <br />
-            <a href=@Url.Action("WaterPack","Packs",new {UserId=User.Identity.GetUserId() ,PackValue=7 })><h4>Water Pack</h4></a>
-            <p>Feature 1</p>
-            <p>Feature 2</p>
-            <p>Feature 3</p>
-        </div>
+		<div class="col">
+			<img style="height:300px" src="~/Assets/Images/waterPack.png" />
+			<br />
+			<a href=@Url.Action("WaterPack","Packs",new {UserId=User.Identity.GetUserId() ,PackValue=7 })><h4>Water Pack</h4></a>
+			<h4>Win 7 Random Cards</h4>
+			<h5>Cost: X Credits</h5>
+		</div>
     </div>
 
 

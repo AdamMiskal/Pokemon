@@ -37,17 +37,25 @@ namespace Pokemon.Controllers
 
         // POST: User/Edit/
         [HttpPost]
-        public ActionResult Edit(int? UserId, string Firstname, string Lastname, string Email, string Nickname)
+        public ActionResult Edit(string UserId, string Firstname, string Lastname, string Email, string Nickname)
         {
+            try
+            {
+                ApplicationUser appUser = db.Users.Find(UserId);
+                //appUser.Url = Url;
+                appUser.FirstName = Firstname;
+                appUser.LastName = Lastname;
+                appUser.Email = Email;
+                appUser.NickName = Nickname;
+                db.SaveChanges();
+                return RedirectToAction("Index", new { id = UserId });
+            }
+            catch (Exception x)
+            {
 
-            ApplicationUser appUser = db.Users.Find(UserId);
-            //appUser.Url = Url;
-            appUser.FirstName = Firstname;
-            appUser.LastName = Lastname;
-            appUser.Email = Email;
-            appUser.NickName = Nickname;
-            db.SaveChanges();
-            return RedirectToAction("Index");
+                throw x;
+            }
+
 
         }
 

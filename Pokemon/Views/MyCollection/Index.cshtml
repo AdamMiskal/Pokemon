@@ -2,7 +2,9 @@
 @using Microsoft.AspNet.Identity
 
 
-
+@{ 
+    var lee = 1;
+}
 <div class="rn-banner-area">
     <div>
 
@@ -117,8 +119,8 @@
                                     <div class="last-bid" style="font-size: 15px;">@card.Price$</div> @*Price*@
                                     <div class="last-bid" style="font-size: 15px;">@card.Rarity</div>@*rarity*@
 
-                                    <button type="button" class="btn btn-danger" style="padding:5px;" data-bs-toggle="modal" data-bs-target="#reportModal">
-                                        Cansel Sale
+                                    <button type="button" class="btn btn-danger" style="padding:5px;" data-bs-toggle="modal" data-bs-target=#@card.Name@lee>
+                                        Cancel Sale
                                     </button>
                                 </div>
 
@@ -126,22 +128,70 @@
                         </div>
                     }
 
+
+
+                    <div class="rn-popup-modal report-modal-wrapper modal fade" id="@card.Name@lee" tabindex="-1" aria-hidden="true">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i data-feather="x"></i></button>
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                            <div class="modal-content report-content-wrapper" style="width:400px; height:400px;">
+                                <div class="modal-header report-modal-header" style="align-items:center; padding-left:5%; padding-right:5%">
+
+                                    <h5 class="modal-title" style="text-align:center; font-size:20px;">
+                                        Do Want you Cancel This Sale ?
+                                    </h5>
+
+                                </div>
+                                <div class="modal-body">
+
+                                    <div class="report-form-box" style="display:flex; justify-content:space-between; align-items:center;">
+                                        <img style="border:solid 1px white; border-radius:100px; height:170px; width:170px; margin:10px; " src=@card.Image.Url alt="Alternate Text" />
+                                        <div style="align-items: center; width: 100%; display: flex; flex-direction: column; justify-content: space-around;">
+
+
+                                            <h5 class="modal-title" style="">
+                                                @card.Name  #@card.SerialNumber
+                                            </h5>
+
+
+
+
+                                            <input type="hidden" name="CardId" value="@card.CardId" />
+
+
+                                            <div>
+                                                <button type="button" data-bs-dismiss="modal" class="btn btn-primary mr--10 w-auto">No </button>
+                                                <a class="btn btn-danger" href=@Url.Action("CancelList","MyCollection", new { CardId=card.CardId })>Yes</a>
+                                            </div>
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    lee++;
+
                 }
+
 
                 <!-- end single product -->
             </div>
 
-            @{ 
+            @{
                 var num = 1;
 
-                var lee = "a";
+                
             }
 
             <div class="tab-pane row g-5 d-flex fade show active" id="nav-collection" role="tabpanel" aria-labelledby="nav-profile-tab">
                 <!-- start single product -->
                 @foreach (var card in Model)
                 {
-                    
+
 
                     <div class="col-5 col-lg-4 col-md-6 col-sm-6 col-12 ">
                         <div class="product-style-one no-overlay with-placeBid">
@@ -160,14 +210,10 @@
 
                             <div>
                                 <ul class="list-group list-group-horizontal" style="list-style-type:none;">
-                                    @*@foreach (var type1 in card.PokemonTypes)
-                                    {
-                                        <li style=" border-radius:3px; background-color:lawngreen; font-size:15px; color:white; height:25px; width:70px; text-align:center; margin-left:5px;" @type1.Kind>@card.Kind</li>
 
-                                    }*@
 
-                                    
-                                    
+
+
                                     @foreach (var type1 in card.PokemonTypes)
                                     {
                                         switch (type1.Kind)
@@ -217,7 +263,7 @@
                                 }
                                 else
                                 {
-                                    <button type="button" class="btn btn-success" style="padding: 5px; width:100px;" data-bs-toggle="modal" data-bs-target=#@card.Name@card.SerialNumber>
+                                    <button type="button" class="btn btn-success" style="padding: 5px; width:100px;" data-bs-toggle="modal" data-bs-target=#@card.Name@card.SerialNumber@num>
                                         Sell
                                     </button>
                                 }
@@ -227,9 +273,9 @@
                         </div>
                     </div>
 
-                   
 
-                    <div class="rn-popup-modal report-modal-wrapper modal fade" id="@card.Name@card.SerialNumber" tabindex="-1" aria-hidden="true">
+
+                    <div class="rn-popup-modal report-modal-wrapper modal fade" id="@card.Name@card.SerialNumber@num" tabindex="-1" aria-hidden="true">
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i data-feather="x"></i></button>
                         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                             <div class="modal-content report-content-wrapper" style="width:400px; height:400px;">
@@ -246,39 +292,37 @@
                                         <img style="border:solid 1px white; border-radius:100px; height:170px; width:170px; margin:10px; " src=@card.Image.Url alt="Alternate Text" />
                                         <div style="align-items: center; width: 100%; display: flex; flex-direction: column; justify-content: space-around;">
 
-                                           
-                                           @*@using (Html.BeginForm("Listcard", "Marketplace"))
-                                            {*@
-                                               
-
-                                                <h5 class="modal-title" style="">
-                                                    @card.Name  #@card.SerialNumber
-                                                </h5>
-
-                                                 
-                                             
-                                                    <input name="Price" id=@num style="" type="number" placeholder="Enter The Price" value="1" min="1" pricepopup=@card.Name@card.SerialNumber@card.Rarity />
-
-                                                    <button id=@num type="submit" onclick="Keepofunction('@card.Name@card.SerialNumber@card.Rarity');" class="btn btn-primary-alta w-auto" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target=#@card.Name@card.SerialNumber@card.Rarity></button>
 
 
-                                               
-                                                @*<input id="listingprice" name="Price" class="" style="" type="number" placeholder="Enter The Price" value="1" min="1" />*@
 
-                                               
 
-                                                @*<input type="hidden" name="CardId" value="@card.CardId" />
+                                            <h5 class="modal-title" style="">
+                                                @card.Name  #@card.SerialNumber
+                                            </h5>
 
-                                                <input onclick="return confirm('Are you sure you want to Sell this card?')" type="submit" value="List Card" />
 
-                                                <div>
-                                                    <button type="button" class="btn btn-primary mr--10 w-auto"></button>
-                                                    <button type="button" class="btn btn-primary-alta w-auto" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target=#@card.Name@card.SerialNumber@card.Rarity></button>
-                                                </div>*@
+                                            <label style="color:white; font-size:22px;" class="" for=@num>Enter Price:</label>
+                                            <input name="Price" id=@num style="margin-top:25px;background-color:white; color:black;" type="number" placeholder="Enter The Price" value="1" min="1" pricepopup=@card.Name@card.SerialNumber@card.Rarity />
 
-                                            @*}*@
+                                            <button style="margin-top:15px;" id=@num type="submit" onclick="Keepofunction('@card.Name@card.SerialNumber@card.Rarity');" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target=#@card.Name@card.SerialNumber@card.Rarity>Submit</button>
 
-                                           
+
+
+
+                                            <input type="hidden" name="CardId" value="@card.CardId" />
+
+
+
+
+
+
+
+
+
+
+
+
+
                                         </div>
                                     </div>
                                 </div>
@@ -293,43 +337,43 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i data-feather="x"></i></button>
                         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                             <div class="modal-content report-content-wrapper" style="width:400px; height:400px;">
-                                <div class="modal-header report-modal-header" style="align-items:center; padding-left:5%; padding-right:5%">
+                                <div class="modal-header report-modal-header" style=" align-items:center; padding-left:5%; padding-right:5%">
 
                                     <h5 class="modal-title" style="text-align:center; font-size:20px;">
-                                        Are you sure you want to Sell this Pokemon?
+                                        Are you sure you want to Sell <span style="text-decoration:underline; color:deepskyblue">"@card.Name"</span> with serial no. <span style="text-decoration:underline;color:deepskyblue;">#@card.SerialNumber</span>  For this Price?
                                     </h5>
 
                                 </div>
                                 <div class="modal-body">
 
                                     <div class="report-form-box" style="display:flex; justify-content:space-between; align-items:center;">
-                                       
+
                                         <div style="align-items: center; width: 100%; display: flex; flex-direction: column; justify-content: space-around;">
 
 
 
 
 
-                                            <h5 class="modal-title" style="">
-                                                @card.Name  #@card.SerialNumber
-                                            </h5>
+
+                                            <h4>Price:</h4>
 
                                             <h4 priceheader=@card.Name@card.SerialNumber@card.Rarity>dsd</h4>
 
 
+                                            @*--------------------------------------------------------*@
 
 
                                             @using (Html.BeginForm("Listcard", "Marketplace"))
                                             {
-                                                
 
-                                                    <input type="hidden" name="Price" givevalue=@card.Name@card.SerialNumber@card.Rarity value="1" min="1" />
 
-                                                    <input type="hidden" name="CardId" value="@card.CardId" />
+                                                <input type="hidden" name="Price" givevalue=@card.Name@card.SerialNumber@card.Rarity value="1" min="1" />
 
-                                                    <input type="submit" value="List Card" />
+                                                <input type="hidden" name="CardId" value="@card.CardId" />
 
-                                                
+                                                <input type="submit" value="Yes" />
+
+
 
                                             }
 
@@ -338,9 +382,9 @@
 
 
 
-                                          
-                                                <button type="button" class="btn btn-primary-alta w-auto" data-bs-dismiss="modal"></button>
-                                            
+
+                                            <button style="margin-top:10px; height:47px; border-radius:30px; width:96px;" type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+
                                         </div>
                                     </div>
                                 </div>
@@ -348,10 +392,58 @@
                         </div>
                     </div>
 
-                    num ++;
+
+
+                    //Cancel Sale Modal--------------------------------
+
+                    <div class="rn-popup-modal report-modal-wrapper modal fade" id="@card.Name" tabindex="-1" aria-hidden="true">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i data-feather="x"></i></button>
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                            <div class="modal-content report-content-wrapper" style="width:400px; height:400px;">
+                                <div class="modal-header report-modal-header" style="align-items:center; padding-left:5%; padding-right:5%">
+
+                                    <h5 class="modal-title" style="text-align:center; font-size:20px;">
+                                        Do Want you Cancel This Sale ?
+                                    </h5>
+
+                                </div>
+                                <div class="modal-body">
+
+                                    <div class="report-form-box" style="display:flex; justify-content:space-between; align-items:center;">
+                                        <img style="border:solid 1px white; border-radius:100px; height:170px; width:170px; margin:10px; " src=@card.Image.Url alt="Alternate Text" />
+                                        <div style="align-items: center; width: 100%; display: flex; flex-direction: column; justify-content: space-around;">
+
+
+                                            <h5 class="modal-title" style="">
+                                                @card.Name  #@card.SerialNumber
+                                            </h5>
+
+
+
+
+                                            <input type="hidden" name="CardId" value="@card.CardId" />
+
+
+                                            <div>
+                                                <button type="button" data-bs-dismiss="modal" class="btn btn-primary mr--10 w-auto">No </button>
+                                                <a class="btn btn-danger" href=@Url.Action("CancelList","MyCollection", new { CardId=card.CardId })>Yes</a>
+                                            </div>
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    num++;
                 }
 
-                
+
 
                 <!-- end single product -->
             </div>
@@ -359,7 +451,7 @@
     </div>
 </div>
 
-@{ 
+@{
     int a = 0;
     foreach (var item in Model)
     {
@@ -378,9 +470,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <script>
-  
 
-    var Keepofunction = function(id){
+
+    var Keepofunction = function (id) {
         debugger
         var value = $(`input[pricepopup|='${id}']`).val();
         $(`h4[priceheader|='${id}']`).html(value);
