@@ -32,9 +32,9 @@ namespace Pokemon.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -238,7 +238,7 @@ namespace Pokemon.Controllers
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                 }
-                return RedirectToAction("Index", new { Message = ManageMessageId.ChangePasswordSuccess });
+                return RedirectToAction("Index", "EditProfile", new { id = User.Identity.GetUserId() });
             }
             AddErrors(result);
             return View(model);
@@ -276,7 +276,7 @@ namespace Pokemon.Controllers
             return View(model);
         }
 
-       
+
 
         //
         // GET: /Manage/ManageLogins
@@ -335,7 +335,7 @@ namespace Pokemon.Controllers
             base.Dispose(disposing);
         }
 
-#region Helpers
+        #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 
@@ -386,6 +386,6 @@ namespace Pokemon.Controllers
             Error
         }
 
-#endregion
+        #endregion
     }
 }

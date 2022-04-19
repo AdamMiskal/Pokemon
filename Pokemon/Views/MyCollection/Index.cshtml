@@ -1,8 +1,10 @@
 ﻿@model  IEnumerable<Pokemon.Models.Card>
-@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity;
+@using Pokemon.Models;
+@using System.Data.Entity;
 
 
-@{ 
+@{
     var lee = 1;
 }
 <div class="rn-banner-area">
@@ -20,10 +22,34 @@
                 <div class="author-wrapper">
                     <div class="author-inner">
                         <div class="user-thumbnail">
-                            <img src="~/Assets/Images/001.png" alt=""> @*UserImaage*@
+                            <img src="~/Assets/Images/001.png" alt="">
                         </div>
                         <div class="rn-author-info-content">
-                            <h4 class="title">Onoma</h4>@*Onoma*@
+                            <h4 class="title">
+                                @if (Request.IsAuthenticated)
+                                {
+                                    ApplicationDbContext db = new ApplicationDbContext();
+                                    var user = db.Users.Find(User.Identity.GetUserId());
+
+
+                                    if (user.NickName == null)
+                                    {
+                                        <li style="padding-left:95px" class="text-center d-flex flex-row ">
+
+                                            <a class="p-0 mr--100 " href=@Url.Action("Index", "EditProfile", new { id =User.Identity.GetUserId()})>@User.Identity.GetUserName()</a>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li style="padding-left:95px" class="text-center d-flex flex-row ">
+                                            <a class="p-0 mr--100 " href=@Url.Action("Index", "EditProfile", new { id =User.Identity.GetUserId()})>@user.NickName</a>
+                                        </li>
+                                    }
+
+                                }
+
+
+                            </h4>
                             <div class="author-button-area">
 
                                 <a href="@Url.Action("Index","EditProfile" , new {id=User.Identity.GetUserId() })" class="btn at-follw follow-button edit-btn">Edit Profile <i data-feather="edit" style="padding-bottom:3px; padding-left:2px;"></i></a>
@@ -184,7 +210,7 @@
             @{
                 var num = 1;
 
-                
+
             }
 
             <div class="tab-pane row g-5 d-flex fade show active" id="nav-collection" role="tabpanel" aria-labelledby="nav-profile-tab">
