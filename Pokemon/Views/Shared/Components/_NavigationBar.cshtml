@@ -109,10 +109,20 @@
                                             <h4 class="bi bi-person-fill" style="padding:25px; margin:0px;"></h4>
                                         </a>
                                         <ul class="submenu">
-                                            <li class="text-center d-flex flex-row ">
-                                                <img src="https://www.seekpng.com/png/small/353-3532499_badgeleopard-the-energy-types-of-the-pokemon-tcg.png" alt="Alternate Text" height="60" width="60" class="border border-light rounded-circle ml--10 mr--10" />
-                                                <a class="p-0 mr--100 " href=@Url.Action("Index", "EditProfile", new { id =User.Identity.GetUserId()})>Welcome @User.Identity.GetUserName()</a>
-                                            </li>
+                                            @if (user.NickName == null)
+                                            {
+                                                <li class="text-center d-flex flex-row ">
+                                                    <img src="https://www.seekpng.com/png/small/353-3532499_badgeleopard-the-energy-types-of-the-pokemon-tcg.png" alt="Alternate Text" height="60" width="60" class="border border-light rounded-circle ml--10 mr--10" />
+                                                    <a class="p-0 mr--100 " href=@Url.Action("Index", "EditProfile", new { id =User.Identity.GetUserId()})>Welcome @User.Identity.GetUserName()</a>
+                                                </li>
+                                            }
+                                            else
+                                            {
+                                                <li class="text-center d-flex flex-row ">
+                                                    <img src="https://www.seekpng.com/png/small/353-3532499_badgeleopard-the-energy-types-of-the-pokemon-tcg.png" alt="Alternate Text" height="60" width="60" class="border border-light rounded-circle ml--10 mr--10" />
+                                                    <a class="p-0 mr--100 " href=@Url.Action("Index", "EditProfile", new { id =User.Identity.GetUserId()})>Welcome @user.NickName</a>
+                                                </li>
+                                            }
 
                                             @* EDW EISAI------------------------------------------  *@
 
