@@ -1572,6 +1572,9 @@
                     UserName = "Adam@gmail.com",
                     Email = "Adam@gmail.com",
                     Balance = 10000,
+                    FirstName="Adam",
+                    LastName="Miskal",
+                    NickName = "Gatoulis,",
                     PasswordHash = passwordHash.HashPassword("Adam1234!")
                 };
 
@@ -1625,6 +1628,9 @@
                     UserName = "Nikolas@gmail.com",
                     Email = "Nikolas@gmail.com",
                     Balance = 10000,
+                    FirstName = "Nikos",
+                    LastName = "Ninios",
+                    NickName="Keepo,"
                     PasswordHash = passwordHash.HashPassword("Nikolas1234!")
                 };
 
@@ -1677,6 +1683,8 @@
                     UserName = "Kwstas@gmail.com",
                     Email = "Kwstas@gmail.com",
                     Balance = 10000,
+                    FirstName = "Kostas",
+                    LastName = "Makris",
                     PasswordHash = passwordHash.HashPassword("Kwstas1234!")
                 };
 
@@ -1729,6 +1737,8 @@
                     UserName = "Spuros@gmail.com",
                     Email = "Spuros@gmail.com",
                     Balance = 10000,
+                    FirstName = "Spiros",
+                    LastName = "Dellis",
                     PasswordHash = passwordHash.HashPassword("Spuros1234!")
                 };
 
