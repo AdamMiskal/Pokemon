@@ -1630,7 +1630,7 @@
                     Balance = 10000,
                     FirstName = "Nikos",
                     LastName = "Ninios",
-                    NickName="Keepo,"
+                    NickName="Keepo,",
                     PasswordHash = passwordHash.HashPassword("Nikolas1234!")
                 };
 
